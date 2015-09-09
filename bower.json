@@ -6,11 +6,19 @@
     "xjs@splitmedialabs.com"
   ],
   "description": "XSplit UI Elements",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/xjsframework/xui-elements.git"
-  },
+  "keywords": [
+    "polymer",
+    "xsplit"
+  ],
   "license": "ISC",
   "ignore": [
-  ]
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.x"
+  }
 }
