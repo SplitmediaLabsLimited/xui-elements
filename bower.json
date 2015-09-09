@@ -1,0 +1,16 @@
+{
+  "name": "xui-elements",
+  "version": "0.1.0",
+  "homepage": "https://github.com/xjsframework/xui-elements",
+  "authors": [
+    "xjs@splitmedialabs.com"
+  ],
+  "description": "XSplit UI Elements",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xjsframework/xui-elements.git"
+  },
+  "license": "ISC",
+  "ignore": [
+  ]
+}
