@@ -1,18 +1,57 @@
-<polymer-element name="xui-tab-group" vertical layout flex>
-
-    <template>
-    	<link rel="import" href="../globals/globals.html" />
-        <link rel="stylesheet" href="./tab-group.css" />
+  <style is="custom-style">
+    /* TODO(polyup): For speed, consider reworking these styles with .classes
+                     and #ids rather than [attributes].
+    */
+    [layout] {
+      @apply(--layout);
+    }
+    [layout][vertical] {
+      @apply(--layout-vertical);
+    }
+    [layout][flex] {
+      @apply(--layout-flex);
+    }
+  </style>
+  <!--
+      TODO(polyup): unable to infer path to components
+      directory. This import path is probably incomplete.
+   -->
+  <link rel="import" href="iron-flex-layout/iron-flex-layout.html">
+<dom-module id="xui-tab-group">
+  <style>
+    /* TODO(polyup): For speed, consider reworking these styles with .classes
+                     and #ids rather than [attributes].
+    */
+    :host[layout] {
+      @apply(--layout);
+    }
+    :host[layout][vertical] {
+      @apply(--layout-vertical);
+    }
+    :host[layout][flex] {
+      @apply(--layout-flex);
+    }
+    [layout] {
+      @apply(--layout);
+    }
+    [layout][vertical] {
+      @apply(--layout-vertical);
+    }
+    [layout][flex] {
+      @apply(--layout-flex);
+    }
+  </style>
+  <link rel="import" type="css" href="./tab-group.css">
+  <template>
+    	<link rel="import" href="../globals/globals.html">
         
-		<div id="tabs" on-click="{{ onTabClick }}">
+		<div id="tabs" on-click=" onTabClick ">
 			<content select="xui-tab"></content>
 		</div>
 		
-		<div id="contents" vertical layout flex>
+		<div id="contents" vertical="" layout="" flex="">
 			<content select="xui-tab-content"></content>
 		</div>
     </template>
-
-    <script src="./tab-group.js"></script>
-
-</polymer-element>
+  <script src="./tab-group.js"></script>
+</dom-module>

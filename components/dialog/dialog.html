@@ -1,25 +1,58 @@
-<polymer-element name="xui-dialog" vertical layout>
-    
-    <template>
-        <link rel="stylesheet" href="../globals/globals.css" />
-        <link rel="stylesheet" href="./dialog.css" />
+  <style is="custom-style">
+    /* TODO(polyup): For speed, consider reworking these styles with .classes
+                     and #ids rather than [attributes].
+    */
+    [layout] {
+      @apply(--layout);
+    }
+    [layout][vertical] {
+      @apply(--layout-vertical);
+    }
+  </style>
+  <!--
+      TODO(polyup): unable to infer path to components
+      directory. This import path is probably incomplete.
+   -->
+  <link rel="import" href="iron-flex-layout/iron-flex-layout.html">
+<dom-module id="xui-dialog">
+  <style>
+    /* TODO(polyup): For speed, consider reworking these styles with .classes
+                     and #ids rather than [attributes].
+    */
+    :host[layout] {
+      @apply(--layout);
+    }
+    :host[layout][vertical] {
+      @apply(--layout-vertical);
+    }
+    [layout] {
+      @apply(--layout);
+    }
+    [layout][horizontal] {
+      @apply(--layout-horizontal);
+    }
+    [layout][horizontal][reverse] {
+      @apply(--layout-horizontal-reverse);
+    }
+  </style>
+  <link rel="import" type="css" href="../globals/globals.css">
+  <link rel="import" type="css" href="./dialog.css">
+  <template>
 
-        <div id="titlebar" horizontal layout> 
-            <div id="title" flex>
+        <div id="titlebar" horizontal="" layout=""> 
+            <div id="title" flex="">
                 <content select="[titlebar]"></content>
             </div>
-            <xui-checkbox id="sticky" horizontal layout reverse>
+            <xui-checkbox id="sticky" horizontal="" layout="" reverse="">
                 Sticky
             </xui-checkbox>
         </div>
 
-        <div id="content" flex><content select="[content]"></content></div>
+        <div id="content" flex=""><content select="[content]"></content></div>
 
         <div id="footer">
             <xui-checkbox id="keepsource">Keep source in memory</xui-checkbox>
         </div>
     </template>
-
-    <script src="./dialog.js"></script>
-
-</polymer-element>
+  <script src="./dialog.js"></script>
+</dom-module>

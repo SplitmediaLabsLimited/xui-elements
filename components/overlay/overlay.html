@@ -1,7 +1,7 @@
-<polymer-element name="xui-overlay" constructor="XUIOverlay">
-    <template>
-        <link rel="stylesheet" href="css/overlay.css" />
-        <div id="overlay" on-click="{{ toggleOverlay }}">
+<dom-module id="xui-overlay">
+  <link rel="import" type="css" href="overlay.css">
+  <template>
+        <div id="overlay" on-click=" toggleOverlay ">
             <div id="modalWindow">
                 <div id="modalHeader">
                     <content select="#header"></content>
@@ -18,6 +18,5 @@
             </div>
         </div>
     </template>
-
-    <script src="js/overlay.js"></script>
-</polymer-element>
+  <script src="overlay.js"></script>
+</dom-module>

@@ -1,23 +1,18 @@
-<polymer-element name="xui-dropdown" constructor="XUIDropdown" attributes="value">
-
-    <template>
-        <link rel="stylesheet" href="css/dropdown.css" />
+<dom-module id="xui-dropdown">
+  <link rel="import" type="css" href="dropdown.css">
+  <template>
         
         <label for="dropdown" id="label">{{ label }}</label>
         <ul id="dropdown">
             <li>
-                <a id="select" 
-                   href="#" 
-                   on-click="{{ XUIDropdownClicked }}" 
-                   >{{ selected }}</a>
+                <a id="select" href="#" on-click=" XUIDropdownClicked ">{{ selected }}</a>
 			    <div id="options">
-                    <template repeat="{{ option in list }}">
-                        <a href="#" value="{{ option.id }}" on-click="{{ selectOptions }}" on-mouseover="{{ onMouseOver }}" tabindex="-1">{{ option.name }}</a>        
+                    <template is="dom-repeat" items="{{list}}" as="option">
+                        <a href="#" value="{{ option.id }}" on-click=" selectOptions " on-mouseover=" onMouseOver " tabindex="-1">{{ option.name }}</a>        
                     </template>
 			     </div>
 			</li>
         </ul>
     </template>
-
-    <script src="js/dropdown.js"></script>
-</polymer-element>
+  <script src="dropdown.js"></script>
+</dom-module>
