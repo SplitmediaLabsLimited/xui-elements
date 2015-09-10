@@ -56,40 +56,40 @@
 
 ::-webkit-scrollbar-button:vertical:increment
 {
-    background-image: url("./images/scrollbar_down.png");
+    background-image: url("../images/scrollbar_down.png");
 }
 
 ::-webkit-scrollbar-button:vertical:increment:hover
 {
-    background-image: url("./images/scrollbar_down_hover.png");
+    background-image: url("../images/scrollbar_down_hover.png");
 }
 
 ::-webkit-scrollbar-button:vertical:decrement
 {
-    background-image: url("./images/scrollbar_up.png");
+    background-image: url("../images/scrollbar_up.png");
 }
 
 ::-webkit-scrollbar-button:vertical:decrement:hover
 {
-    background-image: url("./images/scrollbar_up_hover.png");
+    background-image: url("../images/scrollbar_up_hover.png");
 }
 
 ::-webkit-scrollbar-button:horizontal:increment
 {
-    background-image: url("./images/scrollbar_right.png");
+    background-image: url("../images/scrollbar_right.png");
 }
 
 ::-webkit-scrollbar-button:horizontal:increment:hover
 {
-    background-image: url("./images/scrollbar_right_hover.png");
+    background-image: url("../images/scrollbar_right_hover.png");
 }
 
 ::-webkit-scrollbar-button:horizontal:decrement
 {
-    background-image: url("./images/scrollbar_left.png");
+    background-image: url("../images/scrollbar_left.png");
 }
 
 ::-webkit-scrollbar-button:horizontal:decrement:hover
 {
-    background-image: url("./images/scrollbar_left_hover.png");
+    background-image: url("../images/scrollbar_left_hover.png");
 }
