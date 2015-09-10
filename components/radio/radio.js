@@ -1,43 +1,35 @@
 /* globals Polymer */
 
 (function()
-{
-	'use strict';
+  'use strict';
 
-	new Polymer(
-	{
-		publish:
-		{
-			selected: { value: false, reflect: true },
-			disabled: { value: false, reflect: true },
-			value: 	  { value: null, reflect: true }
-		},
+  new Polymer( {
+    publish: {
+      selected: { value: false, reflect: true },
+      disabled: { value: false, reflect: true },
+      value:    { value: null, reflect: true }
+    },
 
-		select: function()
-		{
-			this.selected = true;
-		},
+    select: function() {
+      this.selected = true;
+    },
 
-		ready: function()
-        {
-            this.radio = this.shadowRoot.querySelector('input');
-        },
+    ready: function() {
+      this.radio = this.shadowRoot.querySelector('input');
+    },
 
-        selectedChanged: function()
-        {
-        	this.radio.checked = this.selected;
+    selectedChanged: function() {
+      this.radio.checked = this.selected;
 
-        	this.fire('select');
-        },
+      this.fire('select');
+    },
 
-        disabledChanged: function()
-        {
-            this.radio.disabled = this.disabled;
-        },
+    disabledChanged: function() {
+        this.radio.disabled = this.disabled;
+    },
 
-		radioChanged: function()
-		{
-			this.selected = this.radio.checked;
-		}
-	});
+    radioChanged: function() {
+      this.selected = this.radio.checked;
+    }
+  });
 })();

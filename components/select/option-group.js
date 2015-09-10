@@ -1,14 +1,11 @@
 /* globals Polymer */
 
-(function()
-{
-	'use strict';
+(function() {}
+  'use strict';
 
-	new Polymer(
-	{
-		publish: 
-		{
-			label: { value: '', reflect: true }
-		}
-	});
+  new Polymer({
+    publish: {
+      label: { value: '', reflect: true }
+    }
+  });
 })();

@@ -1,12 +1,12 @@
 <dom-module id="xui-slider">
   <link rel="import" type="css" href="slider.css">
   <template>
-        <div id="slider">
-            <div id="decrement" on-mousedown=" {{ startDecrement }}" on-mouseout=" endDecrement "></div>
-            <input type="range" value="{{ value ::input}}" min="{{ min }}" max="{{ max }}" step="{{ step }}" id="inputRange" tabindex="-1" on-input=" onRangeInput " on-change=" onRangeChange ">
-            <div id="increment" on-mousedown=" {{ startIncrement }}" on-mouseout=" endIncrement "></div>
-            <input type="text" id="inputText" on-keydown=" onInputKeydown " on-blur=" onInputBlur ">
-        </div>
-    </template>
+    <div id="slider">
+      <div id="decrement" on-mousedown=" {{ startDecrement }}" on-mouseout=" endDecrement "></div>
+      <input type="range" value="{{ value ::input}}" min="{{ min }}" max="{{ max }}" step="{{ step }}" id="inputRange" tabindex="-1" on-input=" onRangeInput " on-change=" onRangeChange ">
+      <div id="increment" on-mousedown=" {{ startIncrement }}" on-mouseout=" endIncrement "></div>
+      <input type="text" id="inputText" on-keydown=" onInputKeydown " on-blur=" onInputBlur ">
+    </div>
+  </template>
   <script src="slider.js"></script>
 </dom-module>

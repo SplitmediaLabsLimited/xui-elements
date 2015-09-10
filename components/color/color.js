@@ -1,34 +1,22 @@
 /* globals Polymer */
 
-(function()
-{
-	'use strict';
+(function( {
+  'use strict';
 
-	new Polymer(
-	{
-		publish:
-		{
+  new Polymer( {
+    publish: {
+    },
 
-		},
-        
-        valueChanged: function()
-        {
+    valueChanged: function() {
+    },
 
-        },
+    onKeyPress : function(event) {
+    },
 
-        onKeyPress : function(event)
-        {
+    onChange : function(event) {
+    },
 
-        },
-
-        onChange : function(event)
-        {
-
-        },
-
-        ready : function()
-        {
-
-        }
-	});
+    ready : function() {
+    }
+  });
 })();

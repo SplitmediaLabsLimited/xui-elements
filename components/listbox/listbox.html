@@ -1,14 +1,13 @@
 <dom-module id="xui-listbox">
   <link rel="import" type="css" href="listbox.css">
   <template>
-
-        <label for="dropdown" id="label">{{ label }}</label>
-        <div id="options">
-            <template is="dom-repeat" items="{{optionlist}}" as="option">
-                <a href="#" id="{{ option.id }}" value="{{ option.id }}" on-click=" selectOptions " class$="{{ itemclass }}">{{ option.name }}</a>
-            </template>
-        </div>
-        <content></content>
-    </template>
+    <label for="dropdown" id="label">{{ label }}</label>
+    <div id="options">
+      <template is="dom-repeat" items="{{optionlist}}" as="option">
+        <a href="#" id="{{ option.id }}" value="{{ option.id }}" on-click=" selectOptions " class$="{{ itemclass }}">{{ option.name }}</a>
+      </template>
+    </div>
+    <content></content>
+  </template>
   <script src="listbox.js"></script>
 </dom-module>

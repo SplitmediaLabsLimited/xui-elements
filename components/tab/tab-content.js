@@ -1,14 +1,11 @@
 /* globals Polymer */
 
-(function()
-{
-	'use strict';
+(function() {
+  'use strict';
 
-	new Polymer(
-	{
-		publish: 
-		{
-			selected: { value: false, reflect: true }
-		}
-	});
+  new Polymer(
+    publish: {
+      selected: { value: false, reflect: true }
+    }
+  });
 })();

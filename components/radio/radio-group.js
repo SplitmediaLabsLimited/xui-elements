@@ -1,39 +1,31 @@
 /* globals Polymer */
 
 (function()
-{
-	'use strict';
+  'use strict';
 
-	new Polymer(
-	{
-		publish:
-		{
-			value: { value: null, reflect: true }
-		},
+  new Polymer(
+    publish: {
+      value: { value: null, reflect: true }
+    },
 
-		eventDelegates:
-		{
-			select: 'onSelect'
-		},
+    eventDelegates: {
+      select: 'onSelect'
+    },
 
-		onSelect: function(event)
-		{
-			if (event.target.selected)
-			{
-				this.value = event.target.value;
-			}
-		},
+    onSelect: function(event) {
+      if (event.target.selected) {
+        this.value = event.target.value;
+      }
+    },
 
-		valueChanged: function()
-		{
-			var radios = this.querySelectorAll('xui-radio');
+    valueChanged: function() {
+      var radios = this.querySelectorAll('xui-radio');
 
-			for (var i = 0; i < radios.length; i++)
-			{
-				var radio = radios[i];
+      for (var i = 0; i < radios.length; i++) {
+        var radio = radios[i];
 
-				radio.selected = (this.value === radio.value);
-			}
-		}
-	});
+        radio.selected = (this.value === radio.value);
+      }
+    }
+  });
 })();

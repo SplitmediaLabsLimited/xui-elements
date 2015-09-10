@@ -1,37 +1,30 @@
 /* globals Polymer */
 
-(function()
-{
-    'use strict';
+(function() {
+  'use strict';
 
-    new Polymer(
-    {
-        publish:
-        {
-            checked : { value: false, reflect: true },
-            disabled: { value: false, reflect: true }
-        },
+  new Polymer({
+    publish: {
+      checked : { value: false, reflect: true },
+      disabled: { value: false, reflect: true }
+    },
 
-        ready: function()
-        {
-            this.checkbox = this.shadowRoot.querySelector('input');
-        },
+    ready: function() {
+      this.checkbox = this.shadowRoot.querySelector('input');
+    },
 
-        checkedChanged: function()
-        {
-            this.checkbox.checked = this.checked;
-        },
+    checkedChanged: function() {
+      this.checkbox.checked = this.checked;
+    },
 
-        disabledChanged: function()
-        {
-            this.checkbox.disabled = this.disabled;
-        },
+    disabledChanged: function() {
+      this.checkbox.disabled = this.disabled;
+    },
 
-        checkboxChanged: function()
-        {
-            this.checked = this.checkbox.checked;
+    checkboxChanged: function() {
+      this.checked = this.checkbox.checked;
 
-            this.fire('change');
-        }
-    });
+      this.fire('change');
+    }
+  });
 })();

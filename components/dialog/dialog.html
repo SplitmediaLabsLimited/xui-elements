@@ -1,5 +1,4 @@
 <link rel="import" href="../globals/globals.html">
-
   <style is="custom-style">
     /* TODO(polyup): For speed, consider reworking these styles with .classes
                      and #ids rather than [attributes].
@@ -39,22 +38,19 @@
   </style>
   <link rel="import" type="css" href="./dialog.css">
   <template>
-
-        <style include="shared-styles"></style>
-        <div id="titlebar" horizontal="" layout="">
-            <div id="title" flex="">
-                <content select="[titlebar]"></content>
-            </div>
-            <xui-checkbox id="sticky" horizontal="" layout="" reverse="">
-                Sticky
-            </xui-checkbox>
-        </div>
-
-        <div id="content" flex=""><content select="[content]"></content></div>
-
-        <div id="footer">
-            <xui-checkbox id="keepsource">Keep source in memory</xui-checkbox>
-        </div>
-    </template>
+    <style include="shared-styles"></style>
+    <div id="titlebar" horizontal="" layout="">
+      <div id="title" flex="">
+        <content select="[titlebar]"></content>
+      </div>
+      <xui-checkbox id="sticky" horizontal="" layout="" reverse="">
+        Sticky
+      </xui-checkbox>
+    </div>
+    <div id="content" flex=""><content select="[content]"></content></div>
+    <div id="footer">
+      <xui-checkbox id="keepsource">Keep source in memory</xui-checkbox>
+    </div>
+  </template>
   <script src="./dialog.js"></script>
 </dom-module>

@@ -5,15 +5,15 @@
 <dom-module id="xui-select">
   <link rel="import" type="css" href="./select.css">
   <template>
-        <style include="shared-styles"></style>
-        <div id="wrap">
-		    <input id="input" type="text" value="{{ selected.label ::input}}" placeholder="{{ placeholder }}" readonly="">
-		    <button id="toggle"></button>
-        </div>
+    <style include="shared-styles"></style>
+    <div id="wrap">
+    <input id="input" type="text" value="{{ selected.label ::input}}" placeholder="{{ placeholder }}" readonly="">
+    <button id="toggle"></button>
+    </div>
 
-        <ul id="list">
-        	<content select="xui-option,xui-option-group"></content>
-        </ul>
-    </template>
+    <ul id="list">
+      <content select="xui-option,xui-option-group"></content>
+    </ul>
+  </template>
   <script src="./select.js"></script>
 </dom-module>
