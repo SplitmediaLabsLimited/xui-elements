@@ -1,7 +1,8 @@
+<link rel="import" href="../globals/globals.html">
 <dom-module id="xui-textarea">
   <link rel="import" type="css" href="./textarea.css">
   <template>
-        <link rel="import" href="../globals/globals.html">
+        <style include="shared-styles"></style>
 
         <textarea rows="{{ rows }}" cols="{{ cols }}" maxlength="{{ maxlength }}" wrap="{{ wrap }}" value="{{ text ::input}}" disabled$="{{ disabled }}"></textarea>
     </template>

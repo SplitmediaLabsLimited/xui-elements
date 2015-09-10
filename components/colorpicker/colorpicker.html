@@ -1,10 +1,12 @@
+<link rel="import" href="../globals/globals.html">
 <dom-module id="xui-colorpicker">
   <link rel="import" type="css" href="colorpicker.css">
   <template>
+        <style include="shared-styles"></style>
         <div id="colorPicker">
             <div id="picker" tabindex="0" on-click=" showHidePicker " on-keydown=" onPickerKeydown ">
                 <div class="picker-arrow">
-                </div> 
+                </div>
             </div>
             <div id="paletteContainer">
                 <span></span>

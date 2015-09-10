@@ -1,3 +1,5 @@
+<link rel="import" href="../globals/globals.html">
+
   <style is="custom-style">
     /* TODO(polyup): For speed, consider reworking these styles with .classes
                      and #ids rather than [attributes].
@@ -35,11 +37,11 @@
       @apply(--layout-horizontal-reverse);
     }
   </style>
-  <link rel="import" type="css" href="../globals/globals.css">
   <link rel="import" type="css" href="./dialog.css">
   <template>
 
-        <div id="titlebar" horizontal="" layout=""> 
+        <style include="shared-styles"></style>
+        <div id="titlebar" horizontal="" layout="">
             <div id="title" flex="">
                 <content select="[titlebar]"></content>
             </div>

@@ -1,14 +1,14 @@
 <dom-module id="xui-dropdown">
   <link rel="import" type="css" href="dropdown.css">
   <template>
-        
+
         <label for="dropdown" id="label">{{ label }}</label>
         <ul id="dropdown">
             <li>
                 <a id="select" href="#" on-click=" XUIDropdownClicked ">{{ selected }}</a>
 			    <div id="options">
                     <template is="dom-repeat" items="{{list}}" as="option">
-                        <a href="#" value="{{ option.id }}" on-click=" selectOptions " on-mouseover=" onMouseOver " tabindex="-1">{{ option.name }}</a>        
+                        <a href="#" value="{{ option.id }}" on-click=" selectOptions " on-mouseover=" onMouseOver " tabindex="-1">{{ option.name }}</a>
                     </template>
 			     </div>
 			</li>
