@@ -1,5 +1,5 @@
 /* globals Polymer */
-(function()
+(function() {
   'use strict';
 
   function XUIListBox() {

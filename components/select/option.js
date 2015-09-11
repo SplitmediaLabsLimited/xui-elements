@@ -1,6 +1,6 @@
 /* globals Polymer */
 
-(function()
+(function() {
   'use strict';
 
   new Polymer({

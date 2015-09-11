@@ -3,7 +3,7 @@
 (function() {
   'use strict';
 
-  new Polymer(
+  new Polymer({
     publish: {
       selected: { value: false, reflect: true }
     }
