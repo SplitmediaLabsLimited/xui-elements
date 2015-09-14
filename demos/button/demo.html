@@ -5,8 +5,28 @@
     <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
     <link rel="import" href="../../bower_components/polymer/polymer.html" />
     <link rel="import" href="../../imports.html" />
+    <style>
+      body {
+        background-color: #313131;
+        font-size: 10px;
+      }
+
+      span {
+        opacity: 0;
+        font-weight: bold;
+        font-family: 'Roboto';
+        padding: 5px;
+        color: #E31D1D;
+      }
+
+      .animate {
+        transition: opacity 2s;
+      }
+    </style>
   </head>
   <body>
     <xui-button name="submit" type="button">Click me!</xui-button>
+    <span class="animate">Button clicked</span>
+    <script src="./demo.js"></script>
   </body>
 </html>
