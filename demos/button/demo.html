@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Demo - xui-button</title>
-    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="../../bower_components/polymer/polymer.html" />
     <link rel="import" href="../../imports.html" />
     <style>
@@ -24,9 +24,11 @@
       }
     </style>
   </head>
-  <body>
-    <xui-button name="submit" type="button">Click me!</xui-button>
+  <body unresolved>
+    <xui-button>Click me!</xui-button>
     <span class="animate">Button clicked</span>
+
+    <xui-button disabled>Unclickable</xui-button>
     <script src="./demo.js"></script>
   </body>
 </html>

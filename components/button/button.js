@@ -12,16 +12,14 @@
    * @example
    *     <xui-button>text</xui-button>
    */
-  new Polymer({
-   publish:
-   {
-     icon    : '',
-     disabled: { value: false, reflect: true }
-   },
 
-   disabledChanged: function() {
-     this.$.button.disabled = this.disabled;
-   }
+  Polymer({
+    is: 'xui-button',
+    properties: {
+      disabled: {
+        type: Boolean,
+        reflectToAttribute: true
+      }
+    }
   });
-
 })();
