@@ -1,8 +1,0 @@
-:host {
-  background-color: #313131;
-  display: none;
-}
-
-:host([selected]) {
-  display: block;
-}
