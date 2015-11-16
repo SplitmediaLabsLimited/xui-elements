@@ -1,0 +1,17 @@
+<dom-module id="xui-textarea">
+<style type="text/css">
+label textarea {
+    vertical-align: top;
+}
+</style>
+    <template>
+        
+        <label for$="{{name}}">{{label}} 
+        	<textarea id="textarea" name$="{{name}}" 
+            rows$="{{rows}}" cols$="{{cols}}"
+        	maxlength$="{{maxlength}}"></textarea>
+        </label>
+    </template>
+
+    <script src="js/textarea.js"></script>
+</dom-module>

@@ -1,0 +1,21 @@
+<polymer-element name="xve-stats" 
+                 attributes="resolution currenttime duration 
+                             currentVideo videos">
+
+    <template>
+        <link href="css/stats.css" rel="stylesheet" />
+        
+        <div id="resolution">{{ resolution }}</div>
+        <div id="progress">    
+            <span id="currenttime">
+                {{ currenttime | formatTimeFrame }}
+            </span> / 
+            <span id="duration">
+                {{ duration | formatTimeFrame }}
+            </span>
+        </div>
+    </template>
+
+    <script src="js/stats.js"></script>
+    
+</polymer-element>

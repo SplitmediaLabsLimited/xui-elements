@@ -1,0 +1,169 @@
+*
+{
+    box-sizing: border-box;
+    -webkit-user-select: none;
+}
+
+:host
+{
+    display: block;
+    border: 1px solid #000;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    position: relative;
+}
+
+#ruler
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+    font-size: 0;
+    text-align: left;
+}
+
+#ruler,
+#ruler li
+{
+    box-shadow: inset 0 1px 0 0 #595959;
+    background-repeat: repeat-x;
+    background-position: left 0 bottom 1px;
+    background-color: #000;
+    height: 35px;
+}
+
+#ruler li
+{
+    padding-top: 5px;    
+    color: #888;
+    text-align: center;
+    font-size: 10px;
+    display: inline-block;
+}
+
+#ruler[zoom="1"],
+#ruler[zoom="1"] li
+{
+    background-image: url("../images/timeline/1.png");
+}
+
+#ruler[zoom="2"],
+#ruler[zoom="2"] li
+{
+    background-image: url("../images/timeline/2.png");
+}
+
+#ruler[zoom="3"],
+#ruler[zoom="3"] li
+{
+    background-image: url("../images/timeline/3.png");
+}
+#ruler[zoom="4"],
+#ruler[zoom="4"] li
+{
+    background-image: url("../images/timeline/4.png");
+}
+
+#ruler[zoom="5"],
+#ruler[zoom="5"] li
+{
+    background-image: url("../images/timeline/5.png");
+}
+
+#ruler[zoom="6"],
+#ruler[zoom="6"] li
+{
+    background-image: url("../images/timeline/6.png");
+}
+
+#ruler[zoom="7"],
+#ruler[zoom="7"] li
+{
+    background-image: url("../images/timeline/7.png");
+}
+
+#ruler[zoom="8"],
+#ruler[zoom="8"] li
+{
+    background-image: url("../images/timeline/8.png");
+}
+
+#ruler[zoom="9"],
+#ruler[zoom="9"] li
+{
+    background-image: url("../images/timeline/9.png");
+}
+
+#ruler[zoom="10"],
+#ruler[zoom="10"] li
+{
+    background-image: url("../images/timeline/10.png");
+}
+
+#ruler[zoom="1"] li
+{
+    background-position-x: -90px;
+    width: 180px;
+}
+
+#ruler[zoom="2"] li
+{
+    background-position-x: -60px;
+    width: 120px;
+}
+
+#ruler[zoom="3"] li
+{
+    background-position-x: -120px;
+    width: 240px;
+}
+
+#ruler[zoom="4"] li
+{
+    background-position-x: -48px;
+    width: 96px;
+}
+
+#ruler[zoom="5"] li
+{
+    background-position-x: -45px;
+    width: 90px;
+}
+
+#ruler[zoom="6"] li
+{
+    background-position-x: -45px;
+    width: 90px;
+}
+
+#ruler[zoom="7"] li
+{
+    background-position-x: -97.5px;
+    width: 195px;
+}
+
+#ruler[zoom="8"] li
+{
+    background-position-x: -65px;
+    width: 130px;
+}
+
+#ruler[zoom="9"] li
+{
+    background-position-x: -130px;
+    width: 260px;
+}
+
+#ruler[zoom="10"] li
+{
+    background-position-x: -48px;
+    width: 96px;
+}
+
+#fileList
+{
+    height: 48px;
+    white-space: nowrap;
+    text-align: left;
+}

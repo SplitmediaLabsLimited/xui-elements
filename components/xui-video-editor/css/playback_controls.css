@@ -1,0 +1,59 @@
+:host
+{
+    display: inline-block;
+}
+
+button
+{
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: transparent;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    outline: none;
+    cursor: pointer;
+}
+
+button:hover
+{
+    background-position-y: -25px;
+}
+
+button:active
+{
+    background-position-y: -50px;
+}
+
+button:disabled
+{
+    cursor: default;
+    background-position-y: -76px;
+}
+
+#previous
+{
+    background-image: url("../images/buttons/first.png");
+}
+
+#play
+{
+    background-image: url("../images/buttons/play.png");
+}
+
+#pause
+{
+    background-image: url("../images/buttons/pause.png");
+}
+
+:host(.paused) #pause,
+:host(:not(.paused)) #play
+{
+    display: none;
+}
+
+#next
+{
+    background-image: url("../images/buttons/last.png");
+}
+

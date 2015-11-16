@@ -1,0 +1,337 @@
+<dom-module id="twitch-notification">
+  <style type="text/css">
+    /*-----------------------------------------------------------------------*/
+
+    /* top-level styles */
+:host
+{
+    display: block;
+    min-width: 180px;
+    min-height: 72px;
+    max-width: 854px;
+    max-height: 340px;
+}
+
+:host ::content *
+{
+    display: block;
+    box-sizing: border-box;
+}
+
+#notificationWrap
+{
+    position: fixed;
+    background-color: transparent;
+    min-width: 180px;
+    min-height: 72px;
+    max-width: 854px;
+    max-height: 340px;
+}
+
+/****************************/
+/** FOLLOWERS / SUBSCRIBERS */
+/****************************/
+
+#notifyHeader #typeIcon
+{
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+:host([type=follower]) #notifyHeader #typeIcon
+{
+    background-image: url("images/type_icon_follower.png");
+}
+
+:host([type=subscriber]) #notifyHeader #typeIcon
+{
+    background-image: url("images/type_icon_subscriber.png");
+}
+
+/****************************/
+/******** USER AVATAR *******/
+/****************************/
+#avatar
+{
+    background-image: url("images/avatar_twitch_default.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: calc(100%*80/854);
+    height: calc(100%*80/149);
+    margin-right: calc(2.5%);
+}
+
+/****************************/
+/********* LAYOUTS **********/
+/****************************/
+
+/* general styles */
+
+#notifyHeader
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#notifyHeader span
+{
+    vertical-align: middle;
+    margin-top: calc(1%);
+}
+
+#notifyUsername
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#notifyMessage
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#notifyMessage span
+{
+    outline: none;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+#overlapBorderFix,
+#notifyRibbonLeft,
+#notifyRibbonRight
+{
+    display: none;
+}
+
+/* LAYOUT ONE */
+:host([layout="1"]) #notificationWrap
+{
+    border-style: solid;
+    border-width: 1px;
+    padding: 3px;
+}
+
+:host([layout="1"]) #notificationWrap:before
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+:host([layout="1"]) #notifyHeader
+{
+    height: 26.38%;
+    width: 100%;
+}
+
+:host([layout="1"]) #notifyBodyWrap
+{
+    height: 73.62%;
+}
+
+:host([layout="1"]) #notifyUsername
+{
+    height: 60.84%;
+}
+
+:host([layout="1"]) #notifyMessage
+{
+    height: 39.16%;
+}
+
+:host([layout="1"]) #notifyHeader #typeIcon
+{
+    width: calc(100%*36/854);
+    height: calc(100%*32/88);
+    margin-right: calc(2%);
+}
+
+/* LAYOUT TWO */
+:host([layout="2"]) #notifyHeader
+{
+    height: 23.95%;
+    width: 40.57%;
+    border-width: 1px;
+    border-style: solid;
+    border-bottom-width: 0;
+}
+
+:host([layout="2"]) #notifyHeader #typeIcon
+{
+    width: calc(100%*36/346);
+    height: calc(100%*32/81);
+    margin-right: calc(5%);
+}
+
+:host([layout="2"]) #notifyBodyWrap
+{
+    margin-left: calc(7.08%);
+    height: calc(76.05% + 1px);
+    border-width: 1px;
+    border-style: solid;
+    position: relative;
+    padding: 4px;
+}
+
+:host([layout="2"]) #notifyBodyWrap:before
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+:host([layout="2"]) #overlapBorderFix
+{
+    position: absolute;
+    width: 7.08%;
+    height: 2px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    display: block;
+}
+
+:host([layout="2"]) #notifyUsername
+{
+    height: 62.85%;
+}
+
+:host([layout="2"]) #notifyMessage
+{
+    height: 37.15%;
+}
+
+/* LAYOUT THREE */
+:host([layout="3"]) #notifyHeader
+{
+    height: calc(100%*44/166);
+    width: calc(100%*140/422);
+    border-width: 1px 0;
+    border-style: solid;
+    margin: auto;
+    z-index: 50;
+}
+
+:host([layout="3"]) #notifyHeader #typeIcon
+{
+    width: calc(100%*36/346);
+    height: calc(100%*32/81);
+    margin-right: calc(5%);
+}
+
+:host([layout="3"]) #notifyHeader span
+{
+    white-space: nowrap;
+}
+
+:host([layout="3"]) #notifyBodyWrap
+{
+    height: calc(100%*144/166);
+    padding: 3px;
+    z-index: 49;
+    border-width: 1px;
+}
+
+:host([layout="3"]) #notifyBodyWrap:before
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: calc(100%*144/166);
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+:host([layout="3"]) #notifyUsername
+{
+    height: calc(100%*91/134);
+}
+
+:host([layout="3"]) #notifyMessage
+{
+    height: calc(100%*43/134);
+}
+
+
+/* COLOR THEMES */
+
+/* THEME 1 */
+:host([theme="1"]) #notificationWrap:before,
+:host([theme="1"]) #notifyBodyWrap:before
+{
+    background-color: rgba(0, 0, 0, /*{{opacity}}*/ 0.5);
+}
+
+/* THEME 2 */
+:host([theme="2"]) #notificationWrap:before,
+:host([theme="2"]) #notifyBodyWrap:before
+{
+    background-color: rgba(170, 170, 170, /*{{opacity}}*/ 0.5);
+}
+
+/* THEME 3 */
+:host([theme="3"]) #notificationWrap:before,
+:host([theme="3"]) #notifyBodyWrap:before
+{
+    background-color: rgba(0, 103, 115, /*{{opacity}}*/ 0.5);
+}
+
+/* THEME 4 */
+:host([theme="4"]) #notificationWrap:before,
+:host([theme="4"]) #notifyBodyWrap:before
+{
+    background-color: rgba(104, 17, 55, /*{{opacity}}*/ 0.5);
+}
+
+/* THEME 5 */
+:host([theme="5"]) #notificationWrap:before,
+:host([theme="5"]) #notifyBodyWrap:before
+{
+    background-color: rgba(23, 0, 34, /*{{opacity}}*/ 0.5);
+}
+
+/* THEME 6 */
+:host([theme="6"]) #notificationWrap:before,
+:host([theme="6"]) #notifyBodyWrap:before
+{
+    background-color: rgba(35, 98, 13, /*{{opacity}}*/ 0.5);
+}
+  </style>
+  <template>
+    <div id="notificationWrap">
+      <div id="notifyRibbonLeft"></div>
+      <div id="notifyHeader">
+        <div id="typeIcon"></div>
+        <span i18n>NEW FOLLOWER</span>
+      </div>
+      <div id="notifyRibbonRight"></div>
+      <div id="overlapBorderFix"></div>
+      <div id="notifyBodyWrap">
+        <div id="notifyUsername">
+          <div id="avatar"></div>
+          <span i18n>Username goes here</span>
+        </div>
+        <div id="notifyMessage">
+          <span i18n>Thank you! Enjoy my channel :)</span>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script src="twitch-notification.js"></script>
+</dom-module>

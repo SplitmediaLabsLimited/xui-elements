@@ -1,0 +1,152 @@
+*
+{
+    box-sizing: border-box;
+    color: #CCC;
+    outline: none;
+}
+
+:host
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.9);
+    display: none;    
+}
+
+#centered
+{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+#centered:before
+{
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+
+#wrap
+{
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #000;
+    width: 300px;
+    padding: 0;
+    font-size: 10px;
+    color: #CCC;
+}
+
+.title
+{
+    background-color: #000;
+    height: 35px;
+    position: relative;
+}
+
+h1
+{
+    font-size: 12px;
+    padding-left: 25px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    margin: 0 0 0 10px;
+    line-height: 35px;
+    text-align: left;
+    font-weight: normal;
+}
+
+#wrap[type=info] h1
+{
+    background-image: url("../images/message/i_info.png");
+}
+
+#wrap[type=warning] h1
+{
+    background-image: url("../images/message/i_warning.png");
+}
+
+#wrap[type=error] h1
+{
+    background-image: url("../images/message/i_error.png");
+}
+
+#wrap[type=question] h1
+{
+    background-image: url("../images/message/i_question.png");
+}
+
+#close
+{
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -5px;
+    border: none;
+    background-color: transparent;
+    background-image: url("../images/message/close.png");
+    background-position-y: 0;
+    cursor: pointer;
+    padding: 0;
+}
+
+#close:hover
+{
+    background-position-y: -9px;
+}
+
+#close:active
+{
+    background-position-y: -18px;
+}
+
+#wrap .content
+{
+    padding: 10px;
+    text-align: right;
+}
+
+#message
+{
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 11px;
+}
+
+.content
+{
+    background-color: #212121;
+}
+
+.content button
+{
+    display: inline-block;
+	height: 23px;
+	font-size: 12px;
+	background: #191919;
+	padding: 0 20px;
+	color: #FFF;
+	border: 1px solid #555;
+	cursor: pointer;
+	white-space: nowrap;
+	line-height: 12px;
+    cursor: pointer;
+    outline: none;
+}
+
+.content button:hover
+{
+	background-color: #043151;
+	border-color: #888;
+}
+
+#wrap:not([type=question]) #cancel
+{
+    display: none;
+}

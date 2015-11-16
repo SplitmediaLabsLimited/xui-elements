@@ -1,0 +1,117 @@
+<dom-module id="xui-splash">
+<style type="text/css">
+  * {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #FFF;
+  }
+
+  img
+  {
+    pointer-events: none;
+  }
+
+  :host
+  {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 467px;
+    height: 279px;
+    background-color: #171717;
+    padding: 3px;
+    box-shadow: inset 0 0 0 1px #000, 
+          inset 0 0 0 2px #3F3F3F, 
+          inset 0 0 0 3px #000;
+  }
+
+  #wrap
+  {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding: 30px 15px 0;
+    position: relative;
+  }
+
+  #version
+  {
+    margin-top: 8px;
+    font-size: 13px;
+  }
+
+  #msi
+  {
+    line-height: 68px;
+    margin: 14px 0 0;
+  }
+
+  #msi *
+  {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  #status
+  {
+    position: absolute;
+    bottom: 14px;
+    width: calc(100% - 30px);
+  }
+
+  #progress
+  {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 6px;
+    background-color: #005585;
+    -webkit-transition: width 1s;
+  }
+</style>
+  <template>
+      <div id="wrap">
+        
+        <img id="logo" src="{{logo}}" />
+        <div id="version">{{version}}</div>
+
+        <template if="{{msioptimized}}"><div id="msi">
+        <span>{{msioptimized}}</span>
+        <img src="{{msilogo}}" />
+        </div></template>
+        
+        <div id="status">{{status}}</div>
+        <div id="progress"></div>  
+      </div>
+  </template>
+     <script>
+     /*global Polymer*/
+     'use strict';
+      Polymer({
+      is: 'xui-splash',
+
+      properties: {
+       status: {},
+       percent: {},
+       version: {},
+       logo: {},
+       background: {},
+       msilogo: {},
+       msibackground: {},
+       msioptimized: {}
+      },
+
+      ready: function() {
+
+      this.$.progress.style.width = this.percent + '%';
+      this.$.wrap.style.background ='url("' + this.msioptimized ? 
+        this.msibackground : this.background +'")';
+      }
+      });
+    </script>
+</dom-module>

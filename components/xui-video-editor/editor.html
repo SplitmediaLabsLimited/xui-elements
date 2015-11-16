@@ -1,0 +1,94 @@
+<link href="../xui-core/window.html" rel="import" />
+<link href="../xui-core/filters/time.html" rel="import" />
+<link href="../xui-core/extensions/element.html" rel="import" />
+
+<link href="file_controls.html" rel="import" />
+<link href="playback_controls.html" rel="import" />
+<link href="zoom_controls.html" rel="import" />
+<link href="stats.html" rel="import" />
+
+<link href="timeline.html" rel="import" />
+<link href="video.html" rel="import" />
+<link href="pin.html" rel="import" />
+
+<link href="progress.html" rel="import" />
+<link href="message.html" rel="import" />
+<link href="history.html" rel="import" />
+
+<polymer-element name="xui-video-editor" 
+                 attributes="apptitle appicon maximized 
+                             paused currenttime updateinterval duration
+                             progress"
+                 on-video-resize-stopped = "{{ videoResizeStopped }}">
+
+    <template>
+        <link href="css/editor.css" rel="stylesheet" />
+
+        <xui-window id="mainWindow" header="{{ apptitle }}" 
+                    icon="{{ appicon }}" maximized="{{ maximized }}">
+            
+            <div id="controlPanel">
+                <xve-file-controls 
+                    id            = "fileControls"
+                    removeEnabled = "{{ paused && focusedVideo }}"
+                    splitEnabled  = "{{ paused && splitEnabled }}"
+                    undoEnabled   = "{{ history.length > 0 }}"
+                    saveEnabled   = "{{ duration > 0 }}"
+                    
+                    on-removevideo = "{{ removeVideo }}"
+                    on-splitvideo  = "{{ splitVideo }}"
+                    on-undo        = "{{ undo }}">
+                </xve-file-controls>
+                
+                <xve-playback-controls 
+                    id          = "playbackControls" 
+                    paused      = "{{ paused }}"
+                    prevenabled = "{{ currenttime > 0 }}"
+                    playenabled = "{{ duration > 0 && currenttime < duration }}"
+                    nextenabled = "{{ currenttime < duration }}">
+                </xve-playback-controls>
+                
+                <br />    
+                
+                <xve-zoom-controls 
+                    id   = "zoomControls" 
+                    zoom = "{{ zoom }}">
+                </xve-zoom-controls>
+                
+                <xve-stats 
+                    id           = "stats" 
+                    currenttime  = "{{ currenttime }}"
+                    videos       = "{{ videos }}"
+                    duration     = "{{ duration }}"
+                    resolution   = "{{ currentResolution }}"
+                    audioSetting = "{{ currentAudioSetting }}">
+                </xve-stats>
+                
+                <xve-timeline 
+                    id                  = "timeline" 
+                    paused              = "{{ paused }}" 
+                    zoom                = "{{ zoom }}"
+                    currenttime         = "{{ currenttime }}"
+                    updateInterval      = "{{ updateinterval }}"
+                    duration            = "{{ duration }}"
+                    currentResolution   = "{{ currentResolution }}"
+                    currentAudioSetting = "{{ currentAudioSetting }}"
+                    currentVideo        = "{{ currentVideo }}"
+                    focusedVideo        = "{{ focusedVideo }}"
+                    paused              = "{{ paused }}"
+                    videos              = "{{ videos }}">
+                </xve-timeline>
+            </div>
+            
+            <xve-progress id       = "progress"
+                          progress = "{{ progress }}">
+            </xve-progress>
+            
+            <xve-message id="message"></xve-message>
+            
+            <xve-history id="history" history="{{ history }}"></xve-history>
+        </xui-window>
+    </template>
+
+    <script src="js/editor.js"></script>
+</polymer-element>

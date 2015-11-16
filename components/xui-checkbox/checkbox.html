@@ -1,0 +1,32 @@
+<dom-module id="xui-checkbox">
+<style type="text/css">
+  #check,
+  label
+  {
+      cursor: pointer;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+  }
+  #check:disabled,
+  #check:disabled + label,
+  {
+      cursor: default;
+      color: #AAA;
+  }
+  label {
+      cursor: default;
+      color: #AAA;
+  }
+
+</style>
+  <template>
+      <input  type="checkbox" id="check"  disabled$="{{disabled}}" checked$="{{checked}}"/>
+      <label for="check">{{ label }}</label>
+      <content></content>
+  </template>
+  <script src="js/checkbox.js"></script>
+</dom-module>

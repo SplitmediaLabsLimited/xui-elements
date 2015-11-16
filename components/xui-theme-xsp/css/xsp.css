@@ -1,0 +1,95 @@
+@font-face
+{
+    font-family: Roboto;
+    src: url("../fonts/roboto.woff") format("woff");
+    font-style: normal;
+    font-weight: 400;
+}
+
+body
+{
+	background-color: #000000;
+	margin: 10px;
+}
+
+xui-tabs /deep/ *
+{
+	font-size: 14px;
+	font-family: Roboto;
+}
+
+xui-tabs /deep/ .head
+{
+	background-color: #313131;
+	color: #AAA;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-color: #000;
+}
+
+xui-tabs /deep/ .selected.head {
+	background-color: #3F3F3F;
+	color: #FFF;
+	border-bottom-color: #3F3F3F;
+}
+
+xui-tabs /deep/ .content {
+	background-color: #3F3F3F;
+	border: 1px solid #3F3F3F;
+	color: #FFF;
+}
+
+xui-tabs /deep/ .disabled.head {
+	background-color: #313131;
+	color: #555;
+}
+
+* /deep/ xui-button /deep/ button
+{
+	background: #000000;
+	padding: 3px;
+	color: #FFF;
+	border: solid #4f4f4f 2px;
+	text-decoration: none;
+}
+
+* /deep/ xui-checkbox /deep/ input[type=checkbox] 
+{
+	display: none;
+}
+
+* /deep/ xui-checkbox /deep/ label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 25px;
+	margin-right: 15px;
+	font-size: 13px;
+}
+
+* /deep/ xui-checkbox /deep/ label:before {
+	content: "";
+	display: inline-block;
+
+	width: 16px;
+	height: 16px;
+
+	margin-right: 10px;
+	position: absolute;
+	left: 0;
+	bottom: 1px;
+	background-color: #000;
+	border: 1px solid #4f4f4f;
+
+	border-radius: 2px;
+}
+
+* /deep/ xui-checkbox /deep/ input[type=checkbox]:checked + label:before {
+	content: "\2713";
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+	font-size: 15px;
+	color: #f3f3f3;
+	text-align: center;
+    line-height: 15px;
+}
+

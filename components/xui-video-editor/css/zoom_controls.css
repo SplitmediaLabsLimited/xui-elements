@@ -1,0 +1,72 @@
+:host
+{
+    display: inline-block;
+    margin: 5px 0;
+}
+
+:host > *
+{
+    vertical-align: middle;
+}
+
+button
+{
+    width: 16px;
+    height: 12px;
+    border: none;
+    background-color: transparent;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    outline: none;
+    cursor: pointer;
+}
+
+button:hover
+{
+    background-position-y: -13px;
+}
+
+button:active
+{
+    background-position-y: -26px;
+}
+
+#zoomOut
+{
+    background-image: url("../images/zoom/zoom_out.png");
+}
+
+#zoomIn
+{
+    background-image: url("../images/zoom/zoom_in.png");
+}
+
+#rangeInput
+{
+    width: 90px;
+    margin: 0 5px;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+#rangeInput:focus
+{
+    outline: none;
+}
+
+#rangeInput::-webkit-slider-runnable-track
+{
+    border: 1px solid #000;
+    background-color: #111;
+    height: 4px;
+}
+
+#rangeInput::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    border: 1px solid #000;
+    background-color: #888;
+    height: 10px;
+    width: 10px;
+    margin-top: -4px;
+}

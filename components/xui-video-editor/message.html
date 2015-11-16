@@ -1,0 +1,23 @@
+<polymer-element name="xve-message"
+     attributes="titletext message type">
+    
+    <template>
+        <link href="css/message.css" rel="stylesheet" />
+        
+        <div id="centered">
+            <div id="wrap" type="{{ type }}">
+                <div class="title">
+                    <h1>{{ titletext }}</h1>
+                    <button id="close" on-click="{{ hide }}"></button>
+                </div>
+                <div class="content">
+                    <div id="message">{{ message }}</div>
+                    <button id="ok" on-click="{{ ok }}">OK</button>
+                    <button id="cancel" on-click="{{ cancel }}">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <script src="js/message.js"></script>
+</polymer-element>

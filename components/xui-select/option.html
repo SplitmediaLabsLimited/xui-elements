@@ -1,0 +1,27 @@
+<dom-module id="xui-option">
+<style type="text/css">
+  li {
+    float: left;
+    padding: 5px;
+    margin-left: 0px;
+    padding-right: 0px;
+    z-index: 2;
+    width: 150px;
+    background: #ddd;
+    cursor: default;
+    display: none;
+  }
+
+  li:not(.disabled):hover, li.selected:not(.init) {
+    background: #09f;
+  }
+
+  li.disabled {
+    background-color: #aaaaaa;
+  }
+</style>
+  <template>
+  	<li id="option" data-value="{{ value }}">{{ label }}</li>
+  </template>
+  <script src="js/option.js"></script>
+</dom-module>

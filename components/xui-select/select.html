@@ -1,0 +1,39 @@
+<dom-module id="xui-select">
+<style type="text/css">
+  label {
+  float: left;
+  line-height: 30px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+ul#select { 
+  float: left;
+  margin: 0px;
+  height: 30px;
+  width: 150px;
+  border: 1px #000 solid;
+  list-style: none;
+  padding-left: 0 !important;
+  -webkit-padding-start: 10px;
+}
+
+ul li {
+  padding: 5px;
+  padding-right: 0px;
+  z-index: 2;
+  width: 150px;
+}
+
+li.init {
+  cursor: pointer;
+}
+</style>
+  <template>
+    <label for="select">{{ label }}</label>
+    <ul id="select">
+    	<li id="init" class="init">[SELECT]</li>
+    </ul>
+  </template>
+  <script src="js/select.js"></script>
+</dom-module>

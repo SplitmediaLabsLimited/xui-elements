@@ -1,0 +1,27 @@
+<polymer-element name="xve-progress"
+     attributes="progress">
+    
+    <template>
+        <link href="css/progress.css" rel="stylesheet" />
+        
+        <div id="wrap">
+            <template if="{{ progress === 'loading' }}">
+                <label>Loading video...</label>
+            </template>
+            
+            <template if="{{ progress < 100 }}">
+                <label>Saving... <span>{{ progress }}%</span></label>
+            </template>
+            
+            <template if="{{ progress === 100 }}">
+                <label>Successfully saved!</label>
+            </template>
+            
+            <div id="progressbar" progress="{{ progress }}">
+                <div style="width: {{ progress }}%"></div>
+            </div>
+        </div>
+    </template>
+    
+    <script src="js/progress.js"></script>
+</polymer-element>

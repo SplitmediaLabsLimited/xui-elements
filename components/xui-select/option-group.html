@@ -1,0 +1,33 @@
+<dom-module id="xui-option-group">
+  <style type="text/css">
+  .disabled
+  {
+    background-color: #aaaaaa;
+  }
+
+  ul { 
+    list-style-type: none;
+  }
+
+  li {
+   padding: 5px 10px; z-index: 2;
+   }
+
+  li:not(.init) {
+   float: left; width: 130px; background: #ddd; 
+  }
+
+  li:not(.init):not(.group):hover, ul li.selected:not(.init) {
+    background: #09f; 
+  }
+  
+  </style>
+  <template>
+  	<li id="option" class="group">{{ label }}
+  	<ul id="group">
+  	</ul>
+  </li>
+  </template>
+
+  <script src="js/option-group.js"></script>
+</dom-module>

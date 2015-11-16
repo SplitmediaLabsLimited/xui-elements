@@ -1,0 +1,16 @@
+<dom-module id="xui-tab" constructor="XUITab" attributes="name label tooltip">
+<style type="text/css">
+  * {
+    display: none;
+  }
+</style>
+  <template>
+		<div id ="head" name$="{{name}}"
+    class$="head {{isSelected(selected)}} {{isDisabled(disabled)}} {{isHidden(hidden)}}"
+			 title$="{{ tooltip }}">
+			{{ label }}
+		</div>
+		<div id="body" class$="content {{name}} {{isSelected(selected)}}"></div>
+  </template>
+  <script src="js/tab.js"></script>
+</dom-module>
