@@ -167,7 +167,7 @@ Polymer({
 
   /** Minus 1 when the minus was clicked */
   minusTap: function () {
-    if (!this.$.range.hasAttribute('disabled')) {
+    if (!this.$.range.hasAttribute('disabled') && !this.$.range.hasAttribute('readonly')) {
       if (this.min < Number(this.value)) {
       this.value = Number(this.value) - 1;
       }
@@ -176,7 +176,7 @@ Polymer({
 
   /** Plus 1 when the plus was clicked */
   plusTap: function () {
-    if (!this.$.range.hasAttribute('disabled')) {
+    if (!this.$.range.hasAttribute('disabled') && !this.$.range.hasAttribute('readonly')) {
       if (this.max > Number(this.value)) {
         this.value = Number(this.value) + 1;
       }
