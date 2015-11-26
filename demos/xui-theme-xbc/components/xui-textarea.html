@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+    </script>
+    <link rel="import" href="../../../imports.html" />
+    <style type="text/css">
+
+      center {
+        position: relative;
+        top:100px;
+      }
+
+      body {
+        background-color: #2E2E2E;
+      }
+      
+      #container {
+         width: 60%;
+         height: 100%;
+        }
+
+      xui-textarea {
+       margin-bottom: 30px;
+       float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+    <div id="container">
+      <xui-textarea resize="horizontal" name="textarea" label="Horizontal Text Area" rows="5" cols="75" maxlength="75">
+        You can Resize This Horizontally!!
+      </xui-textarea>
+      <br/>
+      <br/>
+      <xui-textarea resize="vertical" name="textarea" label="Vertical Text Area" rows="5" cols="75" maxlength="75">
+        You can Resize this Vertically!!
+      </xui-textarea>
+      <br/>
+      <br/>
+      <xui-textarea resize="none" name="textarea" label="Non-Resizable" rows="5" cols="75" maxlength="75">
+        You cannot Resize ME!!
+      </xui-textarea>
+      <br/>
+      <br/>
+      <xui-textarea name="textarea" label="With icon" rows="5" cols="75" maxlength="75" icon="https://addons.opera.com/media/extensions/75/9375/1.2.4-rev1/icons/icon_64x64.png" iconwidth="20" iconheight="20">
+        I have an Icon and You can Resize me anywhere.
+      </xui-textarea>
+      <br/>
+      <br/>
+      <xui-textarea name="textarea" label="Disabled" rows="5" cols="75" maxlength="75" disabled>
+        This is a Disabled Text Area!
+      </xui-textarea>
+      <xui-textarea name="textarea" label="Read Only" rows="5" cols="75" maxlength="75" readonly>
+        This is a Readonly Text Area!
+      </xui-textarea>
+      </div>
+    </center>
+  </body>
+</html>

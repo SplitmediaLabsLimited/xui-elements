@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+  <head>
+    <script>
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+    </script>
+    <link rel="import" href="../../imports.html" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title></title>
+</head>
+<body>
+<template id="t" is="dom-bind">
+  <div id="container">
+    <header>
+    <a href="components/xui-button.html" target="_blank">Button</a>
+    <a href="components/xui-checkbox.html" target="_blank">Check Box</a>
+    <a href="components/xui-input.html" target="_blank">Input</a>
+    <a href="components/xui-textarea.html" target="_blank">Text-Area</a>
+    <a href="components/xui-color.html" target="_blank">Color</a>
+    <a href="components/xui-radio.html" target="_blank">Radio</a>
+    <a href="components/xui-range.html" target="_blank">Range</a>
+    <a href="components/xui-select.html" target="_blank">Select</a>
+    <a href="components/xui-tooltip.html" target="_blank">Tooltip</a>
+    <a href="components/xui-tab.html" target="_blank">Tab</a>
+    </header>
+  <hr/>
+  <br/>
+  
+    <xui-tabs>
+      <xui-tab name="tab1" label="Text" tooltip="Text" class="selected">
+        <div id="tab1container">
+          <xui-button id="refreshicn" icon="http://flaticons.net/icons/Application/Command-Refresh-01.png" iconwidth="16" iconheight="16">Refresh</xui-button>
+          <div class="contentlabel">
+            <span>Content </span>
+            <xui-tooltip title="Content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </xui-tooltip>
+          </div>
+          <div class="contentholder">
+            <xui-input type="text" id="contenttext"></xui-input>
+            <div class="flex-inline">
+              <xui-checkbox label="Use Custom Script" id="chk_custom" onclick="customscriptTick()"></xui-checkbox>
+              <xui-button id="btn_edtscript" disabled width="400">Edit Script</xui-button>
+            </div>
+          </div>
+          
+          <br/>
+          <div class="contentlabel">
+            <span>Format </span>
+          </div>
+          <div class="contentholder">
+            <div class="flex-inline">
+              <xui-color label="Font" id="fontcolor" onclick="Selectfontcolor()" height="30" width="30"></xui-color>
+              <xui-select height="30" onclick="fontSelect()" id="slct_font" class="fontselect">
+                <xui-option value="lucida" label="Lucida"></xui-option>
+                <xui-option value="comicsans" label="Comic Sans"></xui-option>
+                <xui-option value="roboto" label="Roboto"></xui-option>
+              </xui-select>
+            </div>
+            <div class="flex-inline">
+              <xui-color label="Outline" color="#B9014A" height="30" width="30"></xui-color>
+
+              <xui-select height="30" class="outlineselect">
+                <xui-option value="none" label="None"></xui-option>
+                <xui-option value="thin" label="Thin"></xui-option>
+                <xui-option value="thick" label="Thick"></xui-option>
+              </xui-select>
+
+              <xui-tooltip class="outlinetooltip" title="Using outline for text source. ">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+              </xui-tooltip>
+            </div>
+            <div class="flex-inline">
+              <xui-range value="10" min="0" onchange="changeOpacity()" label="Opacity" max="10"></xui-range>
+            </div>
+          </div>
+
+          <br/>
+          <div class="contentlabel">
+            <span>Animation </span>
+          </div>
+          <div class="contentholder flex-row">
+            <div class="animationWidth">
+              <xui-radio value="none" label="None" name="animation"></xui-radio>
+              <xui-radio value="scroll" name="animation" label="Scroll" checked></xui-radio>
+              <xui-radio value="fade" name="animation" label="Fade"></xui-radio>
+            </div>
+            <div class="animationWidth">
+              <div class="noneanimation">
+                <span id="nonename"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </xui-tab>
+      <xui-tab name="tab2" label="Color" tooltip="Color">Contents for Tab 2</xui-tab>
+      <xui-tab name="tab3" label="Layout" tooltip="Layout">Contents for Tab 3</xui-tab>
+      <xui-tab name="tab4" label="Transition" tooltip="Transition">Contents for Tab 4</xui-tab>
+    </xui-tabs>
+
+  </div>
+</template>
+</body>
+<script type="text/javascript" src="js/script.js"></script>
+</html>

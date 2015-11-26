@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+    <script>
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+    </script>
+    <link rel="import" href="../../../imports.html" />
+        <style type="text/css">
+        
+          center {
+            position: relative;
+            top:100px;
+          }
+
+          body {
+            background-color: #2E2E2E;
+          }
+          
+          xui-checkbox {
+           margin-right: 10px;
+          }
+        </style>
+    </head>
+    <body>
+      <center>
+        <xui-checkbox label="Tick me"></xui-checkbox>
+        <xui-checkbox label="Tick me 2"></xui-checkbox>
+        <xui-checkbox label="Tick me 3"></xui-checkbox>
+        <xui-checkbox label="Tick me 4 width icon" icon="http://m.hiapphere.com/data/icon/201409/HiAppHere_com_kov.theme.lumos.png" iconwidth="20" iconheight="20"></xui-checkbox>
+        <xui-checkbox label="Tick me(disabled)" disabled></xui-checkbox>
+      </center>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+    </script>
+    <link rel="import" href="../../../imports.html" />
+    <style type="text/css">
+    
+      center {
+        position: relative;
+        top:100px;
+      }
+
+      body {
+        background-color: #2E2E2E;
+      }
+      
+      #container {
+         width: 50%;
+         height: 100%;
+         position: relative;
+        }
+
+      xui-color {
+       margin-bottom: 30px;
+       margin-right: 100px;
+       float: left;
+      }
+
+      span {
+        color: #fff;
+        float: left;
+        position: absolute;
+        top: 200px;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+    <div id="container">
+      <xui-color id="xui1" width="30" height="30" color="#CCCCCC"></xui-color>
+      <xui-color id="xui2" width="20" height="20" color="#AAC347" label="Color Label"></xui-color>
+      <xui-color id="xui2" width="30" height="30" color="#ADA347" icon="http://m.hiapphere.com/data/icon/201409/HiAppHere_com_kov.theme.lumos.png" iconwidth="20" iconheight="20"></xui-color>
+      <span></span>
+    </div>
+    </center>
+  </body>
+</html>

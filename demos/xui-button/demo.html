@@ -1,7 +1,11 @@
 <!doctype html>
 <html>
     <head>
-        <link rel="import" href="../../imports.html" />
+      <script>
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = 'shadow';
+      </script>
+      <link rel="import" href="../../imports.html" />
     </head>
     <body>
         <xui-button name="submit" type="button">Click me!</xui-button><br/><br/>
