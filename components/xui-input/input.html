@@ -1,6 +1,7 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../imports.html">
 <dom-module id= "xui-input">
 <style type="text/css">
+
   #tooltip {
     background: url("images/help.png") no-repeat left top transparent;
     min-height: 14px;
@@ -57,12 +58,21 @@
     font-weight: normal;
     color: #CCC;
   }
+
+  #icon{
+    position:relative; 
+    top: 6px;
+    margin: 0 7px 0 7px ;
+  }
 </style>
   <template>
     <template is="dom-if" if="{{label}}">
       <label for="input">{{ label }}</label>
     </template>
-    <input id="input" value="{{ value }}" />
+    <template is="dom-if" if="{{icon}}">
+      <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
+    </template>
+    <input id="input" type$="{{type}" placeholder$="{{placeholder}}" value="{{ value }}" disabled$="{{disabled}}" name=$"{{name}}" readonly$="{{readonly}}"/>
     <div id="tooltip" hide="true"
               on-mouseover="tooltipHover"
               on-mouseleave="tooltipBlur">

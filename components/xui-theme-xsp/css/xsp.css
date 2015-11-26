@@ -53,7 +53,7 @@ xui-tabs /deep/ .disabled.head {
 	text-decoration: none;
 }
 
-* /deep/ xui-checkbox /deep/ input[type=checkbox] 
+* /deep/ xui-checkbox /deep/ input[type=checkbox]
 {
 	display: none;
 }

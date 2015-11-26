@@ -27,11 +27,9 @@
    * XUI Input Class connects the published attributes and the internal
    * element that it uses to render the actual inputbox UI.
    *
+   * runs during `ready`;
+   *
    * @class  XUIInput
-   * @constructor
-   * 
-   * @example
-   *   <xui-input type='text'></xui-input>
    */
   function XUIInput()
   {
@@ -61,167 +59,157 @@
     }
   }
 
+/**
+`<xui-input></xui-input>` inserts a customized textbox into your page.
+
+Just put an `<xui-input></xui-input>` anywhere inside your body.
+
+You can also customize it, by adding these attributes:
+
+ - name - the name of the textbox.
+
+ - label - textbox label.
+
+ - width - textbox width.
+
+ - height - textbox height.
+
+ - disabled - makes the textbox disabled.
+
+ - icon - icon link to specify an icon beside the textbox.
+
+ - iconheight - icon height.
+
+ - iconwidth - icon width.
+
+ - value - default value of the textbox. 
+
+ - placeholder - placeholder of the textbox. 
+
+ - readonly - makes the textbox value unchangeable but not disabled. 
+
+Example: 
+
+    `<xui-input label="My Input" type="text" 
+    icon="https://orbitprint.com/images/colour-enhance.png" iconwidth="20" iconheight="20">
+    </xui-input>`
+
+You can also include a tooltip beside the input element by adding the `<xui-tooltip></xui-tooltip>`
+tag inside the xui-input tag. example: 
+
+    `<xui-input label="My Input" type="text">
+      <xui-tooltip title="Hello World">
+        Details here...
+      </xui-tooltip>
+    </xui-input>`
+
+@demo .../../demos/xui-theme-xbc/components/xui-input.html  A Cool Demo.
+@demo .../../demos/xui-input/demo.html  Another Demo.
+
+*/
 Polymer({
   is: 'xui-input',
     ready: XUIInput,
 
     properties: {
-      /**
-       * XUI input type
-       * 
-       * __Possible values:__
-       * - text (default)
-       * - password
-       * - range
-       * 
-       * *Default html input types are also supported*
-       * 
-       * @attribute  type
-       * @type    String
-       * @default   ''
-       */
+
+      /** XUI input type */
       type: {
         type: String,
-        value: ''
+        value: 'text'
       },
 
-      /**
-       * XUI input default value
-       *
-       * @attribute  value
-       * @type    String
-       * @default   ''
-       */
+      /** XUI input value*/
       value: {
         type: String,
         value: ''
       },
 
-      /**
-       * XUI input steps. This is used to specify how much will be added
-       * or subtracted on each spinner/slider step change.
-       * - Only use when type is `range` or `number`
-       *
-       * @attribute  step
-       * @type    String
-       * @default   ''
-       */
-      step: {
-        type: String,
-        value: ''
+      /** Makes the Textbox's value unchangeable */
+      readonly: {
+        type: Boolean,
+        value: false
       },
 
-      /**
-       * XUI input minimum value
-       * - Only use when type is `range` or `number`
-       *
-       * @attribute  min
-       * @type    String
-       * @default   ''
-       */
-      min: {
-        type: String,
-        value: ''
-      },
-
-      /**
-       * XUI input maximum value
-       * - Only use when type is `range` or `number`
-       *
-       * @attribute  max
-       * @type    String
-       * @default   ''
-       */
-      max: {
-        type: String,
-        value: ''
-      },
-
-      /**
-       * XUI input placeholder value
-       *
-       * @attribute  placeholder
-       * @type    String
-       * @default   ''
-       */
+      /** XUI input Placeholder value */
       placeholder: {
         type: String,
         value: ''
       },
 
-      /**
-       * XUI input mode
-       * - Only use when type is range
-       *
-       * @attribute  mode
-       * @type    String
-       * @default   ''
-       */
-      mode: {
-        type: String,
-        value: ''
-      },
+      /** 
+      XUI input valid patterns. 
+      XUI input will fire an `error` event 
+      on blur if user input does not pass 
+      the pattern test. 
 
-      /**
-       * XUI input valid patterns. XUI input will fire an `error` event
-       * on blur if user input does not pass the pattern test.
-       *
-       * @attribute  pattern
-       * @type    Regular Expression
-       * @default   ''
-       */
+      @type String/Number
+      */
       pattern: {
         value: ''
       },
 
-      /**
-       * XUI Default label text
-       *
-       * @attribute  label
-       * @type    String
-       * @default   ''
-       */
+      /** XUI input Default label text */
       label: {
         type: String,
         value: ''
       },
 
-      /**
-       * XUI tooltip title
-       *
-       * @attribute  tooltip
-       * @type    String
-       * @default   ''
-       */
+      /** XUI tooltip title */
       tooltip: {
         type: String,
         value: ''
       },
 
+      /** XUI input name */
+      name: {
+        type: String,
+        reflectToAttribute: true
+      },
+
+      /** XUI tooltip description */
       tooltipdescription: {
         type: String,
         value: ''
       },
 
-      /**
-       * XUI tooltip description
-       *
-       * @attribute  tooltip-description
-       * @type    String
-       * @default   ''
-       */
-      'tooltip-description': {
+      /** Disables/enables the XUI input */
+      disabled: {
+        type: Boolean,
+        reflectToAttribute: true
+      },
+
+      /** XUI input icon */
+      icon: {
         type: String,
-        value: ''
+        reflectToAttribute: true
+      },
+
+      /** XUI input icon height */
+      iconheight: {
+        type: Number,
+        reflectToAttribute: true
+      },
+
+      /** XUI input icon width */
+      iconwidth: {
+        type: Number,
+        reflectToAttribute: true
       }
     },
 
     listeners:
     {
-      blur: 'blurHandler',
-      keyup: 'keyupHandler'
+
+      /**
+      When `xui-input` is blurred.
+      
+      @event blurHandler
+      */
+      blur: 'blurHandler'
     },
 
+    /** Converts the value type into lowercase */
     typeChanged: function()
     {
       if (this.type !== '' &&
@@ -233,6 +221,8 @@ Polymer({
       _rangeType.apply(this, []);
     },
 
+
+    /** Converts the mdoe into lowercase */
     modeChanged: function()
     {
       if (this.mode !== '' &&
@@ -244,6 +234,7 @@ Polymer({
       _rangeType.apply(this, []);
     },
 
+    /** Changes the pattern. */
     patternChanged: function()
     {
       var modifiers = '';
@@ -264,11 +255,7 @@ Polymer({
       this.patternRegex = new RegExp(this.pattern, modifiers);
     },
 
-    attributeChanged: function(attr, oldVal, newVal)
-    {
-      this.$.input[attr] = newVal;
-    },
-
+    /** XUI input is blurred */
     blurHandler: function()
     {
       // Validate value pattern
@@ -281,6 +268,9 @@ Polymer({
       }
     },
 
+
+
+    /** When tooltip is hovered */
     tooltipHover: function()
     {
       clearTimeout(tooltipTimeout);
@@ -291,6 +281,7 @@ Polymer({
       }.bind(this), 500);
     },
 
+    /** Tool tip is blurred */
     tooltipBlur: function()
     {
       clearTimeout(tooltipTimeout);

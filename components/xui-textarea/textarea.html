@@ -1,17 +1,28 @@
+<link rel="import" href="../../imports.html">
 <dom-module id="xui-textarea">
 <style type="text/css">
 label textarea {
-    vertical-align: top;
+  vertical-align: top;
+}
+
+#icon { 
+  position:relative; 
+  top: 5px;
+  margin: 0 7px 0 3px ;
 }
 </style>
-    <template>
-        
-        <label for$="{{name}}">{{label}} 
-        	<textarea id="textarea" name$="{{name}}" 
-            rows$="{{rows}}" cols$="{{cols}}"
-        	maxlength$="{{maxlength}}"></textarea>
-        </label>
-    </template>
+  <template>
+    
+    <label for$="{{name}}">{{label}} 
+      <template is="dom-if" if="{{icon}}">
+        <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
+      </template>
+    	<textarea id="textarea" name$="{{name}}" 
+      rows$="{{rows}}" cols$="{{cols}}"
+    	maxlength$="{{maxlength}}" disabled$="{{disabled}}"
+      resize$="{{resize}}" placeholder$="{{placeholder}}" readonly$="{{readonly}}"></textarea>
+    </label>
+  </template>
 
-    <script src="js/textarea.js"></script>
+  <script src="js/textarea.js"></script>
 </dom-module>

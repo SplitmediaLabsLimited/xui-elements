@@ -1,4 +1,5 @@
-<dom-module id="xui-tab" constructor="XUITab" attributes="name label tooltip">
+<link rel="import" href="../../imports.html">
+<dom-module id="xui-tab">
 <style type="text/css">
   * {
     display: none;
@@ -8,7 +9,10 @@
 		<div id ="head" name$="{{name}}"
     class$="head {{isSelected(selected)}} {{isDisabled(disabled)}} {{isHidden(hidden)}}"
 			 title$="{{ tooltip }}">
-			{{ label }}
+      <template is="dom-if" if="{{icon}}">
+        <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
+      </template>
+			{{label}}
 		</div>
 		<div id="body" class$="content {{name}} {{isSelected(selected)}}"></div>
   </template>

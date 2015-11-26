@@ -1,5 +1,6 @@
 <dom-module id="xui-button">
 <style type="text/css">
+
   img {
     vertical-align: middle;
   }
@@ -12,13 +13,17 @@
     -ms-user-select: none;
     user-select: none;
   }
+
+  img[disabled] {
+    pointer-events: none;
+  }
 </style>
   <template>
     <link rel="stylesheet" href="css/button.css" />
     <button id="button"
         name=$"{{name}}"
-        type$="{{type}}" disabled$="{{disabled}}">
-      <img src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" />
+        type$="{{type}}" disabled$="{{disabled}}" height$="{{height}}" width$="{{width}}" >
+      <img src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/> 
       <content></content>
     </button>
   </template>

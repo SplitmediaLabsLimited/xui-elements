@@ -1,8 +1,7 @@
 <link rel="import" href="../../imports.html">
-<dom-module id="xui-checkbox">
+<dom-module id="xui-radio">
 <style type="text/css">
-
-  #check,
+  #radio,
   label
   {
       cursor: pointer;
@@ -13,14 +12,12 @@
       -ms-user-select: none;
       user-select: none;
   }
-
-  #check:disabled,
-  #check:disabled + label,
+  #radio:disabled,
+  #radio:disabled + label,
   {
       cursor: default;
       color: #AAA;
   }
-
   label {
       cursor: default;
       color: #AAA;
@@ -28,19 +25,18 @@
 
   #icon{
     position:relative; 
-    top: 3px;
-    margin: 0 3px 0 3px ;
+    top: 5px;
+    margin: 0 7px 0 7px ;
   }
-
 </style>
   <template>
     <template is="dom-if" if="{{icon}}">
       <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
     </template>
-      <input  type="checkbox" id="check" disabled$="{{disabled}}"
-       value='{{value}}' checked$="{{checked}}" name=$"{{name}}"/>
-      <label for="check">{{ label }}</label>
+      <input  type="radio" id="radio" name$="{{name}}" disabled$="{{disabled}}"
+       value='{{value}}' checked$="{{checked}}"/>
+      <label for="radio">{{ label }}</label>
       <content></content>
   </template>
-  <script src="js/checkbox.js"></script>
+  <script src="js/radio.js"></script>
 </dom-module>

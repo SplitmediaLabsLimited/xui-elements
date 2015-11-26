@@ -1,0 +1,333 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+     url('../fonts/roboto.woff') format('woff');
+}
+
+body {
+  background-color: #000000;
+  margin: 5px;
+  font-family: Roboto;
+}
+
+* /deep/ * /deep/ *:focus {
+  outline: none;
+}
+
+* /deep/ xui-button /deep/ button {
+  color: #ccc;
+  font-size: 14px;
+  background-color: #000;
+  border: 1px solid #858585;
+}
+
+* /deep/ xui-button:not([DISABLED]) /deep/ button:hover {
+  background-color: #043151;
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+* /deep/ xui-button[disabled] /deep/ button {
+  border: 1px solid #686868;
+  color: #7B7B7B;
+  cursor:not-allowed;
+}
+
+* /deep/ xui-checkbox /deep/ input[type=checkbox] {
+  display: none;
+}
+
+* /deep/ xui-checkbox {
+  position: relative;
+}
+
+* /deep/ xui-checkbox /deep/ label:before {
+  content: "";
+  display: inline-block;
+  background-color: #000;
+  border: 1px solid #858585;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  vertical-align: bottom;
+  position: relative;
+  top: -2px;
+}
+
+* /deep/ xui-checkbox /deep/ input[type=checkbox]:checked + label:before {
+  font-weight: bold;
+  content: "\2713";
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+  font-size: 15px;
+  color: #f3f3f3;
+  text-align: center;
+    line-height: 15px;
+}
+
+* /deep/ xui-checkbox /deep/ label {
+  color: #ccc;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+* /deep/ xui-checkbox:not([DISABLED]):hover /deep/ label:before {
+  border: 1px solid #fff;
+}
+
+* /deep/ xui-checkbox[disabled] /deep/ label {
+  color: #7B7B7B;
+  cursor:not-allowed;
+}
+
+* /deep/ xui-checkbox[disabled] /deep/ label:before {
+  border: 1px solid #686868;
+}
+
+* /deep/ xui-input /deep/ input[type=text] {
+  background-color: #000;
+  border: 1px solid rgba(87, 87, 87, 0.7);
+  border-left: none;
+  border-top: none;
+  color: #fff;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+* /deep/ xui-input /deep/ label {
+  color: #ccc;
+}
+
+* /deep/ xui-input[disabled] /deep/ label,
+* /deep/ xui-input[disabled] /deep/ input[type=text] {
+  color: #7B7B7B;
+  cursor:not-allowed;
+}
+
+
+* /deep/ xui-input /deep/ #tooltip {
+  border: 1px solid #3C3C3C;
+}
+
+* /deep/ xui-input /deep/ #tooltip {
+  border: 1px solid #3C3C3C;
+}
+
+* /deep/ xui-input /deep/ #tooltip-content {
+  background-color: #090909;
+  text-align: left;
+  z-index: 9999;
+}
+
+* /deep/ xui-tooltip {
+  text-align: left;
+}
+
+* /deep/ xui-select /deep/ select:focus {
+  color: #fff;
+  outline: none;
+  box-shadow: none;
+}
+
+* /deep/ xui-select /deep/ label {
+  color: #fff;
+  margin-right: 10px;
+}
+
+* /deep/ xui-select /deep/ select {
+  background-color: #555;
+  color: #fff;
+}
+
+* /deep/ xui-select /deep/ option {
+  background-color: #000;
+  color: #fff;
+  line-height: 50px;
+  height: 50px;
+}
+
+* /deep/ xui-select[disabled] /deep/ label,
+* /deep/ xui-select[disabled] /deep/ select {
+  color: #7B7B7B;
+  cursor:not-allowed;
+}
+
+* /deep/ xui-select /deep/ optgroup {
+  background-color: #232323;
+  color: #fff;
+  height: 30px;
+}
+
+* /deep/ xui-tabs /deep/ .head {
+  cursor: pointer;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #313131;
+  border-bottom: 3px solid #000;
+  color: #939393;
+}
+
+* /deep/ xui-tabs /deep/ .head:not(.disabled):not(.selected):hover {
+  background-color: #555;
+  color: #D2D2D2;
+}
+
+* /deep/ xui-tabs /deep/ .selected.head {
+  background-color: #313131;
+  cursor: default;
+  border-bottom: 3px solid #313131;
+  color: #D2D2D2;
+}
+
+* /deep/ xui-tabs /deep/ .head.disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  color: #7B7B7B;
+}
+
+* /deep/ xui-tabs /deep/ .content {
+  background-color: #313131;
+  color: #949494;
+}
+
+* /deep/ xui-textarea /deep/ textarea {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid rgba(87, 87, 87, 0.8);
+  border-left: none;
+  border-top: none;
+  margin-left: 10px;
+}
+
+* /deep/ xui-textarea /deep/ label {
+  color: #ccc;
+}
+
+* /deep/ xui-textarea[disabled] /deep/ label,
+* /deep/ xui-textarea[disabled] /deep/ textarea {
+  color: #7B7B7B;
+  cursor:not-allowed;
+  resize: none;
+}
+
+
+* /deep/ xui-radio /deep/ input[type=radio] {
+  display: none;
+}
+
+* /deep/ xui-radio /deep/ label:before {
+  content: "";
+  display: inline-block;
+  background-color: #000;
+  border: 2px solid #858585;
+  border-radius: 30px;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  vertical-align: bottom;
+}
+
+* /deep/ xui-radio /deep/ input[type=radio]:checked + label:before {
+  font-weight: bold;
+  content: "\2022";
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+  font-size: 23px;
+  color: #f3f3f3;
+  text-align: center;
+    line-height: 17px;
+}
+
+* /deep/ xui-radio /deep/ label {
+  color: #ccc;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+* /deep/ xui-radio:not([DISABLED]):hover /deep/ label:before {
+  border: 2px solid #fff;
+}
+
+* /deep/ xui-radio[disabled] /deep/ label {
+  color: #7B7B7B;
+  cursor:not-allowed;
+}
+
+* /deep/ xui-radio[disabled] /deep/ label:before {
+  border: 2px solid #686868;
+}
+
+* /deep/ xui-range[disabled] /deep/ label {
+  color: #7B7B7B;
+  cursor:not-allowed;
+}
+
+* /deep/ xui-range /deep/ label {
+  color: #ccc;
+}
+
+* /deep/ xui-range /deep/ #rangeholder {
+  background-color: #111;
+  color: #6C6C6C;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+* /deep/ xui-range[DISABLED] /deep/ #rangeholder {
+  background-color: #555;
+  border: 1px solid #000;
+}
+
+* /deep/ xui-range[DISABLED] /deep/ #rangeholder div, 
+* /deep/ xui-range[DISABLED] /deep/ #rangeholder input, 
+* /deep/ xui-range[DISABLED] /deep/ input[type=text] {
+  cursor: not-allowed;
+}
+
+* /deep/ xui-range/deep/ input[type=text] {
+  background-color: #393939;
+  color: #D6D6D6;
+  border: 1px solid rgba(87, 87, 87, 0.7);
+  border-left: none;
+  border-top: none;
+}
+
+* /deep/ xui-range/deep/ input[type=text]:hover {
+  background-color: #555;
+}
+
+* /deep/ xui-range[DISABLED] /deep/ input[type=text] {
+  background-color: #000;
+  color: #7B7B7B;
+}
+
+* /deep/ xui-range[DISABLED] /deep/ input[type="range"]::-webkit-slider-thumb {
+  background-color: #646464;
+}
+
+* /deep/ xui-range:not([disabled]) /deep/ input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: #fff;
+}
+
+* /deep/ xui-range:not([disabled]) /deep/ #minus:hover, 
+* /deep/ xui-range:not([disabled]) /deep/ #plus:hover {
+  color: #fff;
+}
+
+* /deep/ xui-color /deep/ #colorcontainer {
+  display: inline-block;
+}
+
+* /deep/ xui-color /deep/ label {
+  color: #fff;
+}
+
+* /deep/ xui-color /deep/ #paletteboard {
+  z-index: 9999;
+}
+
+* /deep/ xui-tooltip /deep/ #tooltip-content {
+  z-index: 9999;
+}

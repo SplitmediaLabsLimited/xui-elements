@@ -1,39 +1,69 @@
+<link rel="import" href="../../imports.html">
 <dom-module id="xui-select">
 <style type="text/css">
   label {
   float: left;
   line-height: 30px;
-  vertical-align: middle;
   margin-right: 5px;
 }
 
-ul#select { 
+#init { 
   float: left;
   margin: 0px;
-  height: 30px;
-  width: 150px;
   border: 1px #000 solid;
-  list-style: none;
+  padding: 5px;
   padding-left: 0 !important;
   -webkit-padding-start: 10px;
 }
 
-ul li {
-  padding: 5px;
-  padding-right: 0px;
-  z-index: 2;
-  width: 150px;
+#icon { 
+  float: left;
+  position:relative; 
+  top: 5px;
+  margin: 0 7px 0 3px ;
 }
 
-li.init {
+.init {
   cursor: pointer;
 }
 </style>
   <template>
     <label for="select">{{ label }}</label>
-    <ul id="select">
-    	<li id="init" class="init">[SELECT]</li>
-    </ul>
+    <template is="dom-if" if="{{icon}}">
+      <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
+    </template>
+    	<select id="init" class="init" disabled$="{{disabled}}" name$="{{name}}" height$="{{height}}" width$="{{width}}">
+        <template is="dom-repeat" items="{{optarray}}">
+          <template is="dom-if" if="{{_optsingle(item.optname)}}">
+              <option selected$="selected" value="{{item.value}}" id="opt_{{index}}" disabled$="{{item.disabled}}">{{item.label}}</option>
+          </template>
+          <template is="dom-if" if="{{_optgroup(item.optname)}}">
+              <optgroup label="{{item.label}}" disabled$="{{item.disabled}}">
+                <template is="dom-repeat" items="{{item.childval}}">
+                  <option selected$="selected" value="{{item.value}}" disabled$="{{item.disabled}}">{{item.label}}</option>
+                </template>
+              </optgroup>
+          </template>
+        </template>
+        <template is="dom-if" if="{{optionarr}}">
+              <template is="dom-repeat" items="{{optionarr}}">
+                <option selected$="selected" value="{{item.value}}">{{item.label}}</option>
+              </template>
+        </template>
+      </select>
+      <template is="dom-if" if="{{modify}}">
+      <br/>
+      <br/><br/>
+        <input type="text" id="txtaddoption"/><button id="btnaddoption" on-click="_addOption">Add</button>
+      <br/>
+      <br/>
+      <select id="slct_option">
+        <template is="dom-repeat" items="{{optionarr}}">
+          <option value="{{index}}">{{item.label}}</option>
+        </template>
+      </select>
+        <button id="btnremoveoption" on-click="_removeOption">Remove</button>
+      </template>
   </template>
   <script src="js/select.js"></script>
 </dom-module>
