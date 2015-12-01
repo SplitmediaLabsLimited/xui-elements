@@ -63,6 +63,7 @@ Polymer({
         this.$$(colorId).style.backgroundColor = this.hexcolors[i].color;
       }
     }, 500);
+
   },
 
   listeners: {
@@ -243,5 +244,5 @@ Polymer({
     this.$.valholder.value = this.tempcolor;
     this.$.valholder.style.border = '3px solid ' + this.tempcolor;
     this.$.colorcontainer.style.backgroundColor = this.tempcolor;
-  },
+  }
 });
