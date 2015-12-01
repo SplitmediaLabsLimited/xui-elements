@@ -76,7 +76,14 @@ Polymer({
     
     @event rangeTrack
     */
-    'range.track': 'rangeTrack'
+    'range.track': 'rangeTrack',
+
+    /**
+    When the textarea was blurred
+    
+    @event rangeBlur
+    */
+    'newval.blur': 'newvalBlur'
   },
 
   properties: {
@@ -185,10 +192,20 @@ Polymer({
 
 
   /** When you want to enter a value in the textbox and hit enter key */
-  valueEnter: function(e){
-     var key = e.which || e.keyCode;
-    if (key === 13) { 
-      this.value = this.$.newval.value;
+  valueEnter: function(e) {
+    const key = e.which || e.keyCode;
+    const newvalue = this.$.newval.value;
+    if (key === 13) {
+      if (isNaN(newvalue)) {
+        this.$.newval.value = this.value;
+      } else {
+        this.value = newvalue;
+      }
     }
+  },
+
+  /** When the textbox was blured out, the textbox value will change to the default value of the range */
+  newvalBlur: function() {
+    this.$.newval.value = this.value;
   }
 });
