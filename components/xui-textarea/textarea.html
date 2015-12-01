@@ -1,8 +1,10 @@
 <link rel="import" href="../../imports.html">
 <dom-module id="xui-textarea">
 <style type="text/css">
-label textarea {
+label {
+  display: inline-block;
   vertical-align: top;
+  margin-top: 5px;
 }
 
 #icon { 
@@ -17,11 +19,11 @@ label textarea {
       <template is="dom-if" if="{{icon}}">
         <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
       </template>
+    </label>
     	<textarea id="textarea" name$="{{name}}" 
       rows$="{{rows}}" cols$="{{cols}}"
     	maxlength$="{{maxlength}}" disabled$="{{disabled}}"
       resize$="{{resize}}" placeholder$="{{placeholder}}" readonly$="{{readonly}}"></textarea>
-    </label>
   </template>
 
   <script src="js/textarea.js"></script>
