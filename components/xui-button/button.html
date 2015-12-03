@@ -1,5 +1,11 @@
+<link rel="import" href="../../imports.html">
+<link rel="import" href="../xui-theme-xbc/themes/xbc-button-theme.html">
 <dom-module id="xui-button">
 <style type="text/css">
+
+  *:focus {
+     outline: var(--xui-elements-focus);
+  }
 
   img {
     vertical-align: middle;
@@ -12,6 +18,16 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    background-color: var(--xui-button-bgcolor);
+    @apply(--xui-button-button);
+  }
+
+  button[disabled] {
+    @apply(--xui-button-button-disabled);
+  }
+
+  button:not([disabled]):hover {
+    @apply(--xui-button-button-hover);
   }
 
   img[disabled] {
@@ -19,7 +35,7 @@
   }
 </style>
   <template>
-    <link rel="stylesheet" href="css/button.css" />
+  <style include="xbc-button-theme"></style>
     <button id="button"
         name=$"{{name}}"
         type$="{{type}}" disabled$="{{disabled}}" height$="{{height}}" width$="{{width}}" >

@@ -1,6 +1,12 @@
 <link rel="import" href="../../imports.html">
+<link rel="import" href="../xui-theme-xbc/themes/xbc-tooltip-theme.html">
 <dom-module id= "xui-tooltip">
 <style type="text/css">
+
+  *:focus {
+    outline: var(--xui-elements-focus);
+  }
+
   #tooltip {
     background: url("images/help.png") no-repeat left top transparent;
     min-height: 14px;
@@ -25,6 +31,7 @@
     left: -5px;
     top: -5px;
     width: 275px;
+    z-index: 9999;
   }
 
   #tooltip:hover #tooltip-content{
@@ -53,6 +60,7 @@
   }
 </style>
   <template>
+  <style include="xbc-tooltip-theme"></style>
       <!-- <content id="description"></content> -->
     <template is="dom-if" if="{{icon}}">
       <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>

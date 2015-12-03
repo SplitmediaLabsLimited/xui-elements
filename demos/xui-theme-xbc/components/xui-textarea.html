@@ -24,13 +24,8 @@
 
       xui-textarea {
         margin-bottom: 30px;
-        float: left;
+        float: right;
         display: flex;
-      }
-
-      xui-textarea /deep/ label {
-        width: 150px;
-        text-align: left;
       }
       
     </style>
@@ -39,12 +34,12 @@
     <center>
     <div id="container">
       <xui-textarea resize="vertical" name="textarea" label="Vertical Text Area" rows="5" cols="75" maxlength="75">
-        You can Resize this Vertically!!
+        You can Resize this Vertically!! 
       </xui-textarea>
       <br/>
       <br/>
       <xui-textarea resize="horizontal" name="textarea" label="Horizontal Text Area" rows="5" cols="75" maxlength="75">
-        You can Resize This Horizontally!!
+        You can Resize This Horizontally!! I will expand to the left because the element is float: right.
       </xui-textarea>
       <br/>
       <br/>

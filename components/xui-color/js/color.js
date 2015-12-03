@@ -67,6 +67,7 @@ Polymer({
   },
 
   listeners: {
+    
     /**
     Fired when the `#colorcontainer` was tapped
     

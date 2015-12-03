@@ -5,6 +5,7 @@ const t = document.querySelector('#t');
 t.addEventListener('dom-change', function() {
 // auto-binding template is ready.  
   const tabs = document.querySelector('xui-tabs');
+
   window.Selectfontcolor = function() {
     const val = tabs.$.contents.querySelector('#fontcolor').color;
     tabs.$.contents.querySelector('#contenttext::shadow #input').style.color = val;

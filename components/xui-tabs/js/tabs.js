@@ -24,49 +24,51 @@ Polymer({
 
     /** checking the <xui-tab> children **/
     attached: function() {
-    this.async(function() {
-     this.tabs = [];
-
-     for (var i = 0; i < this.children.length; i++)
-     {
-      if (this.children[i].tagName == 'XUI-TAB')
+      this.async(function() {
+      this.tabs = [];
+      for (var i = 0; i < this.children.length; i++)
       {
-       this.$.headers.appendChild(this.children[i].$.head);
-       this.$.contents.appendChild(this.children[i].$.body);
+       if (this.children[i].tagName == 'XUI-TAB')
+       {
+        this.$.headers.appendChild(this.children[i].$.head);
+        this.$.contents.appendChild(this.children[i].$.body);
+       }
       }
-     }
 
-     this.$.headers.addEventListener('click', this.selectTab.bind(this));
-    });
+       this.$.headers.addEventListener('click', this.selectTab.bind(this));
+      });
     },
 
     /**
-     Make the tab Selected.
-     
-     @param {xui-tab}
-     @return {Boolean} or make the tab selected 
-     */
+    Make the tab Selected.
+
+    @param {xui-tab}
+    @return {Boolean} or make the tab selected 
+    */
     selectTab: function(event) {
-     if (!event.target.classList.contains('head') ||
-      event.target.classList.contains('disabled'))
-     {
-      return false;
-     }
-
-     var siblings = event.target.parentNode.children;
-     var contents = this.$.contents.children;
-
-     for (var i = 0; i < siblings.length; i++)
-     {
-      siblings[i].classList.remove('selected');
-      contents[i].classList.remove('selected');
-
-      if (contents[i].classList.contains(event.target.getAttribute('name')))
-      {
-       event.target.classList.add('selected');
-       contents[i].classList.add('selected');
+      if (!event.target.classList.contains('canselect') ||
+      event.target.classList.contains('disabled')) {
+        return false;
       }
-     }
+      var evetarget = event.target;
+      var siblings = evetarget.parentNode.children;
+
+      if (evetarget.classList.contains('img')) {
+        evetarget = evetarget.parentNode;
+        siblings = evetarget.parentNode.parentNode.children;
+      }
+      var contents = this.$.contents.children;
+
+      for (var i = 0; i < siblings.length; i++) {
+        siblings[i].classList.remove('selected');
+        contents[i].classList.remove('selected');
+
+        if (contents[i].classList.contains(evetarget.getAttribute('name')))
+        {
+        evetarget.classList.add('selected');
+        contents[i].classList.add('selected');
+        }
+      }
 
     },
 

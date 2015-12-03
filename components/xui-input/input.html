@@ -1,6 +1,11 @@
 <link rel="import" href="../../imports.html">
+<link rel="import" href="../xui-theme-xbc/themes/xbc-input-theme.html">
 <dom-module id= "xui-input">
 <style type="text/css">
+
+  *:focus {
+     outline: var(--xui-elements-focus);
+  }
 
   #tooltip {
     background: url("images/help.png") no-repeat left top transparent;
@@ -11,6 +16,7 @@
     position: relative;
     font-family: "Arial", sans-serif;
     margin: 0 5px;
+    border: var(--xui-input-tooptip-border);
   }
 
   #tooltip[hide] {
@@ -31,6 +37,7 @@
     left: -5px;
     top: -5px;
     width: 275px;
+    @apply(--xui-input-tooltip-content);
   }
 
   #tooltip[show] #tooltip-content {
@@ -53,21 +60,34 @@
     margin-top: 5px;
   }
 
-  #tooltip #tooltip-content .text strong
-  {
+  #tooltip #tooltip-content .text strong {
     font-weight: normal;
     color: #CCC;
   }
 
-  #icon{
+  #icon {
     position:relative; 
     top: 6px;
     margin: 0 7px 0 7px ;
   }
+
+  #input {
+    @apply(--xui-input-input);
+  }
+
+  label {
+    @apply(--xui-input-label);
+  }
+
+  #input[disabled],
+  label[disabled] {
+    @apply(--xui-input-disabled);
+  }
 </style>
   <template>
+  <style include="xbc-input-theme"></style>
     <template is="dom-if" if="{{label}}">
-      <label for="input">{{ label }}</label>
+      <label disabled$="{{disabled}}" for="input">{{ label }}</label>
     </template>
     <template is="dom-if" if="{{icon}}">
       <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>

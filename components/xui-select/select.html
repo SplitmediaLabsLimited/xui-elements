@@ -1,10 +1,19 @@
 <link rel="import" href="../../imports.html">
+<link rel="import" href="../xui-theme-xbc/themes/xbc-select-theme.html">
 <dom-module id="xui-select">
 <style type="text/css">
-  label {
+
+*:focus {
+  outline: var(--xui-elements-focus);
+  box-shadow: none;
+}
+
+label {
   float: left;
   line-height: 30px;
   margin-right: 5px;
+  @apply(--xui-select-label);
+  @apply(--xui-select-disabled);
 }
 
 #init { 
@@ -14,6 +23,11 @@
   padding: 5px;
   padding-left: 0 !important;
   -webkit-padding-start: 10px;
+  @apply(--xui-select-select);
+}
+
+#init[disabled] {
+  @apply(--xui-select-disabled);
 }
 
 #icon { 
@@ -23,11 +37,20 @@
   margin: 0 7px 0 3px ;
 }
 
+option {
+  @apply(--xui-select-option);
+}
+
+optgroup {
+  @apply(--xui-select-optgroup);
+}
+
 .init {
   cursor: pointer;
 }
 </style>
   <template>
+  <style include="xbc-select-theme"></style>
     <label for="select">{{ label }}</label>
     <template is="dom-if" if="{{icon}}">
       <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>

@@ -1,10 +1,17 @@
 <link rel="import" href="../../imports.html">
+<link rel="import" href="../xui-theme-xbc/themes/xbc-color-theme.html">
 <dom-module id="xui-color">
 <style type="text/css">
+
+  *:focus {
+     outline: var(--xui-elements-focus);
+  }
+
   #colorcontainer {
     border: 1px solid #000;
     cursor: pointer;
     position: relative;
+    display: var(--xui-color-display);
   }
 
   #paletteboard {
@@ -14,6 +21,7 @@
     position: relative;
     border: 1px solid #ccc;
     cursor: default;
+    z-index: 9999;
   }
 
   #palette {
@@ -71,6 +79,7 @@
   label {
     align-self: center;
     margin-right: 10px;
+    color: var(--xui-color-label-color);
   }
 
   #icon{
@@ -81,6 +90,7 @@
 
 </style>
   <template>
+  <style include="xbc-color-theme"></style>
     <div id="container" height$="{{height}}px">
         <label>{{label}}</label>
         <template is="dom-if" if="{{icon}}">

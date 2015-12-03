@@ -7,10 +7,10 @@
 </style>
   <template>
 		<div id ="head" name$="{{name}}"
-    class$="head {{isSelected(selected)}} {{isDisabled(disabled)}} {{isHidden(hidden)}}"
+    class$="head canselect {{isSelected(selected)}} {{isDisabled(disabled)}} {{isHidden(hidden)}}"
 			 title$="{{ tooltip }}">
       <template is="dom-if" if="{{icon}}">
-        <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
+        <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}" class="canselect img"/>
       </template>
 			{{label}}
 		</div>

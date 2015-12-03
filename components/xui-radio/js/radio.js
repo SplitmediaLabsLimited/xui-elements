@@ -34,6 +34,15 @@ Example:
 */
 Polymer({
   is: 'xui-radio',
+
+  ready: function() {
+    if (this.$.radio.checked) {
+      this.checked = true;
+    } else {
+      this.checked = false;
+    }
+  },
+
   properties: {
 
     /** Label for the radio */
@@ -86,6 +95,20 @@ Polymer({
       type: Number,
       reflectToAttribute: true
     }
+  },
 
+  listeners: {    
+    /**
+    When the the `xui-radio` element was tapped
+
+    @event radioTap
+    */
+    'tap': 'radioTap'
+  },
+
+  /** Refresh the style in the browser's background when radio was clicked */
+  radioTap: function() {
+    this.$.label1.style.display='none';
+    this.$.label1.style.display='';
   }
 });

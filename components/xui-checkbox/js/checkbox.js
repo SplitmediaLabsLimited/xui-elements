@@ -90,31 +90,29 @@ Polymer({
 
   },
 
-  /** 
+  listeners: {
 
-  This function wasn't/isn't used yet.
-
-  sets/removes the `check` attribute.
-
-  */
-  checkedChanged: function()
-  {
-    this.checked ? 
-        this.$.check.setAttribute('checked', true) : 
-        this.$.check.removeAttribute('checked');
+    /**
+    Fired when the anything in the `xui-checkbox` was tapped
+    
+    @event checkTap
+    */
+    'tap': 'checkTap'
   },
 
-  /** 
 
-  This function wasn't/isn't used yet.
-
-  sets/removes the `disabled` attribute.
-
-  */
-  disabledChanged: function()
-  {
-    this.disabled ?
-        this.$.check.setAttribute('disabled', true) :
-        this.$.check.removeAttribute('disabled');
+  /** Sets/removes the checked attribute and class */
+  checkTap: function() {
+    if (!this.$.check.disabled) {
+      if (this.$.check.checked) {
+        this.setAttribute('checked', true);
+        this.$.label1.classList.add('checked');
+        this.$.label1.classList.remove('unchecked');
+      } else {
+        this.removeAttribute('checked');
+        this.$.label1.classList.remove('checked');
+        this.$.label1.classList.add('unchecked');
+      }
+    }
   }
 });
