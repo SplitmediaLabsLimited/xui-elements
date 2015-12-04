@@ -80,8 +80,8 @@ Polymer({
     this.selected = this.classList.contains('selected');
     this.disabled = this.classList.contains('disabled');
     this.hidden = this.classList.contains('hidden');
-
     this.$.body.innerHTML = this.innerHTML;
+    this.classList.add(this.name);
   },
 
   /**

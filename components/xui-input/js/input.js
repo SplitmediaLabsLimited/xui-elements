@@ -35,11 +35,13 @@
   {
     this.patternRegex       = /./;
     
-    this.$.input.type       = this.type;
-    this.$.input.step       = this.step;
-    this.$.input.min      = this.min;
-    this.$.input.max      = this.max;
-    this.$.input.placeholder  = this.placeholder;
+    this.$.input.type = this.type;
+    this.$.input.style.width = this.width + 'px';
+    this.$.input.style.height = this.height + 'px';
+    this.$.input.step = this.step;
+    this.$.input.min = this.min;
+    this.$.input.max = this.max;
+    this.$.input.placeholder = this.placeholder;
 
     // Let's overwrite the tooltip and tooltip-description
     if (this.children.length > 0)
@@ -117,6 +119,20 @@ Polymer({
       type: {
         type: String,
         value: 'text'
+      },
+
+      /** XUI input type */
+      width: {
+        type: String,
+        value: 'text',
+        reflectToAttribute: true
+      },
+
+      /** XUI input type */
+      height: {
+        type: String,
+        value: 'text',
+        reflectToAttribute: true
       },
 
       /** XUI input value*/

@@ -26,13 +26,32 @@ Polymer({
     attached: function() {
       this.async(function() {
       this.tabs = [];
-      for (var i = 0; i < this.children.length; i++)
+      for (let i = 0; i < this.children.length; i++)
       {
        if (this.children[i].tagName == 'XUI-TAB')
        {
+        // console.log(this.children[i].$$('content'));
         this.$.headers.appendChild(this.children[i].$.head);
-        this.$.contents.appendChild(this.children[i].$.body);
+        // this.$.contents.appendChild(this.children[i].$.body);
+        this.$$('content').appendChild(this.children[i].$.body);
        }
+      }
+
+
+      var contents = this.$.test.getDistributedNodes();
+      var xuicontents = [];
+
+      for (let i = 0; i < contents.length; i++) {
+        if (contents[i].tagName === 'XUI-TAB') {
+          xuicontents.push(contents[i]);
+        }
+      }
+      for (let i = 0; i < xuicontents.length; i++) {
+        if (xuicontents[i].classList.contains('selected')) {
+          xuicontents[i].style.display = '';
+        } else {
+          xuicontents[i].style.display = 'none';
+        }
       }
 
        this.$.headers.addEventListener('click', this.selectTab.bind(this));
@@ -57,16 +76,27 @@ Polymer({
         evetarget = evetarget.parentNode;
         siblings = evetarget.parentNode.parentNode.children;
       }
-      var contents = this.$.contents.children;
+      // var contents = this.$.contents.children;
+      var contents = this.$.test.getDistributedNodes();
+      var xuicontents = [];
 
-      for (var i = 0; i < siblings.length; i++) {
-        siblings[i].classList.remove('selected');
-        contents[i].classList.remove('selected');
+      for (let i = 0; i < contents.length; i++) {
+        if (contents[i].tagName === 'XUI-TAB') {
+          xuicontents.push(contents[i]);
+        }
+      }
 
-        if (contents[i].classList.contains(evetarget.getAttribute('name')))
-        {
-        evetarget.classList.add('selected');
-        contents[i].classList.add('selected');
+      for (let i = 0; i < siblings.length; i++) {
+        if (xuicontents[i].tagName === 'XUI-TAB') {
+          siblings[i].classList.remove('selected');
+          xuicontents[i].style.display = 'none';
+          xuicontents[i].classList.remove('selected');
+          if (xuicontents[i].classList.contains(evetarget.getAttribute('name')))
+          {
+            xuicontents[i].style.display = '';
+            evetarget.classList.add('selected', 'selected');
+            xuicontents[i].classList.add('selected');
+          }
         }
       }
 

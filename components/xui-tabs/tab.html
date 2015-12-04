@@ -4,6 +4,11 @@
   * {
     display: none;
   }
+
+  #thecontent {
+    display: block;
+    background-color: #313131;
+  }
 </style>
   <template>
 		<div id ="head" name$="{{name}}"
@@ -15,6 +20,10 @@
 			{{label}}
 		</div>
 		<div id="body" class$="content {{name}} {{isSelected(selected)}}"></div>
+    <div id="thecontent" class$="content {{name}} {{isSelected(selected)}}">
+      <content></content>
+    </div>
+    
   </template>
   <script src="js/tab.js"></script>
 </dom-module>

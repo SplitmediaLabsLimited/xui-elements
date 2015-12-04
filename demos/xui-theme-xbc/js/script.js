@@ -11,6 +11,10 @@ t.addEventListener('dom-change', function() {
     tabs.$.contents.querySelector('#contenttext::shadow #input').style.color = val;
   };
 
+  window.myFunction = function() {
+    console.log('a');
+  };
+
   window.Selectfontcolor = function() {
     const val = tabs.$.contents.querySelector('#fontcolor').color;
     tabs.$.contents.querySelector('#contenttext::shadow #input').style.color = val;
@@ -37,6 +41,6 @@ t.addEventListener('dom-change', function() {
     } else if (val === 'roboto') {
     tabs.$.contents.querySelector('#contenttext::shadow #input').style.fontFamily = 'Roboto';
     }
-  } 
+  }
 
 });

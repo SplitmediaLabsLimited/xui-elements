@@ -3,13 +3,18 @@
 <dom-module id= "xui-input">
 <style type="text/css">
 
+  :host{
+    display: inline-flex;
+    align-items: center;
+  };
+
   *:focus {
      outline: var(--xui-elements-focus);
   }
 
   #tooltip {
     background: url("images/help.png") no-repeat left top transparent;
-    min-height: 14px;
+    height: 14px;
     min-width: 14px;
     display: inline-block;
     cursor: pointer;
@@ -66,12 +71,11 @@
   }
 
   #icon {
-    position:relative; 
-    top: 6px;
     margin: 0 7px 0 7px ;
   }
 
   #input {
+    flex: 1;
     @apply(--xui-input-input);
   }
 

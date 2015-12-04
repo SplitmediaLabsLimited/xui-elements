@@ -8,6 +8,11 @@
   box-shadow: none;
 }
 
+:host {
+  display: inline-flex;
+  align-items: center;
+};
+
 label {
   float: left;
   line-height: 30px;
@@ -23,6 +28,7 @@ label {
   padding: 5px;
   padding-left: 0 !important;
   -webkit-padding-start: 10px;
+  flex: 1;
   @apply(--xui-select-select);
 }
 
@@ -32,8 +38,6 @@ label {
 
 #icon { 
   float: left;
-  position:relative; 
-  top: 5px;
   margin: 0 7px 0 3px ;
 }
 

@@ -5,7 +5,7 @@
       window.Polymer.dom = 'shadow';
     </script>
     <link rel="import" href="../../imports.html" />
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="import" href="css/style.html" />
   <title></title>
 </head>
 <body>
@@ -29,7 +29,8 @@
     <xui-tabs>
       <xui-tab name="tab1" label="Text" tooltip="Text" class="selected">
         <div id="tab1container">
-          <xui-button id="refreshicn" icon="https://cdn2.iconfinder.com/data/icons/Siena/128/refresh.png" iconwidth="16" iconheight="16">Refresh</xui-button>
+          <xui-button
+           id="refreshicn" icon="https://cdn2.iconfinder.com/data/icons/Siena/128/refresh.png" iconwidth="16" iconheight="16">Refresh</xui-button>
           <div class="contentlabel">
             <span>Content </span>
             <xui-tooltip title="Content">
@@ -49,9 +50,13 @@
             <span>Format </span>
           </div>
           <div class="contentholder">
-            <div class="flex-inline">
+            <div class="flex-inline"
+            style="
+            display: inline-flex;
+            width: 100%;
+            margin-top: 1%;">
               <xui-color label="Font" id="fontcolor" onclick="Selectfontcolor()" height="30" width="30"></xui-color>
-              <xui-select height="30" onclick="fontSelect()" id="slct_font" class="fontselect">
+              <xui-select height="30" onclick="fontSelect()" id="slct_font" class="fontselect" width="200">
                 <xui-option value="lucida" label="Lucida"></xui-option>
                 <xui-option value="comicsans" label="Comic Sans"></xui-option>
                 <xui-option value="roboto" label="Roboto"></xui-option>
@@ -66,7 +71,7 @@
                 <xui-option value="thick" label="Thick"></xui-option>
               </xui-select>
 
-              <xui-tooltip class="outlinetooltip" title="Using outline for text source. ">
+              <xui-tooltip class="outlinetooltip" title="Using outline for text source.">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
               </xui-tooltip>
             </div>
@@ -99,5 +104,5 @@
   </div>
 </template>
 </body>
-<script type="text/javascript" src="js/script.js"></script>
+<!-- <script type="text/javascript" src="js/script.js"></script> -->
 </html>
