@@ -16,6 +16,8 @@ You can also customize it, by adding these attributes:
 
  - disabled - to disabled the range.
 
+ - step - steps to take when plus/minus button was tapped
+
  - value - default value of range (the position of range bar).
 
  - icon - icon link to specify an icon beside the range.
@@ -91,6 +93,13 @@ Polymer({
   /** Label for the range */
     label: {
       type: String,
+      reflectToAttribute: true
+    },
+
+  /** Steps to take when plus/minus button was tapped */
+    step: {
+      type: Number,
+      value: 1,
       reflectToAttribute: true
     },
 
@@ -176,7 +185,12 @@ Polymer({
   minusTap: function () {
     if (!this.$.range.hasAttribute('disabled') && !this.$.range.hasAttribute('readonly')) {
       if (this.min < Number(this.value)) {
-      this.value = Number(this.value) - 1;
+        const minusval = Number(this.value) - this.step;
+        if (this.min <= minusval) {
+          this.value = Number(this.value) - this.step;
+        } else {
+          this.value = this.min;
+        }
       }
     }
   },
@@ -185,7 +199,12 @@ Polymer({
   plusTap: function () {
     if (!this.$.range.hasAttribute('disabled') && !this.$.range.hasAttribute('readonly')) {
       if (this.max > Number(this.value)) {
-        this.value = Number(this.value) + 1;
+        const plusval = Number(this.value) + this.step;
+        if (this.max >= plusval) {
+          this.value = Number(this.value) + this.step;
+        } else {
+          this.value = this.max;
+        }
       }
     }
   },

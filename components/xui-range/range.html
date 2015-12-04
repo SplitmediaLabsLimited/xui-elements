@@ -116,11 +116,11 @@
       </template>
       <div id="rangeholder" disabled$="{{disabled}}">
         <div id="minus">-</div>
-        <input  type="range" id="range" name$="{{name}}" disabled$="{{disabled}}"
+        <input  type="range" id="range" name$="{{name}}" step$="" disabled$="{{disabled}}"
          value='{{value::change}}' min$="{{min}}" max$="{{max}}" readonly$="{{readonly}}"/>
          <div id="plus" width$="{{width}}" height$="{{height}}">+</div>
       </div>
-      <input type="text" readonly$="{{readonly}}" maxlength="3" id="newval" value="{{value}}"
+      <input type="text" readonly$="{{readonly}}" maxlength="5" id="newval" value="{{value}}"
        on-keypress="valueEnter" disabled$="{{disabled}}"/>
       <content></content>
   </template>
