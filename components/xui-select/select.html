@@ -58,11 +58,11 @@ optgroup {
 </style>
   <template>
   <style include="xbc-select-theme"></style>
-    <label for="select" id="label" disabled$="{{disabled}}" style$="{{labelstyle}}">{{ label }}</label>
+    <label for="select" id="label" disabled$="{{disabled}}" style$="{{setLabelStyle(labelstyle)}}">{{ label }}</label>
     <template is="dom-if" if="{{icon}}">
       <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
     </template>
-    	<select id="init" style$="{{selectstyle}}" class="init" disabled$="{{disabled}}" name$="{{name}}" height$="{{height}}" width$="{{width}}">
+    	<select id="init" style$="{{setStyle(selectstyle)}}" class="init" disabled$="{{disabled}}" name$="{{name}}" height$="{{height}}" width$="{{width}}">
         <template is="dom-repeat" items="{{optarray}}">
           <template is="dom-if" if="{{_optsingle(item.optname)}}">
               <option selected$="selected" value="{{item.value}}" id="opt_{{index}}" disabled$="{{item.disabled}}">{{item.label}}</option>

@@ -17,6 +17,17 @@ You can also customize it, by adding these attributes:
 
  - inputstyle - custom style for the textarea.
 
+  - Note: putting inputstyle and labelstyle attributes on the element should be in JSON format. 
+  - Note: Please notice how we use singlequotes outside and doublequotes inside. 
+  - prop - the name of the css property. 
+  - val - the value of the css property. 
+   
+  Example:
+    
+       `<xui-textarea cols="100" rows="8" inputstyle='[{ "prop": "background-color", "val": "red" }, { "prop": "font-size", "val": "30px"}]'>
+          Hello This is a text area
+        </xui-textarea>`
+
  - disabled - to disabled the range.
 
  - maxlength - maximum number of characters.
@@ -67,15 +78,15 @@ properties: {
 
     /** Inserts a custom css style to the textarea's label */
     labelstyle: {
-      type: String,
-      value: '',
+      type: Object,
+      value: function() { return {}; },
       reflectToAttribute: true
     },
 
     /** Inserts a custom css style to the textarea */
     inputstyle: {
-      type: String,
-      value: '',
+      type: Object,
+      value: function() { return {}; },
       reflectToAttribute: true
     },
 
@@ -139,5 +150,36 @@ properties: {
       }
      });
   },
+
+  /** 
+  Converts the inputstyle attribute JSON format into css format. 
+  @param {HTMLAttribute} inputstyle attribute. 
+  @return {string}, the css format. 
+  */
+  setStyle: function(val) {
+    let myStyle = '';
+    for (let i = 0; i < val.length; i++) {
+      myStyle = myStyle + ' ' + this.inputstyle[i].prop + ': ' + this.inputstyle[i].val + ';';
+      
+    }
+    if (myStyle !== '') {
+      return myStyle;
+    }
+  },
+
+  /** 
+  Converts the labelstyle attribute JSON format into css format. 
+  @param {HTMLAttribute} labelstyle attribute. 
+  @return {string}, the css format. 
+  */
+  setLabelStyle: function(val) {
+    let myStyle = '';
+    for (let i = 0; i < val.length; i++) {
+      myStyle = myStyle + ' ' + this.labelstyle[i].prop + ': ' + this.labelstyle[i].val + ';';
+    }
+    if (myStyle !== '') {
+      return myStyle;
+    }
+  }
   
 });

@@ -35,15 +35,6 @@
   {
     this.patternRegex       = /./;
     
-    this.$.label.style.cssText = this.labelstyle;
-    // this.$.input.style.cssText = this.inputstyle;
-    // console.log(this.inputstyle.val);
-    // console.log(this.inputstyle);
-    // for (let i = 0; i < this.inputstyle.length; i++) {
-    //  console.log(this.inputstyle[i]);
-    // }
-    this.$.input.style.color = this.colorstyle;
-    this.$.input.style.fontFamily  = this.fontstyle;
     this.$.input.type = this.type;
     this.$.input.style.width = this.width + 'px';
     this.$.input.style.height = this.height + 'px';
@@ -91,6 +82,15 @@ You can also customize it, by adding these attributes:
 
  - inputstyle - inserts a custom style for the textbox.
 
+  - Note: putting inputstyle and labelstyle attributes on the element should be in JSON format. 
+  - Note: Please notice how we use singlequotes outside and doublequotes inside. 
+  - prop - the name of the css property. 
+  - val - the value of the css property. 
+   
+  Example:
+    
+       `<xui-input label="Input Label" inputstyle='[{ "prop": "color", "val": "red" }, { "prop": "font-size", "val": "30px" }]'></xui-input>`
+   
  - icon - icon link to specify an icon beside the textbox.
 
  - iconheight - icon height.
@@ -135,31 +135,29 @@ Polymer({
       value: 'text'
     },
 
-    /** XUI input type */
+    /** XUI input width */
     width: {
-      type: String,
-      value: 'text',
+      type: Number,
+      reflectToAttribute: true
+    },
+
+    /** XUI custom style for textbox */
+    inputstyle: {
+      type: Object,
+      value: function() { return {}; },
+      reflectToAttribute: true
+    },
+
+    /** XUI custom style for label */
+    labelstyle: {
+      type: Object,
+      value: function() { return {}; },
       reflectToAttribute: true
     },
     
-    /** XUI input type */
+    /** XUI input height */
     height: {
-      type: String,
-      value: 'text',
-      reflectToAttribute: true
-    },
-
-    /**  Color of the text in the textbox  */
-    colorstyle: {
-      type: String,
-      value: '',
-      reflectToAttribute: true
-    },
-
-    /**  Font family of the text in the textbox  */
-    fontstyle: {
-      type: String,
-      value: '',
+      type: Number,
       reflectToAttribute: true
     },
 
@@ -331,5 +329,36 @@ Polymer({
     clearTimeout(tooltipTimeout);
 
     this.$.tooltip.removeAttribute('show');
+  },
+
+  /** 
+  Converts the inputstyle attribute JSON format into css format. 
+  @param {HTMLAttribute} inputstyle attribute. 
+  @return {string}, the css format. 
+  */
+  setStyle: function(val) {
+    let myStyle = '';
+    for (let i = 0; i < val.length; i++) {
+      myStyle = myStyle + ' ' + this.inputstyle[i].prop + ': ' + this.inputstyle[i].val + ';';
+      
+    }
+    if (myStyle !== '') {
+      return myStyle;
+    }
+  },
+
+  /** 
+  Converts the labelstyle attribute JSON format into css format. 
+  @param {HTMLAttribute} labelstyle attribute. 
+  @return {string}, the css format. 
+  */
+  setLabelStyle: function(val) {
+    let myStyle = '';
+    for (let i = 0; i < val.length; i++) {
+      myStyle = myStyle + ' ' + this.labelstyle[i].prop + ': ' + this.labelstyle[i].val + ';';
+    }
+    if (myStyle !== '') {
+      return myStyle;
+    }
   }
 });

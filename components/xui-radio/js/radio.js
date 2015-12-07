@@ -14,6 +14,15 @@ You can also customize it, by adding these attributes:
 
  - labelstyle - custom style for radio button's label.
 
+  - Note: putting labelstyle attributes on the element should be in JSON format. 
+  - Note: Please notice how we use singlequotes outside and doublequotes inside. 
+  - prop - the name of the css property. 
+  - val - the value of the css property. 
+   
+  Example:
+
+       `<xui-radio labelstyle='[{ "prop": "color", "val": "red" }, { "prop": "font-size", "val": "30px"}]' value="none" label="None" name="animation"></xui-radio>`
+
  - value - value of radio button.
 
  - checked - to make the radiobutton selected by default.
@@ -44,7 +53,6 @@ Polymer({
       this.checked = false;
     }
 
-     this.$.label1.style.cssText = this.labelstyle;
   },
 
   properties: {
@@ -58,8 +66,8 @@ Polymer({
 
     /** Inserts a custom css style to the radio's' label */
     labelstyle: {
-      type: String,
-      value: '',
+      type: Object,
+      value: function() { return {}; },
       reflectToAttribute: true
     },
 
@@ -121,5 +129,20 @@ Polymer({
   radioTap: function() {
     this.$.label1.style.display='none';
     this.$.label1.style.display='';
+  },
+
+  /** 
+  Converts the labelstyle attribute JSON format into css format 
+  @param {HTMLAttribute} labelstyle attribute. 
+  @return {string}, the css format. 
+  */
+  setLabelStyle: function(val) {
+    let myStyle = '';
+    for (let i = 0; i < val.length; i++) {
+      myStyle = myStyle + ' ' + this.labelstyle[i].prop + ': ' + this.labelstyle[i].val + ';';
+    }
+    if (myStyle !== '') {
+      return myStyle;
+    }
   }
 });

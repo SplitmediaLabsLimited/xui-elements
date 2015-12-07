@@ -110,13 +110,13 @@
 </style>
   <template>
   <style include="xbc-range-theme"></style>
-      <label for="range" style$="{{labelstyle}}" id="label">{{ label }}</label>
+      <label for="range" style$="{{setLabelStyle(labelstyle)}}" id="label">{{ label }}</label>
       <template is="dom-if" if="{{icon}}">
         <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
       </template>
       <div id="rangeholder" disabled$="{{disabled}}">
         <div id="minus">-</div>
-        <input style$="{{rangestyle}}" type="range" id="range" name$="{{name}}" step$="" disabled$="{{disabled}}"
+        <input style$="{{setStyle(rangestyle)}}" type="range" id="range" name$="{{name}}" step$="" disabled$="{{disabled}}"
          value='{{value::change}}' min$="{{min}}" max$="{{max}}" readonly$="{{readonly}}"/>
          <div id="plus" width$="{{width}}" height$="{{height}}">+</div>
       </div>

@@ -22,6 +22,15 @@ You can also customize it, by adding these attributes:
 
  - rangestyle - custom style for range's input.
 
+  - Note: putting rangestyle and labelstyle attributes on the element should be in JSON format. 
+  - Note: Please notice how we use singlequotes outside and doublequotes inside. 
+  - prop - the name of the css property. 
+  - val - the value of the css property. 
+   
+  Example:
+    
+       `<xui-range value="10" labelstyle='[{ "prop": "color", "val": "red" }, { "prop": "font-size", "val": "30px"}]' min="0" onchange="changeOpacity()" label="Opacity" max="10"></xui-range>`
+
  - value - default value of range (the position of range bar).
 
  - icon - icon link to specify an icon beside the range.
@@ -53,8 +62,6 @@ Polymer({
   Initiate the default property values and apply to the element.  
   */
   ready: function() {
-    this.$.label.style.cssText = this.labelstyle;
-    this.$.range.style.cssText = this.rangestyle;
     this.$.range.style.width = this.width + 'px';
     this.$.newval.style.height = (this.height+6) + 'px';
     this.$.range.style.height = this.height + 'px';
@@ -104,15 +111,15 @@ Polymer({
 
     /** Inserts a custom css style to the range's label */
     labelstyle: {
-      type: String,
-      value: '',
+      type: Object,
+      value: function() { return {}; },
       reflectToAttribute: true
     },
 
     /** Inserts a custom css style to the range input */
     rangestyle: {
-      type: String,
-      value: '',
+      type: Object,
+      value: function() { return {}; },
       reflectToAttribute: true
     },
 
@@ -246,5 +253,36 @@ Polymer({
   /** When the textbox was blured out, the textbox value will change to the default value of the range */
   newvalBlur: function() {
     this.$.newval.value = this.value;
+  },
+
+  /** 
+  Converts the rangestyle attribute JSON format into css format. 
+  @param {HTMLAttribute} rangestyle attribute. 
+  @return {string}, the css format. 
+  */
+  setStyle: function(val) {
+    let myStyle = '';
+    for (let i = 0; i < val.length; i++) {
+      myStyle = myStyle + ' ' + this.rangestyle[i].prop + ': ' + this.rangestyle[i].val + ';';
+      
+    }
+    if (myStyle !== '') {
+      return myStyle;
+    }
+  },
+
+  /** 
+  Converts the labelstyle attribute JSON format into css format. 
+  @param {HTMLAttribute} labelstyle attribute. 
+  @return {string}, the css format. 
+  */
+  setLabelStyle: function(val) {
+    let myStyle = '';
+    for (let i = 0; i < val.length; i++) {
+      myStyle = myStyle + ' ' + this.labelstyle[i].prop + ': ' + this.labelstyle[i].val + ';';
+    }
+    if (myStyle !== '') {
+      return myStyle;
+    }
   }
 });

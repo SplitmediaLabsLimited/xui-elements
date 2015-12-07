@@ -92,7 +92,7 @@
   <template>
   <style include="xbc-color-theme"></style>
     <div id="container" height$="{{height}}px">
-        <label id="label" style$="{{labelstyle}}">{{label}}</label>
+        <label id="label" style$="{{setLabelStyle(labelstyle)}}">{{label}}</label>
         <template is="dom-if" if="{{icon}}">
           <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
         </template>

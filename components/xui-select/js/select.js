@@ -14,6 +14,19 @@ You can also customize it, by adding these attributes:
 
  - selectstyle - custom style for the dropdown.
 
+  - Note: putting selectstyle and labelstyle attributes on the element should be in JSON format. 
+  - Note: Please notice how we use singlequotes outside and doublequotes inside. 
+  - prop - the name of the css property. 
+  - val - the value of the css property. 
+   
+  Example:
+    
+       `<xui-select height="30" selectstyle='[{ "prop": "background-color", "val": "red" }, { "prop": "font-size", "val": "30px"}]' label="asd" class="outlineselect">
+          <xui-option value="none" label="None"></xui-option>
+          <xui-option value="thin" label="Thin"></xui-option>
+          <xui-option value="thick" label="Thick"></xui-option>
+        </xui-select>`
+
  - disabled - to disabled the dropdown.
 
  - icon - icon link to specify an icon beside the dropdown.
@@ -85,8 +98,6 @@ Polymer({
   ready: function() {
     let opt;
     let optgrpchild;
-    this.$.label.style.cssText = this.labelstyle;
-    this.$.init.style.cssText = this.selectstyle;
 
     this.$.init.style.width = this.width + 'px';
     this.$.init.style.height = (Number(this.height)+3) + 'px';
@@ -155,15 +166,15 @@ Polymer({
 
     /** Inserts a custom css style to the dropdown's label */
     labelstyle: {
-      type: String,
-      value: '',
+      type: Object,
+      value: function() { return {}; },
       reflectToAttribute: true
     },
 
     /** Inserts a custom css style to the dropdown */
-    selecttyle: {
-      type: String,
-      value: '',
+    selectstyle: {
+      type: Object,
+      value: function() { return {}; },
       reflectToAttribute: true
     },
 
@@ -318,6 +329,36 @@ Polymer({
   /** Changes the Selected Value */
   changeValue: function() {
     this.value = this.$.init.value;
+  },
+
+  /** 
+  Converts the selectstyle attribute JSON format into css format. 
+  @param {HTMLAttribute} selectstyle attribute. 
+  @return {string}, the css format. 
+  */
+  setStyle: function(val) {
+    let myStyle = '';
+    for (let i = 0; i < val.length; i++) {
+      myStyle = myStyle + ' ' + this.selectstyle[i].prop + ': ' + this.selectstyle[i].val + ';';
+    }
+    if (myStyle !== '') {
+      return myStyle;
+    }
+  },
+
+  /** 
+  Converts the labelstyle attribute JSON format into css format. 
+  @param {HTMLAttribute} labelstyle attribute. 
+  @return {string}, the css format. 
+  */
+  setLabelStyle: function(val) {
+    let myStyle = '';
+    for (let i = 0; i < val.length; i++) {
+      myStyle = myStyle + ' ' + this.labelstyle[i].prop + ': ' + this.labelstyle[i].val + ';';
+    }
+    if (myStyle !== '') {
+      return myStyle;
+    }
   }
 
 });

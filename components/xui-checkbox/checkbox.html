@@ -74,7 +74,7 @@
     </template>
       <input  type="checkbox" id="check" disabled$="{{disabled}}"
        value='{{value}}' checked$="{{checked}}" name=$"{{name}}"/>
-      <label for="check" style$="{{labelstyle}}" id="label1" class="unchecked">{{ label }}</label>
+      <label for="check" style$="{{setLabelStyle(labelstyle)}}" id="label1" class="unchecked">{{ label }}</label>
       <content></content>
   </template>
   <script src="js/checkbox.js"></script>

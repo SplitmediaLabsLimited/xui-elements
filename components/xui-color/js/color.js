@@ -14,6 +14,15 @@ You can also customize it, by adding these attributes:
 
  - labelstyle - custom style for color picker's label.
 
+  - Note: putting labelstyle attributes on the element should be in JSON format. 
+  - Note: Please notice how we use singlequotes outside and doublequotes inside. 
+  - prop - the name of the css property. 
+  - val - the value of the css property. 
+   
+  Example:
+
+       `<xui-color labelstyle='[{ "prop": "color", "val": "red" }, { "prop": "font-size", "val": "30px"}]' label="Font" height="30" width="30"></xui-color>`
+
  - label - color picker text label.
 
  - height - color picker height.
@@ -42,7 +51,6 @@ Polymer({
   * 
   */
   ready: function() {
-    this.$.label.style.cssText = this.labelstyle;
     const icnwidth = this.width * 0.5;
     const icnheight = this.height * 0.4;
     this.$.img.style.width = icnwidth + 'px';
@@ -112,8 +120,8 @@ Polymer({
 
     /** Inserts a custom css style to the color element's label */
     labelstyle: {
-      type: String,
-      value: '',
+      type: Object,
+      value: function() { return {}; },
       reflectToAttribute: true
     },
 
@@ -255,5 +263,20 @@ Polymer({
     this.$.valholder.value = this.tempcolor;
     this.$.valholder.style.border = '3px solid ' + this.tempcolor;
     this.$.colorcontainer.style.backgroundColor = this.tempcolor;
+  },
+
+  /** 
+  Converts the labelstyle attribute JSON format into css format 
+  @param {HTMLAttribute} labelstyle attribute. 
+  @return {string}, the css format. 
+  */
+  setLabelStyle: function(val) {
+    let myStyle = '';
+    for (let i = 0; i < val.length; i++) {
+      myStyle = myStyle + ' ' + this.labelstyle[i].prop + ': ' + this.labelstyle[i].val + ';';
+    }
+    if (myStyle !== '') {
+      return myStyle;
+    }
   }
 });

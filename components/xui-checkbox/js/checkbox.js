@@ -12,6 +12,15 @@ You can also customize it, by adding these attributes:
 
  - labelstyle - custom style for checkbox's label.
 
+  - Note: putting labelstyle attributes on the element should be in JSON format. 
+  - Note: Please notice how we use singlequotes outside and doublequotes inside. 
+  - prop - the name of the css property. 
+  - val - the value of the css property. 
+   
+  Example:
+
+       `<xui-checkbox label="Use Custom Script" labelstyle='[{ "prop": "color", "val": "red" }, { "prop": "font-size", "val": "30px"}]'></xui-checkbox>`
+
  - icon - icon link to specify an icon beside the checkbox.
 
  - iconheight - icon height.
@@ -37,10 +46,6 @@ Example:
 Polymer({
   is: 'xui-checkbox',
 
-  ready: function() {
-    this.$.label1.style.cssText = this.labelstyle;
-  },
-
   properties: {
 
     /** Label text of checkbox */
@@ -52,8 +57,8 @@ Polymer({
 
     /** Inserts a custom css style to the checkbox's label */
     labelstyle: {
-      type: String,
-      value: '',
+      type: Object,
+      value: function() { return {}; },
       reflectToAttribute: true
     },
 
@@ -107,7 +112,8 @@ Polymer({
   listeners: {
 
     /**
-    Fired when the anything in the `xui-checkbox` was tapped
+    Fired when the anything in the
+     `xui-checkbox` was tapped
     
     @event checkTap
     */
@@ -127,6 +133,23 @@ Polymer({
         this.$.label1.classList.remove('checked');
         this.$.label1.classList.add('unchecked');
       }
+    }
+  },
+
+
+
+  /** 
+  Converts the labelstyle attribute JSON format into css format 
+  @param {HTMLAttribute} labelstyle attribute. 
+  @return {string}, the css format. 
+  */
+  setLabelStyle: function(val) {
+    let myStyle = '';
+    for (let i = 0; i < val.length; i++) {
+      myStyle = myStyle + ' ' + this.labelstyle[i].prop + ': ' + this.labelstyle[i].val + ';';
+    }
+    if (myStyle !== '') {
+      return myStyle;
     }
   }
 });
