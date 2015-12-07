@@ -16,7 +16,11 @@ You can also customize it, by adding these attributes:
 
  - disabled - to disabled the range.
 
- - step - steps to take when plus/minus button was tapped
+ - step - steps to take when plus/minus button was tapped.
+
+ - labelstyle - custom style for checkbox's label.
+
+ - rangestyle - custom style for range's input.
 
  - value - default value of range (the position of range bar).
 
@@ -49,6 +53,8 @@ Polymer({
   Initiate the default property values and apply to the element.  
   */
   ready: function() {
+    this.$.label.style.cssText = this.labelstyle;
+    this.$.range.style.cssText = this.rangestyle;
     this.$.range.style.width = this.width + 'px';
     this.$.newval.style.height = (this.height+6) + 'px';
     this.$.range.style.height = this.height + 'px';
@@ -93,6 +99,20 @@ Polymer({
   /** Label for the range */
     label: {
       type: String,
+      reflectToAttribute: true
+    },
+
+    /** Inserts a custom css style to the range's label */
+    labelstyle: {
+      type: String,
+      value: '',
+      reflectToAttribute: true
+    },
+
+    /** Inserts a custom css style to the range input */
+    rangestyle: {
+      type: String,
+      value: '',
       reflectToAttribute: true
     },
 

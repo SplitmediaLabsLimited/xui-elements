@@ -12,6 +12,8 @@ You can also customize it, by adding these attributes:
 
  - width - color picker width.
 
+ - labelstyle - custom style for color picker's label.
+
  - label - color picker text label.
 
  - height - color picker height.
@@ -40,6 +42,7 @@ Polymer({
   * 
   */
   ready: function() {
+    this.$.label.style.cssText = this.labelstyle;
     const icnwidth = this.width * 0.5;
     const icnheight = this.height * 0.4;
     this.$.img.style.width = icnwidth + 'px';
@@ -102,6 +105,13 @@ Polymer({
 
     /** Color elemnt's label */
     label: {
+      type: String,
+      value: '',
+      reflectToAttribute: true
+    },
+
+    /** Inserts a custom css style to the color element's label */
+    labelstyle: {
       type: String,
       value: '',
       reflectToAttribute: true

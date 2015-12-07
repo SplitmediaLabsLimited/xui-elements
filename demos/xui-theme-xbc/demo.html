@@ -56,7 +56,7 @@
             width: 100%;
             margin-top: 1%;">
               <xui-color label="Font" id="fontcolor" onclick="Selectfontcolor()" height="30" width="30"></xui-color>
-              <xui-select height="30" onclick="fontSelect()" id="slct_font" class="fontselect" width="200">
+              <xui-select height="30" onmouseout="fontSelect()" value="roboto" id="slct_font" class="fontselect" width="200">
                 <xui-option value="lucida" label="Lucida"></xui-option>
                 <xui-option value="comicsans" label="Comic Sans"></xui-option>
                 <xui-option value="roboto" label="Roboto"></xui-option>
@@ -79,7 +79,6 @@
               <xui-range value="10" min="0" onchange="changeOpacity()" label="Opacity" max="10"></xui-range>
             </div>
           </div>
-
           <br/>
           <div class="contentlabel">
             <span>Animation </span>
@@ -104,5 +103,5 @@
   </div>
 </template>
 </body>
-<!-- <script type="text/javascript" src="js/script.js"></script> -->
+<script type="text/javascript" src="js/script.js"></script>
 </html>

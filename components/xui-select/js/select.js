@@ -1,4 +1,4 @@
-/*global Polymer, alert*/
+/*global Polymer*/
 'use strict';
 
 /**
@@ -9,6 +9,10 @@ Just put an `<xui-select></xui-select>` anywhere inside your body.
 You can also customize it, by adding these attributes:
 
  - name - dropdown name.
+
+ - labelstyle - custom style for dropdown's label.
+
+ - selectstyle - custom style for the dropdown.
 
  - disabled - to disabled the dropdown.
 
@@ -81,6 +85,8 @@ Polymer({
   ready: function() {
     let opt;
     let optgrpchild;
+    this.$.label.style.cssText = this.labelstyle;
+    this.$.init.style.cssText = this.selectstyle;
 
     this.$.init.style.width = this.width + 'px';
     this.$.init.style.height = (Number(this.height)+3) + 'px';
@@ -144,6 +150,20 @@ Polymer({
     /** Name of the select form */
     name: {
       type: String,
+      reflectToAttribute: true
+    },
+
+    /** Inserts a custom css style to the dropdown's label */
+    labelstyle: {
+      type: String,
+      value: '',
+      reflectToAttribute: true
+    },
+
+    /** Inserts a custom css style to the dropdown */
+    selecttyle: {
+      type: String,
+      value: '',
       reflectToAttribute: true
     },
 

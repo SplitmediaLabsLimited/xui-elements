@@ -33,12 +33,12 @@ label[disabled] {
   <template>
   <style include="xbc-textarea-theme"></style>
     
-    <label for$="{{name}}" disabled$="{{disabled}}">{{label}} 
+    <label for$="{{name}}" style$="{{labelstyle}}" disabled$="{{disabled}}">{{label}} 
       <template is="dom-if" if="{{icon}}">
         <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
       </template>
     </label>
-  	<textarea id="textarea" name$="{{name}}" 
+  	<textarea id="textarea" style$="{{inputstyle}}" name$="{{name}}" 
     rows$="{{rows}}" cols$="{{cols}}"
   	maxlength$="{{maxlength}}" disabled$="{{disabled}}"
     resize$="{{resize}}" placeholder$="{{placeholder}}" readonly$="{{readonly}}"></textarea>

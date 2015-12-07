@@ -22,6 +22,8 @@ You can also customize it, by adding these attributes:
 
  - height - button height.
 
+ - custstyle - custom style for button.
+
  - icon - icon link to specify an icon inside the button.
 
  - iconheight - icon height.
@@ -30,7 +32,7 @@ You can also customize it, by adding these attributes:
 
 Example: 
 
-    `<xui-button name="search" type="button" icon="https://cdn1.iconfinder.com/data/icons/free-98-icons/32/search-128.png" iconwidth="16" iconheight="16" disabled>Search</xui-button>`
+    `<xui-button name="search" custstyle="color: red;" type="button" icon="https://cdn1.iconfinder.com/data/icons/free-98-icons/32/search-128.png" iconwidth="16" iconheight="16" disabled>Search</xui-button>`
 
 @demo .../../demos/xui-theme-xbc/components/xui-button.html  Cool Demo.
 @demo .../../demos/xui-button/demo.html  Another Demo.
@@ -39,6 +41,7 @@ Polymer({
   is: 'xui-button',
 
   ready: function() {
+    this.$.button.style.cssText = this.custstyle;
     this.$.button.style.width = this.width + 'px';
     this.$.button.style.height = this.height + 'px';
   },
@@ -48,6 +51,13 @@ Polymer({
     /** Disables/enables the button */
     disabled: {
       type: Boolean,
+      reflectToAttribute: true
+    },
+
+    /** Inserts a custom css style to the button */
+    custstyle: {
+      type: String,
+      value: '',
       reflectToAttribute: true
     },
 

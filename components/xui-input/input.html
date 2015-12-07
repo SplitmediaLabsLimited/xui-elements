@@ -90,13 +90,11 @@
 </style>
   <template>
   <style include="xbc-input-theme"></style>
-    <template is="dom-if" if="{{label}}">
-      <label disabled$="{{disabled}}" for="input">{{ label }}</label>
-    </template>
+      <label disabled$="{{disabled}}" id="label" style$="{{labelstyle}}" for="input">{{ label }}</label>
     <template is="dom-if" if="{{icon}}">
       <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
     </template>
-    <input id="input" type$="{{type}" placeholder$="{{placeholder}}" value="{{ value }}" disabled$="{{disabled}}" name=$"{{name}}" readonly$="{{readonly}}"/>
+    <input id="input" type$="{{type}" style$="font-family: {{fontstyle}}; color: {{colorstyle}}" style$="{{inputstyle}}" placeholder$="{{placeholder}}" value="{{ value }}" disabled$="{{disabled}}" name=$"{{name}}" readonly$="{{readonly}}"/>
     <div id="tooltip" hide="true"
               on-mouseover="tooltipHover"
               on-mouseleave="tooltipBlur">

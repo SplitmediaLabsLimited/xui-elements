@@ -35,6 +35,15 @@
   {
     this.patternRegex       = /./;
     
+    this.$.label.style.cssText = this.labelstyle;
+    // this.$.input.style.cssText = this.inputstyle;
+    // console.log(this.inputstyle.val);
+    // console.log(this.inputstyle);
+    // for (let i = 0; i < this.inputstyle.length; i++) {
+    //  console.log(this.inputstyle[i]);
+    // }
+    this.$.input.style.color = this.colorstyle;
+    this.$.input.style.fontFamily  = this.fontstyle;
     this.$.input.type = this.type;
     this.$.input.style.width = this.width + 'px';
     this.$.input.style.height = this.height + 'px';
@@ -78,6 +87,10 @@ You can also customize it, by adding these attributes:
 
  - disabled - makes the textbox disabled.
 
+ - labelstyle - inserts a custom style for the label.
+
+ - inputstyle - inserts a custom style for the textbox.
+
  - icon - icon link to specify an icon beside the textbox.
 
  - iconheight - icon height.
@@ -111,197 +124,212 @@ tag inside the xui-input tag. example:
 */
 Polymer({
   is: 'xui-input',
-    ready: XUIInput,
 
-    properties: {
+  ready: XUIInput,
 
-      /** XUI input type */
-      type: {
-        type: String,
-        value: 'text'
-      },
+  properties: {
 
-      /** XUI input type */
-      width: {
-        type: String,
-        value: 'text',
-        reflectToAttribute: true
-      },
-
-      /** XUI input type */
-      height: {
-        type: String,
-        value: 'text',
-        reflectToAttribute: true
-      },
-
-      /** XUI input value*/
-      value: {
-        type: String,
-        value: ''
-      },
-
-      /** Makes the Textbox's value unchangeable */
-      readonly: {
-        type: Boolean,
-        value: false
-      },
-
-      /** XUI input Placeholder value */
-      placeholder: {
-        type: String,
-        value: ''
-      },
-
-      /** 
-      XUI input valid patterns. 
-      XUI input will fire an `error` event 
-      on blur if user input does not pass 
-      the pattern test. 
-
-      @type String/Number
-      */
-      pattern: {
-        value: ''
-      },
-
-      /** XUI input Default label text */
-      label: {
-        type: String,
-        value: ''
-      },
-
-      /** XUI tooltip title */
-      tooltip: {
-        type: String,
-        value: ''
-      },
-
-      /** XUI input name */
-      name: {
-        type: String,
-        reflectToAttribute: true
-      },
-
-      /** XUI tooltip description */
-      tooltipdescription: {
-        type: String,
-        value: ''
-      },
-
-      /** Disables/enables the XUI input */
-      disabled: {
-        type: Boolean,
-        reflectToAttribute: true
-      },
-
-      /** XUI input icon */
-      icon: {
-        type: String,
-        reflectToAttribute: true
-      },
-
-      /** XUI input icon height */
-      iconheight: {
-        type: Number,
-        reflectToAttribute: true
-      },
-
-      /** XUI input icon width */
-      iconwidth: {
-        type: Number,
-        reflectToAttribute: true
-      }
+    /** XUI input type */
+    type: {
+      type: String,
+      value: 'text'
     },
 
-    listeners:
-    {
-
-      /**
-      When `xui-input` is blurred.
-      
-      @event blurHandler
-      */
-      blur: 'blurHandler'
+    /** XUI input type */
+    width: {
+      type: String,
+      value: 'text',
+      reflectToAttribute: true
+    },
+    
+    /** XUI input type */
+    height: {
+      type: String,
+      value: 'text',
+      reflectToAttribute: true
     },
 
-    /** Converts the value type into lowercase */
-    typeChanged: function()
-    {
-      if (this.type !== '' &&
-        this.type !== null)
-      {
-        this.type = this.type.toLowerCase();
-      }
-
-      _rangeType.apply(this, []);
+    /**  Color of the text in the textbox  */
+    colorstyle: {
+      type: String,
+      value: '',
+      reflectToAttribute: true
     },
 
-
-    /** Converts the mdoe into lowercase */
-    modeChanged: function()
-    {
-      if (this.mode !== '' &&
-        this.mode !== null)
-      {
-        this.mode = this.mode.toLowerCase();
-      }
-
-      _rangeType.apply(this, []);
+    /**  Font family of the text in the textbox  */
+    fontstyle: {
+      type: String,
+      value: '',
+      reflectToAttribute: true
     },
 
-    /** Changes the pattern. */
-    patternChanged: function()
-    {
-      var modifiers = '';
-
-      if (this.pattern === 'string' && this.pattern.length > 0)
-      {
-        // Fetch the modifiers if it exists
-        this.pattern = this.pattern.split('/');
-
-        if (this.pattern[2])
-        {
-          modifiers = this.pattern[2];
-        }
-
-        this.pattern = this.pattern[1]?this.pattern[1]:this.pattern[0];
-      }
-
-      this.patternRegex = new RegExp(this.pattern, modifiers);
+    /** XUI input value*/
+    value: {
+      type: String,
+      value: ''
     },
 
-    /** XUI input is blurred */
-    blurHandler: function()
-    {
-      // Validate value pattern
-      if (!this.patternRegex.test(this.value))
-      {
-        this.fire('error', {
-          type: 'pattern',
-          message: 'Invalid Pattern'
-        });
-      }
+    /** Makes the Textbox's value unchangeable */
+    readonly: {
+      type: Boolean,
+      value: false
     },
 
-
-
-    /** When tooltip is hovered */
-    tooltipHover: function()
-    {
-      clearTimeout(tooltipTimeout);
-
-      tooltipTimeout = setTimeout(function()
-      {
-        this.$.tooltip.setAttribute('show', true);
-      }.bind(this), 500);
+    /** XUI input Placeholder value */
+    placeholder: {
+      type: String,
+      value: ''
     },
 
-    /** Tool tip is blurred */
-    tooltipBlur: function()
-    {
-      clearTimeout(tooltipTimeout);
+    /** 
+    XUI input valid patterns. 
+    XUI input will fire an `error` event 
+    on blur if user input does not pass 
+    the pattern test. 
 
-      this.$.tooltip.removeAttribute('show');
+    @type String/Number
+    */
+    pattern: {
+      value: ''
+    },
+
+    /** XUI input Default label text */
+    label: {
+      type: String,
+      value: ''
+    },
+
+    /** XUI tooltip title */
+    tooltip: {
+      type: String,
+      value: ''
+    },
+
+    /** XUI input name */
+    name: {
+      type: String,
+      reflectToAttribute: true
+    },
+
+    /** XUI tooltip description */
+    tooltipdescription: {
+      type: String,
+      value: ''
+    },
+
+    /** Disables/enables the XUI input */
+    disabled: {
+      type: Boolean,
+      reflectToAttribute: true
+    },
+
+    /** XUI input icon */
+    icon: {
+      type: String,
+      reflectToAttribute: true
+    },
+
+    /** XUI input icon height */
+    iconheight: {
+      type: Number,
+      reflectToAttribute: true
+    },
+
+    /** XUI input icon width */
+    iconwidth: {
+      type: Number,
+      reflectToAttribute: true
     }
+  },
+
+  listeners:
+  {
+
+    /**
+    When `xui-input` is blurred.
+    
+    @event blurHandler
+    */
+    blur: 'blurHandler'
+  },
+
+  /** Converts the value type into lowercase */
+  typeChanged: function()
+  {
+    if (this.type !== '' &&
+      this.type !== null)
+    {
+      this.type = this.type.toLowerCase();
+    }
+
+    _rangeType.apply(this, []);
+  },
+
+
+  /** Converts the mdoe into lowercase */
+  modeChanged: function()
+  {
+    if (this.mode !== '' &&
+      this.mode !== null)
+    {
+      this.mode = this.mode.toLowerCase();
+    }
+
+    _rangeType.apply(this, []);
+  },
+
+  /** Changes the pattern. */
+  patternChanged: function()
+  {
+    var modifiers = '';
+
+    if (this.pattern === 'string' && this.pattern.length > 0)
+    {
+      // Fetch the modifiers if it exists
+      this.pattern = this.pattern.split('/');
+
+      if (this.pattern[2])
+      {
+        modifiers = this.pattern[2];
+      }
+
+      this.pattern = this.pattern[1]?this.pattern[1]:this.pattern[0];
+    }
+
+    this.patternRegex = new RegExp(this.pattern, modifiers);
+  },
+
+  /** XUI input is blurred */
+  blurHandler: function()
+  {
+    // Validate value pattern
+    if (!this.patternRegex.test(this.value))
+    {
+      this.fire('error', {
+        type: 'pattern',
+        message: 'Invalid Pattern'
+      });
+    }
+  },
+
+
+
+  /** When tooltip is hovered */
+  tooltipHover: function()
+  {
+    clearTimeout(tooltipTimeout);
+
+    tooltipTimeout = setTimeout(function()
+    {
+      this.$.tooltip.setAttribute('show', true);
+    }.bind(this), 500);
+  },
+
+  /** Tool tip is blurred */
+  tooltipBlur: function()
+  {
+    clearTimeout(tooltipTimeout);
+
+    this.$.tooltip.removeAttribute('show');
+  }
 });

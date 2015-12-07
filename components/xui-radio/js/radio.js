@@ -12,6 +12,8 @@ You can also customize it, by adding these attributes:
 
  - disabled - to disabled the radio button.
 
+ - labelstyle - custom style for radio button's label.
+
  - value - value of radio button.
 
  - checked - to make the radiobutton selected by default.
@@ -41,12 +43,21 @@ Polymer({
     } else {
       this.checked = false;
     }
+
+     this.$.label1.style.cssText = this.labelstyle;
   },
 
   properties: {
 
     /** Label for the radio */
     label: {
+      type: String,
+      value: '',
+      reflectToAttribute: true
+    },
+
+    /** Inserts a custom css style to the radio's' label */
+    labelstyle: {
       type: String,
       value: '',
       reflectToAttribute: true

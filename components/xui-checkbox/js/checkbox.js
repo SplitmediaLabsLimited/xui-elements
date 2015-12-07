@@ -10,6 +10,8 @@ You can also customize it, by adding these attributes:
 
  - name - the name of the checkbox.
 
+ - labelstyle - custom style for checkbox's label.
+
  - icon - icon link to specify an icon beside the checkbox.
 
  - iconheight - icon height.
@@ -34,10 +36,22 @@ Example:
 */
 Polymer({
   is: 'xui-checkbox',
+
+  ready: function() {
+    this.$.label1.style.cssText = this.labelstyle;
+  },
+
   properties: {
 
     /** Label text of checkbox */
     label: {
+      type: String,
+      value: '',
+      reflectToAttribute: true
+    },
+
+    /** Inserts a custom css style to the checkbox's label */
+    labelstyle: {
       type: String,
       value: '',
       reflectToAttribute: true

@@ -1,30 +1,22 @@
 'use strict';
-
 const t = document.querySelector('#t');
-// The dom-change event signifies when the template has stamped its DOM.
+
 t.addEventListener('dom-change', function() {
-// auto-binding template is ready.  
+
   const tabs = document.querySelector('xui-tabs');
 
   window.Selectfontcolor = function() {
-    const val = tabs.$.contents.querySelector('#fontcolor').color;
-    tabs.$.contents.querySelector('#contenttext::shadow #input').style.color = val;
-  };
-
-  window.myFunction = function() {
-    console.log('a');
-  };
-
-  window.Selectfontcolor = function() {
-    const val = tabs.$.contents.querySelector('#fontcolor').color;
-    tabs.$.contents.querySelector('#contenttext::shadow #input').style.color = val;
-    // console.log(tabs.$.contents.querySelector('#test::shadow #input'));
+    const val = tabs.querySelector('#fontcolor').color;
+    // const oldval = tabs.querySelector('#contenttext').getAttribute('inputstyle');
+    // tabs.querySelector('#contenttext').setAttribute('inputstyle', oldval + ' color:' + val + ';');
+    tabs.querySelector('#contenttext').setAttribute('colorstyle', val);
   };
 
   window.customscriptTick = function() {
-    const check = tabs.$.contents.querySelector('#chk_custom::shadow input');
-    const btn = tabs.$.contents.querySelector('#btn_edtscript');
-    if (check.checked) {
+    const check = tabs.querySelector('#chk_custom');
+    const btn = tabs.querySelector('#btn_edtscript');
+    console.log(check.checked);
+    if (!check.checked) {
       btn.removeAttribute('disabled');
     } else{
       btn.setAttribute('disabled', true);
@@ -32,15 +24,19 @@ t.addEventListener('dom-change', function() {
   };
 
   window.fontSelect = function() {
-    const val = tabs.$.contents.querySelector('#slct_font').value;
+    const val = tabs.querySelector('#slct_font').value;
+    // const oldval = tabs.querySelector('#contenttext').getAttribute('inputstyle');
 
     if (val === 'lucida') {
-    tabs.$.contents.querySelector('#contenttext::shadow #input').style.fontFamily = 'Lucida Sans Unicode, Lucida Grande, sans-serif';
+    tabs.querySelector('#contenttext').setAttribute('fontstyle', 'Lucida Sans Unicode, Lucida Grande, sans-serif');
+      // tabs.querySelector('#contenttext').setAttribute('inputstyle', oldval + 'font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;');
     } else if (val === 'comicsans') {
-    tabs.$.contents.querySelector('#contenttext::shadow #input').style.fontFamily = 'Comic Sans MS, Comic Sans, cursive';
+    tabs.querySelector('#contenttext').setAttribute('fontstyle', 'Comic Sans MS, Comic Sans, cursive');
+      // tabs.querySelector('#contenttext').setAttribute('inputstyle', oldval + 'font-family: Comic Sans MS, Comic Sans, cursive;');
     } else if (val === 'roboto') {
-    tabs.$.contents.querySelector('#contenttext::shadow #input').style.fontFamily = 'Roboto';
+    tabs.querySelector('#contenttext').setAttribute('fontstyle', 'Roboto');
+      // tabs.querySelector('#contenttext').setAttribute('inputstyle', oldval + 'font-family: Roboto;');
     }
-  }
+  };
 
 });

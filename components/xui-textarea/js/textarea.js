@@ -13,6 +13,10 @@ You can also customize it, by adding these attributes:
 
  - cols - number of columns.
 
+ - labelstyle - custom style for textarea's label.
+
+ - inputstyle - custom style for the textarea.
+
  - disabled - to disabled the range.
 
  - maxlength - maximum number of characters.
@@ -60,6 +64,20 @@ properties: {
     type: Boolean,
     value: false
   },
+
+    /** Inserts a custom css style to the textarea's label */
+    labelstyle: {
+      type: String,
+      value: '',
+      reflectToAttribute: true
+    },
+
+    /** Inserts a custom css style to the textarea */
+    inputstyle: {
+      type: String,
+      value: '',
+      reflectToAttribute: true
+    },
 
   /** Label of the textarea */
   label: {
