@@ -38,7 +38,7 @@ label[disabled] {
         <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
       </template>
     </label>
-  	<textarea id="textarea" height$="{{height}}" width$="{{width}}" style$="{{setStyle(inputstyle)}}" name$="{{name}}"
+  	<textarea id="textarea" style$="width: {{width}}px; height: {{height}}px; {{setStyle(inputstyle)}}" name$="{{name}}"
     rows$="{{rows}}" cols$="{{cols}}"
   	maxlength$="{{maxlength}}" disabled$="{{disabled}}"
     resize$="{{resize}}" placeholder$="{{placeholder}}" readonly$="{{readonly}}"></textarea>

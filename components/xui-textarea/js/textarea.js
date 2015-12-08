@@ -158,8 +158,6 @@ properties: {
   attached: function() {
      this.async(function() {
       this.$.textarea.style.resize = this.resize;
-      this.$.textarea.style.height = this.height + 'px';
-      this.$.textarea.style.width = this.width + 'px';
       this.maxlength = this.maxlength !== null ? 1000 : this.maxlength;
       this.disabled = this.getAttribute('disabled') !== null ? true : false;
       this.$.textarea.innerHTML = this.innerHTML;
