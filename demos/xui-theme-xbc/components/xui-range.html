@@ -7,11 +7,6 @@
     </script>
     <link rel="import" href="../../../imports.html" />
     <style type="text/css">
-    
-      center {
-        position: relative;
-        top:100px;
-      }
 
       body {
         background-color: #2E2E2E;
@@ -21,11 +16,16 @@
          width: 50%;
          height: 100%;
          position: relative;
+         display: flex;
+         flex-direction: column;
+         margin-right: auto;
+         margin-left: auto;
+         top:200px;
         }
 
       xui-range {
        margin-bottom: 30px;
-       margin-right: 100px;
+       margin-left: auto;
        float: right;
       }
 
@@ -36,12 +36,10 @@
     </style>
   </head>
   <body>
-    <center>
     <div id="container">
       <xui-range min="-250" step="3"  max="100" 
       label="Range 1(hit enter when changing through textbox)(step: 3): " 
       width="300" height="20"></xui-range>
-      <br/><br/>
       <xui-range value="30" min="0" max="100" 
       label="Range 2(disabled): " 
       width="300" height="20" disabled></xui-range>
@@ -50,6 +48,5 @@
       <xui-range value="50"  min="0" max="100" 
       width="300" height="20" readonly label="Read only"></xui-range>
     </div>
-    </center>
   </body>
 </html>

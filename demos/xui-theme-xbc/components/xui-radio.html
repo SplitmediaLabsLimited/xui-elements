@@ -18,7 +18,7 @@
       }
       
       #container {
-         width: 50%;
+         width: 55%;
          height: 100%;
          position: relative;
         }
@@ -32,23 +32,41 @@
       span {
         float: left;
         color: #fff;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 20px;      }
+
+      .grpcont {
+        width: 100%;
+        height: 100px;
+        display: block;
+      }
+
+      .radcont {
+        margin-left: 30px;
       }
     </style>
   </head>
   <body>
     <center>
     <div id="container">
-    <span>Gender: </span><br/><br/>
-      <xui-radio value="male" label="Male" name="gender" disabled icon="https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-128.png" iconwidth="20" iconheight="20"></xui-radio>
-      <xui-radio value="female" name="gender" label="Female" checked icon="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-128.png" iconwidth="20" iconheight="20"></xui-radio>
-      <xui-radio value="dontknow" name="gender" label="Don't Know" icon="https://cdn2.iconfinder.com/data/icons/dellipack/128/people.png" iconwidth="20" iconheight="20"></xui-radio>
-        <br/>
-        <br/>
-        <br/>
-     <span>Animation: </span><br/><br/>
-      <xui-radio value="none" label="None" name="animation" checked></xui-radio>
-      <xui-radio value="fade" name="animation" label="Fade" ></xui-radio>
-      <xui-radio value="scroll" name="animation" label="Scroll" disabled></xui-radio>
+      <div class="grpcont">
+        <span>Gender: </span>
+          <div class="radcont">
+            <xui-radio value="male" label="Male" name="gender" disabled icon="https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-128.png" iconwidth="20" iconheight="20"></xui-radio>
+            <xui-radio value="female" name="gender" label="Female" checked icon="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-128.png" iconwidth="20" iconheight="20"></xui-radio>
+            <xui-radio value="dontknow" name="gender" label="Don't Know" icon="https://cdn2.iconfinder.com/data/icons/dellipack/128/people.png" iconwidth="20" iconheight="20"></xui-radio>
+          </div>
+      </div>
+
+      <div class="grpcont">
+        <span>Animation: </span>
+        <div class="radcont">
+          <xui-radio value="none" label="None" name="animation" checked></xui-radio>
+          <xui-radio value="fade" name="animation" label="Fade" ></xui-radio>
+          <xui-radio value="scroll" name="animation" label="Scroll" disabled></xui-radio>
+        </div>
+      </div>
     </div>
     </center>
   </body>

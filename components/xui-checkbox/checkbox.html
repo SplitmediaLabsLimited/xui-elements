@@ -2,7 +2,10 @@
 <link rel="import" href="../xui-theme-xbc/themes/xbc-checkbox-theme.html">
 <dom-module id="xui-checkbox">
 <style type="text/css">
-
+  :host {
+    display: inline-flex;
+  };
+  
   *:focus {
      outline: var(--xui-elements-focus);
   }
@@ -63,7 +66,7 @@
   #icon{
     position:relative; 
     top: 3px;
-    margin: 0 3px 0 3px ;
+    margin: -2px 5px 0 5px ;
   }
 
 </style>

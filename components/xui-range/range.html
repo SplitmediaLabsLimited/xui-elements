@@ -14,24 +14,20 @@
 
   input[type=range] {
       -webkit-appearance: none;
-      width: 200px;
-      height:20px;
-      background-color: transparent;
+      width: 84%;
+      height:12px;
+      background-color:  transparent;
   }
 
   input[type="range"]::-webkit-slider-thumb {
        -webkit-appearance: none;
       background-color: #888;
-      width: 20px;
-      height: 20px;
+      width: 12px;
+      height: 12px;
   }
 
   input[type="range"]:not([disabled])::-webkit-slider-thumb:hover {
       @apply(--xui-range-input-range-slider-hover)
-  }
-
-  #range:not([disabled]) + #plus,
-  #range:not([disabled]) + #minus, {
   }
 
   #rangeholder {
@@ -50,7 +46,7 @@
   }
 
   #minus, #plus {
-    width: 15px;
+    width: 8%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -58,6 +54,9 @@
    -moz-user-select: none;
    -khtml-user-select: none;
    -webkit-user-select: none;
+  }
+
+  #plus {
   }
 
   input[type=text] {
@@ -114,11 +113,11 @@
       <template is="dom-if" if="{{icon}}">
         <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
       </template>
-      <div id="rangeholder" disabled$="{{disabled}}">
+      <div id="rangeholder" disabled$="{{disabled}}" width$="{{width}}" height$="{{height}}">
         <div id="minus">-</div>
         <input style$="{{setStyle(rangestyle)}}" type="range" id="range" name$="{{name}}" step$="" disabled$="{{disabled}}"
          value='{{value::change}}' min$="{{min}}" max$="{{max}}" readonly$="{{readonly}}"/>
-         <div id="plus" width$="{{width}}" height$="{{height}}">+</div>
+         <div id="plus">+</div>
       </div>
       <input type="text" readonly$="{{readonly}}" maxlength="5" id="newval" value="{{value}}"
        on-keypress="valueEnter" disabled$="{{disabled}}"/>
