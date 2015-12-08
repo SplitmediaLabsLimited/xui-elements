@@ -5,7 +5,7 @@
    * Private function for assigning the correct input type based on 
    * mode attribute if xui-input type is range (based on specs)
    */
-  var _rangeType = function()
+  const _rangeType = function()
   {
     if (this.type === 'range')
     {
@@ -21,7 +21,7 @@
     }
   };
 
-  var tooltipTimeout;
+  let tooltipTimeout;
 
   /**
    * XUI Input Class connects the published attributes and the internal
@@ -46,7 +46,7 @@
     // Let's overwrite the tooltip and tooltip-description
     if (this.children.length > 0)
     {
-      var tooltip = this.children[0];
+      let tooltip = this.children[0];
 
       if (tooltip.localName === 'xui-tooltip')
       {
@@ -279,7 +279,7 @@ Polymer({
   /** Changes the pattern. */
   patternChanged: function()
   {
-    var modifiers = '';
+    let modifiers = '';
 
     if (this.pattern === 'string' && this.pattern.length > 0)
     {

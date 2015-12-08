@@ -38,8 +38,8 @@ Polymer({
       }
 
 
-      var contents = this.$.test.getDistributedNodes();
-      var xuicontents = [];
+      let contents = this.$.test.getDistributedNodes();
+      let xuicontents = [];
 
       for (let i = 0; i < contents.length; i++) {
         if (contents[i].tagName === 'XUI-TAB') {
@@ -69,16 +69,15 @@ Polymer({
       event.target.classList.contains('disabled')) {
         return false;
       }
-      var evetarget = event.target;
-      var siblings = evetarget.parentNode.children;
+      let evetarget = event.target;
+      let siblings = evetarget.parentNode.children;
 
       if (evetarget.classList.contains('img')) {
         evetarget = evetarget.parentNode;
         siblings = evetarget.parentNode.parentNode.children;
       }
-      // var contents = this.$.contents.children;
-      var contents = this.$.test.getDistributedNodes();
-      var xuicontents = [];
+      let contents = this.$.test.getDistributedNodes();
+      let xuicontents = [];
 
       for (let i = 0; i < contents.length; i++) {
         if (contents[i].tagName === 'XUI-TAB') {
