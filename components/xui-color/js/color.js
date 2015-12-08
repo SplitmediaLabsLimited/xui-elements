@@ -108,7 +108,12 @@ Polymer({
     */
     'valholder.keypress': 'colorEnter',
 
-    'paletteboard.tap': 'testTap'
+    /**
+    Fired when the `#paletteboard` is tapped.
+    
+    @event paletteTap
+    */
+    'paletteboard.tap': 'paletteTap'
   },
 
   properties: {
@@ -221,11 +226,15 @@ Polymer({
     }
   },
 
-  testTap: function(e) {
+  paletteTap: function(e) {
     if (e.target.id === 'paletteboard') {
+      this.$.valholder.focus();
+      this.focused = true;
       this.paletteclicked = true;
     } else {
+      this.$.valholder.blur();
       this.paletteclicked = false;
+      this.focused = false;
     }
   },
 
@@ -237,7 +246,6 @@ Polymer({
 
   /** Set the focused to false if the textbox(inside the palette) was blurred out */
   valBlur: function() {
-    // this.$.paletteboard.addEventListener('click', this.testTap);
     this.focused = false;
     this.haveclass = true;
     this.async(this.hid, 150);
@@ -251,10 +259,13 @@ Polymer({
         this.$.valholder.style.border = '3px solid ' + this.color;
         this.$.colorcontainer.style.backgroundColor = this.color;
         this.$.valholder.value = this.color;
+        this.haveclass = false;
       } catch(err) {
 
       }
     }
+
+        this.paletteclicked = false;
   },
 
   /** When you entered a new color value in the textbox(inside the palette) */
