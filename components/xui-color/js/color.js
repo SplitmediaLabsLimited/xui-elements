@@ -232,9 +232,11 @@ Polymer({
       this.focused = true;
       this.paletteclicked = true;
     } else {
-      this.$.valholder.blur();
-      this.paletteclicked = false;
-      this.focused = false;
+      if (e.target.id !== 'valholder') {
+        this.$.valholder.blur();
+        this.paletteclicked = false;
+        this.focused = false;
+    }
     }
   },
 
@@ -264,7 +266,6 @@ Polymer({
 
       }
     }
-
         this.paletteclicked = false;
   },
 
