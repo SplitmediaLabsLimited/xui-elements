@@ -160,7 +160,7 @@ Polymer({
     /** Height for the range holder */
     height: {
       type: Number,
-      value: 20,
+      value: 12,
       reflectToAttribute: true
     },
 
@@ -243,9 +243,14 @@ Polymer({
     const newvalue = this.$.newval.value;
     if (key === 13) {
       if (isNaN(newvalue)) {
-        this.$.newval.value = this.value;
+          this.$.newval.value = this.value;
       } else {
-        this.value = newvalue;
+        console.log(newvalue <= this.max);
+        if (newvalue <= this.max && newvalue >= this.min) {
+          this.value = newvalue;
+        } else {
+          this.$.newval.value = this.value;
+        }
       }
     }
   },
