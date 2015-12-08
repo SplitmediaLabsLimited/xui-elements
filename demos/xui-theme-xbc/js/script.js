@@ -4,25 +4,36 @@ const t = document.querySelector('#t');
 t.addEventListener('dom-change', function() {
 
   const tabs = document.querySelector('xui-tabs');
+  const fontcolor = tabs.querySelector('#fontcolor');
 
-  window.Selectfontcolor = function() {
-    let temparr = [];
-    const val = tabs.querySelector('#fontcolor').color;
-    const oldval = tabs.querySelector('#contenttext').getAttribute('inputstyle');
-    let myobj = JSON.parse(oldval);
+  window.selectfontcolor = function(e) {
+      console.log(e.type);
+      let temparr = [];
+      const val = tabs.querySelector('#fontcolor').color;
+      const oldval = tabs.querySelector('#contenttext').getAttribute('inputstyle');
+      let myobj = JSON.parse(oldval);
 
-    if (oldval !== '') {
-      for (let i = 0; i < myobj.length; i++) {
-        if (myobj[i].prop !== 'color') {
-          temparr.push({'prop': myobj[i].prop, 'val': myobj[i].val});
+      if (oldval !== '') {
+        for (let i = 0; i < myobj.length; i++) {
+          if (myobj[i].prop !== 'color') {
+            temparr.push({'prop': myobj[i].prop, 'val': myobj[i].val});
+          }
         }
       }
-    }
 
-    temparr.push({'prop': 'color', 'val': val});
-    console.log(JSON.stringify(temparr));
-    tabs.querySelector('#contenttext').setAttribute('inputstyle', JSON.stringify(temparr));
-  };
+      temparr.push({'prop': 'color', 'val': val});
+      tabs.querySelector('#contenttext').setAttribute('inputstyle', JSON.stringify(temparr));
+    };
+
+  fontcolor.addEventListener('keypress', function(e) {
+    if (e.keyCode === 13 || e.keyCode === '13') {
+      window.selectfontcolor(e);
+    }
+  });
+
+  fontcolor.addEventListener('click', function(e) {
+    window.selectfontcolor(e);
+  });
 
   window.customscriptTick = function() {
     const check = tabs.querySelector('#chk_custom');
@@ -33,6 +44,7 @@ t.addEventListener('dom-change', function() {
       btn.setAttribute('disabled', true);
     }
   };
+
 
   window.fontSelect = function() {
     let temparr = [];
