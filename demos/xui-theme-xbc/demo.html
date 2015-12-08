@@ -38,7 +38,7 @@
             </xui-tooltip>
           </div>
           <div class="contentholder">
-            <xui-input type="text" id="contenttext"></xui-input>
+            <xui-input type="text" id="contenttext" inputstyle='[{"prop": "border", "val": "3px solid transparent"}]'></xui-input>
             <div class="flex-inline">
               <xui-checkbox label="Use Custom Script" id="chk_custom" onclick="customscriptTick()"></xui-checkbox>
               <xui-button id="btn_edtscript" disabled width="400">Edit Script</xui-button>
@@ -63,12 +63,12 @@
               </xui-select>
             </div>
             <div class="flex-inline">
-              <xui-color label="Outline" color="#B9014A" height="30" width="30"></xui-color>
+              <xui-color label="Border" id="bordercolor" color="#E45101" height="30" width="30"></xui-color>
 
-              <xui-select height="30" class="outlineselect">
-                <xui-option value="none" label="None"></xui-option>
-                <xui-option value="thin" label="Thin"></xui-option>
-                <xui-option value="thick" label="Thick"></xui-option>
+              <xui-select height="30" id="outlineselect">
+                <xui-option value="6px" label="Thick"></xui-option>
+                <xui-option value="3px" label="Thin"></xui-option>
+                <xui-option value="0px" label="None"></xui-option>
               </xui-select>
 
               <xui-tooltip class="outlinetooltip" title="Using outline for text source.">
@@ -76,7 +76,7 @@
               </xui-tooltip>
             </div>
             <div class="flex-inline">
-              <xui-range value="10" min="0" onchange="changeOpacity()" label="Opacity" max="10"></xui-range>
+              <xui-range value="9" min="0" onchange="changeOpacity()" id="opacityrange" label="Opacity" max="9"></xui-range>
             </div>
           </div>
           <br/>
