@@ -28,17 +28,21 @@ You can also customize it, by adding these attributes:
           Hello This is a text area
         </xui-textarea>`
 
- - disabled - to disabled the range.
+ - disabled - to disabled the textarea.
+
+ - width - sets the width of the textarea.
+
+ - height - sets the height of the textarea.
 
  - maxlength - maximum number of characters.
 
- - icon - icon link to specify an icon beside the range.
+ - icon - icon link to specify an icon beside the textarea.
 
  - iconheight - icon height.
 
  - iconwidth - icon width.
 
- - label - range text label. 
+ - label - textarea label. 
 
  - readonly - makes the textarea value unchangeable but not disabled. 
 
@@ -126,6 +130,20 @@ properties: {
     reflectToAttribute: true
   },
 
+  /** Sets the width of the textarea */
+  width: {
+    type: Number,
+    value: 400,
+    reflectToAttribute: true
+  },
+
+  /** Sets the height of the textarea */
+  height: {
+    type: Number,
+    value: 100,
+    reflectToAttribute: true
+  },
+
   /** Resize property of the textarea can be none, horizontal, vertical */
   resize: {
     type: String,
@@ -140,6 +158,8 @@ properties: {
   attached: function() {
      this.async(function() {
       this.$.textarea.style.resize = this.resize;
+      this.$.textarea.style.height = this.height + 'px';
+      this.$.textarea.style.width = this.width + 'px';
       this.maxlength = this.maxlength !== null ? 1000 : this.maxlength;
       this.disabled = this.getAttribute('disabled') !== null ? true : false;
       this.$.textarea.innerHTML = this.innerHTML;
