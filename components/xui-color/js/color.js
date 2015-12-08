@@ -64,12 +64,12 @@ Polymer({
   },
 
   /**
-  * Making the color palette.  
+  * Making the color palette. 
   * 
   */
   attached:function(){
     this.async(function() {
-      for (var i = this.hexcolors.length - 1; i >= 0; i--) {
+      for (let i = this.hexcolors.length - 1; i >= 0; i--) {
         let colorId = '#color_'+i;
         this.$$(colorId).style.backgroundColor = this.hexcolors[i].color;
       }
@@ -106,7 +106,9 @@ Polymer({
     
     @event colorEnter
     */
-    'valholder.keypress': 'colorEnter'
+    'valholder.keypress': 'colorEnter',
+
+    'paletteboard.tap': 'testTap'
   },
 
   properties: {
@@ -165,6 +167,12 @@ Polymer({
       value: false
     },
 
+    /** Defines if the palette was clicked */
+    paletteclicked: {
+      type: Boolean,
+      value: false
+    },
+
     /** Defines if the textbox(in the palette) is focused */
     focused: {
       type: Boolean,
@@ -177,7 +185,7 @@ Polymer({
       value: [
       {color: '#000000'}, {color: '#013380'}, {color: '#42018C'}, {color: '#60018C'}, {color: '#640064'}, {color: '#800000'}, {color: '#800133'}, {color: '#561F01'}, {color: '#412A01'}, {color: '#808000'}, {color: '#395001'}, {color: '#0F6501'}, {color: '#01422D'}, {color: '#013E45'},
       {color: '#121212'}, {color: '#0000C5'}, {color: '#5F01CC'}, {color: '#8B01CC'}, {color: '#800080'}, {color: '#B9014A'}, {color: '#BE0808'}, {color: '#7E2D01'}, {color: '#5F3D01'}, {color: '#988F01'}, {color: '#486401'}, {color: '#008000'}, {color: '#016042'}, {color: '#015A64'},
-      {color: '#2C2C2C'}, {color: '#0000FF'}, {color: '#7700FF'}, {color: '#AE00FF'}, {color: '#960096'}, {color: '#E8015D'}, {color: '#E61010'}, {color: '#E61010'}, {color: '#774C01'}, {color: '#B2A801'}, {color: '#587C01'}, {color: '#179D01'}, {color: '#017852'}, {color: '#008080'},
+      {color: '#2C2C2C'}, {color: '#0000FF'}, {color: '#7700FF'}, {color: '#AE00FF'}, {color: '#960096'}, {color: '#E8015D'}, {color: '#E61010'}, {color: '#9D3801'}, {color: '#774C01'}, {color: '#B2A801'}, {color: '#587C01'}, {color: '#179D01'}, {color: '#017852'}, {color: '#008080'},
       {color: '#505050'}, {color: '#0B33FF'}, {color: '#861DFF'}, {color: '#B71DFF'}, {color: '#AB01AB'}, {color: '#FF1270'}, {color: '#FF0000'}, {color: '#C24601'}, {color: '#935E01'}, {color: '#C9BF01'}, {color: '#679101'}, {color: '#1BB801'}, {color: '#019565'}, {color: '#00A3A3'},
       {color: '#888888'}, {color: '#1F44FF'}, {color: '#9335FF'}, {color: '#BF35FF'}, {color: '#D403D4'}, {color: '#FF2C80'}, {color: '#FF3A3A'}, {color: '#E45101'}, {color: '#AC6E01'}, {color: '#DBD000'}, {color: '#79AA01'}, {color: '#1FD701'}, {color: '#01AE77'}, {color: '#00C1C1'},
       {color: '#C0C0C0'}, {color: '#3F63FF'}, {color: '#A253FF'}, {color: '#C853FF'}, {color: '#FF00FF'}, {color: '#FF4A92'}, {color: '#FF5656'}, {color: '#FF630D'}, {color: '#CA8101'}, {color: '#F3E700'}, {color: '#8BC301'}, {color: '#00FF00'}, {color: '#01CC8B'}, {color: '#00DEDE'},
@@ -213,6 +221,14 @@ Polymer({
     }
   },
 
+  testTap: function(e) {
+    if (e.target.id === 'paletteboard') {
+      this.paletteclicked = true;
+    } else {
+      this.paletteclicked = false;
+    }
+  },
+
   /** Set the focused to true if the textbox(inside the palette) was focused */
   valFocus: function() {
     this.focused = true;
@@ -221,26 +237,38 @@ Polymer({
 
   /** Set the focused to false if the textbox(inside the palette) was blurred out */
   valBlur: function() {
+    // this.$.paletteboard.addEventListener('click', this.testTap);
     this.focused = false;
     this.haveclass = true;
-    this.async(this.hid, 200);
+    this.async(this.hid, 150);
   },
 
   /** Hides the palette board */
   hid: function() {
-    this.$.paletteboard.classList.add('hidden');
-    this.$.valholder.style.border = '3px solid ' + this.color;
-    this.$.colorcontainer.style.backgroundColor = this.color;
-    this.$.valholder.value = this.color;
+    if (!this.paletteclicked) {
+      try {
+        this.$.paletteboard.classList.add('hidden');
+        this.$.valholder.style.border = '3px solid ' + this.color;
+        this.$.colorcontainer.style.backgroundColor = this.color;
+        this.$.valholder.value = this.color;
+      } catch(err) {
+
+      }
+    }
   },
 
   /** When you entered a new color value in the textbox(inside the palette) */
   colorEnter: function(e) {
     const key = e.which || e.keyCode;
     if (key === 13) { 
-      this.color = this.$.valholder.value;
-      this.$.valholder.style.border = '3px solid ' + this.color;
-      this.$.colorcontainer.style.backgroundColor = this.color;
+      const isHex = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.$.valholder.value);
+      if (isHex) {
+        this.color = this.$.valholder.value;
+        this.$.valholder.style.border = '3px solid ' + this.color;
+        this.$.colorcontainer.style.backgroundColor = this.color;
+      } else {
+        this.$.valholder.value = this.color;
+      }
     }
   },
 
