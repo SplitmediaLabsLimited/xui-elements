@@ -7,11 +7,6 @@
     </script>
     <link rel="import" href="../../../imports.html" />
     <style type="text/css">
-    
-      center {
-        position: relative;
-        top:100px;
-      }
 
       body {
         background-color: #2E2E2E;
@@ -21,9 +16,15 @@
          width: 50%;
          height: 100%;
          position: relative;
+         top:100px;
+         margin-right: auto;
+         margin-left: auto;
+         display: flex;
+         flex-direction: column;
         }
 
       xui-select {
+       width: 80%;
        margin-bottom: 20px;
        margin-right: 100px;
        float: left;
@@ -36,7 +37,6 @@
     </style>
   </head>
   <body>
-    <center>
     <div id="container">
 
       <xui-select name="country" label="Country">
@@ -80,6 +80,5 @@
       </xui-select>
 
     </div>
-    </center>
   </body>
 </html>

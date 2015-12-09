@@ -25,11 +25,10 @@
     </header>
   <hr/>
   <br/>
-  
     <xui-tabs>
-      <xui-tab name="tab1" label="Text" tooltip="Text" class="selected">
+      <xui-tab name="tab1" label="Text" icon="https://cdn3.iconfinder.com/data/icons/UltimateGnome/128x128/actions/insert-text.png" iconwidth="14" iconheight="14" tooltip="Text" class="selected">
         <div id="tab1container">
-          <xui-button
+          <xui-button 
            id="refreshicn" icon="https://cdn2.iconfinder.com/data/icons/Siena/128/refresh.png" iconwidth="16" iconheight="16">Refresh</xui-button>
           <div class="contentlabel">
             <span>Content </span>
@@ -55,7 +54,7 @@
             display: inline-flex;
             width: 100%;
             margin-top: 1%;">
-              <xui-color label="Font" id="fontcolor" height="30" width="30"></xui-color>
+              <xui-color label="Font" labelstyle='[{"prop": "margin-right", "val": "20px"}]' id="fontcolor" height="30" width="30"></xui-color>
               <xui-select height="30" onmouseout="fontSelect()" value="roboto" id="slct_font" class="fontselect" width="200">
                 <xui-option value="lucida" label="Lucida"></xui-option>
                 <xui-option value="comicsans" label="Comic Sans"></xui-option>
@@ -95,11 +94,10 @@
           </div>
         </div>
       </xui-tab>
-      <xui-tab name="tab2" label="Color" tooltip="Color">Contents for Tab 2</xui-tab>
-      <xui-tab name="tab3" label="Layout" tooltip="Layout">Contents for Tab 3</xui-tab>
-      <xui-tab name="tab4" label="Transition" tooltip="Transition">Contents for Tab 4</xui-tab>
+      <xui-tab name="tab2" label="Color" icon="https://cdn1.iconfinder.com/data/icons/DarkGlass_Reworked/128x128/actions/color.png" iconwidth="14" iconheight="14" tooltip="Color">Contents for Color tab</xui-tab>
+      <xui-tab name="tab3" label="Layout" icon="https://cdn4.iconfinder.com/data/icons/web-development-5/500/responsive-layout-screen-128.png" iconwidth="14" iconheight="14" tooltip="Layout">Contents for Layout tab</xui-tab>
+      <xui-tab name="tab4" label="Transition" tooltip="Transition" icon="https://cdn1.iconfinder.com/data/icons/fs-icons-ubuntu-by-franksouza-/128/application-x-navi-animation.png" iconwidth="14" iconheight="14">Contents for Transition Tab</xui-tab>
     </xui-tabs>
-
   </div>
 </template>
 </body>

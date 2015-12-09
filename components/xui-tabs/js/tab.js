@@ -65,18 +65,27 @@ Polymer({
     /** Tab's icon height */
     iconheight: {
       type: Number,
+      value: 14,
       reflectToAttribute: true
     },
 
     /** Tab's icon width */
     iconwidth: {
       type: Number,
+      value: 14,
       reflectToAttribute: true
     }
   },
   
   /** Initiate the default property values and apply to the element.  */
   ready: function() {
+    if (this.iconwidth > 14) {
+      this.iconwidth = 14;
+    }
+
+    if (this.iconheight > 14) {
+      this.iconheight = 14;
+    }
     this.selected = this.classList.contains('selected');
     this.disabled = this.classList.contains('disabled');
     this.hidden = this.classList.contains('hidden');

@@ -14,7 +14,6 @@ You can also customize it, by adding these attributes:
 
   - `button`  The button is a clickable button
   - `submit`  The button is a submit button (submits form-data)
-  - `reset` The button is a reset button (resets the form-data to its initial values)
 
  - disabled - to make the button disabled.
 
