@@ -1,0 +1,29 @@
+<link rel="import" href="../../imports.html">
+<dom-module id="xui-tab">
+<style type="text/css">
+  * {
+    display: none;
+  }
+
+  #thecontent {
+    display: block;
+    background-color: #313131;
+  }
+</style>
+  <template>
+		<div id ="head" name$="{{name}}"
+    class$="head canselect {{isSelected(selected)}} {{isDisabled(disabled)}} {{isHidden(hidden)}}"
+			 title$="{{ tooltip }}">
+      <template is="dom-if" if="{{icon}}">
+        <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}" class="canselect img"/>
+      </template>
+			{{label}}
+		</div>
+		<div id="body" class$="content {{name}} {{isSelected(selected)}}"></div>
+    <div id="thecontent" class$="content {{name}} {{isSelected(selected)}}">
+      <content></content>
+    </div>
+    
+  </template>
+  <script src="js/tab.js"></script>
+</dom-module>

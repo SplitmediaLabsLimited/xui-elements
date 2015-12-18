@@ -1,0 +1,99 @@
+<link rel="import" href="../../imports.html">
+<link rel="import" href="../xui-theme-xbc/themes/xbc-select-theme.html">
+<dom-module id="xui-select">
+<style type="text/css">
+
+*:focus {
+  outline: var(--xui-elements-focus);
+  box-shadow: none;
+}
+
+:host {
+  display: inline-flex;
+  align-items: center;
+};
+
+label {
+  float: left;
+  line-height: 30px;
+  margin-right: 5px;
+  @apply(--xui-select-label);
+}
+
+label[disabled] {
+  @apply(--xui-select-disabled);
+}
+
+#init { 
+  float: left;
+  margin: 0px;
+  border: 1px #000 solid;
+  padding: 5px;
+  padding-left: 0 !important;
+  -webkit-padding-start: 10px;
+  flex: 1;
+  @apply(--xui-select-select);
+}
+
+#init[disabled] {
+  @apply(--xui-select-disabled);
+}
+
+#icon { 
+  float: left;
+  margin: 0 7px 0 3px ;
+}
+
+option {
+  @apply(--xui-select-option);
+}
+
+optgroup {
+  @apply(--xui-select-optgroup);
+}
+
+.init {
+  cursor: pointer;
+}
+</style>
+  <template>
+  <style include="xbc-select-theme"></style>
+    <label for="select" id="label" disabled$="{{disabled}}" style$="{{setLabelStyle(labelstyle)}}">{{ label }}</label>
+    <template is="dom-if" if="{{icon}}">
+      <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
+    </template>
+    	<select id="init" style$="{{setStyle(selectstyle)}}" class="init" disabled$="{{disabled}}" name$="{{name}}" height$="{{height}}" width$="{{width}}">
+        <template is="dom-repeat" items="{{optarray}}">
+          <template is="dom-if" if="{{_optsingle(item.optname)}}">
+              <option selected$="selected" value="{{item.value}}" id="opt_{{index}}" disabled$="{{item.disabled}}">{{item.label}}</option>
+          </template>
+          <template is="dom-if" if="{{_optgroup(item.optname)}}">
+              <optgroup label="{{item.label}}" disabled$="{{item.disabled}}">
+                <template is="dom-repeat" items="{{item.childval}}">
+                  <option selected$="selected" value="{{item.value}}" disabled$="{{item.disabled}}">{{item.label}}</option>
+                </template>
+              </optgroup>
+          </template>
+        </template>
+        <template is="dom-if" if="{{optionarr}}">
+              <template is="dom-repeat" items="{{optionarr}}">
+                <option selected$="selected" value="{{item.value}}">{{item.label}}</option>
+              </template>
+        </template>
+      </select>
+      <template is="dom-if" if="{{modify}}">
+      <br/>
+      <br/><br/>
+        <input type="text" id="txtaddoption"/><button id="btnaddoption" on-click="_addOption">Add</button>
+      <br/>
+      <br/>
+      <select id="slct_option">
+        <template is="dom-repeat" items="{{optionarr}}">
+          <option value="{{index}}">{{item.label}}</option>
+        </template>
+      </select>
+        <button id="btnremoveoption" on-click="_removeOption">Remove</button>
+      </template>
+  </template>
+  <script src="js/select.js"></script>
+</dom-module>

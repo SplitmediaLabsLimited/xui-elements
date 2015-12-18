@@ -1,0 +1,73 @@
+<link rel="import" href="../../imports.html">
+<link rel="import" href="../xui-theme-xbc/themes/xbc-radio-theme.html">
+<dom-module id="xui-radio">
+<style type="text/css">
+
+  #radio {
+    display: var(--xui-radio-radio-display);
+  }
+
+  #radio,
+  label
+  {
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  #radio:disabled,
+  #radio:disabled + label,
+  {
+    cursor: default;
+    color: #AAA;
+  }
+
+  label {
+    cursor: default;
+    color: #AAA;
+    @apply(--xui-radio-label);
+  }
+
+  #icon {
+    position:relative; 
+    top: 5px;
+    margin: 0 7px 0 7px ;
+  }
+
+  label:before {
+    @apply(--xui-radio-label-before);
+  }
+
+  #radio[disabled] + label {
+    @apply(--xui-radio-label-disabled);
+  }
+
+  #radio[disabled] + label:before {
+    @apply(--xui-radio-label-before-disabled);
+  }
+
+  #radio:not([disabled]) + label:hover:before {
+    @apply(--xui-radio-hover);
+  }
+
+  input[type=radio]:checked + label:before {
+    @apply(--xui-radio-check-checked);
+  }
+
+</style>
+  <template>
+  <style include="xbc-radio-theme"></style>
+    <template is="dom-if" if="{{icon}}">
+      <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
+    </template>
+      <input type="radio" id="radio" name$="{{name}}" disabled$="{{disabled}}"
+       value='{{value}}' checked$="{{checked}}"/>
+      <label for="radio"  style$="{{setLabelStyle(labelstyle)}}" id="label1">{{ label }}</label>
+      <content></content>
+  </template>
+  <script src="js/radio.js"></script>
+</dom-module>

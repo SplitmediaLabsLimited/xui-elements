@@ -1,0 +1,96 @@
+<link rel="import" href="../../imports.html">
+<link rel="import" href="../xui-theme-xbc/themes/xbc-tabs-theme.html">
+<dom-module id="xui-tabs">
+<template>
+<style is="custom-style">
+
+*:focus {
+   outline: var(--xui-elements-focus);
+}
+
+xui-button {
+  --xui-button-bgcolor: red;
+}
+
+#headers {
+  margin-left: 15px;
+  width: 98%;
+}
+
+/** This elements are from tab.html or xui-tab tag*/
+.head {
+  float: left;
+  text-align: center;
+  min-width: 50px;
+  padding: 3px 20px 3px 20px;
+  cursor: default;
+  margin-right: 3px;
+  border-bottom: 3px solid #FFF;
+  background-color: #EEE;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  @apply(--xui-tabs-head);
+}
+
+.head:not(.disabled):not(.selected):hover {
+  @apply(--xui-tabs-head-hover);
+}
+
+.content {
+  float: left;
+  display: none;
+  width: 98%;
+  height: 600px;
+  padding: 5px;
+  background-color: #DDDDDD;
+  @apply(--xui-tabs-content);
+}
+
+.clear {
+  clear: both;
+}
+
+#contents {
+  width: 100%;
+  height: 300px;
+}
+
+.selected.head {
+  background-color: #DDDDDD;
+  border-bottom-color: #DDDDDD;
+  @apply(--xui-tabs-selected-head);
+}
+
+.disabled.head {
+  background-color: #999999;
+  color: #FFFFFF;
+  @apply(--xui-tabs-disabled-head);
+}
+
+.hidden.head {
+  display: none;
+}
+
+.selected.content {
+  display: block;
+}
+
+#icon {
+  margin-right: 5px;
+}
+
+</style>
+<style include="xbc-tabs-theme"></style>
+  
+  	<div id="headers"></div>
+		<div class="clear"></div>
+    <!-- <div id="contents"></div> -->
+    <content id="test"></content>
+</template>
+
+	<script src="js/tabs.js"></script>
+</dom-module>

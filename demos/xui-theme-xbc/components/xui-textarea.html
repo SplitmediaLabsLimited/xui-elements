@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+    </script>
+    <link rel="import" href="../../../imports.html" />
+    <style type="text/css">
+
+      body {
+        background-color: #2E2E2E;
+      }
+      
+      #container {
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+        position: relative;
+        top: 30px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      xui-textarea {
+        margin-bottom: 30px;
+        float: left;
+        display: flex;
+        justify-content: center;
+      }
+      
+    </style>
+  </head>
+  <body>
+    
+    <div id="container">
+      <xui-textarea resize="vertical" width="500" labelstyle='[{"prop": "width", "val": "120px" }, {"prop": "text-align", "val": "right" }]' name="textarea" label="Vertical Text Area" maxlength="75">
+        You can Resize this Vertically!! 
+      </xui-textarea>
+      <br/>
+      <br/>
+      <xui-textarea resize="horizontal" labelstyle='[{"prop": "width", "val": "120px" }, {"prop": "text-align", "val": "right" }]' width="500" name="textarea" label="Horizontal Text Area" maxlength="75">
+        You can Resize This Horizontally!! I will expand to the left because the element is float: right.
+      </xui-textarea>
+      <br/>
+      <br/>
+      <xui-textarea resize="none" labelstyle='[{"prop": "width", "val": "120px" }, {"prop": "text-align", "val": "right" }]' width="500" name="textarea" label="Non-Resizable" rows="5" cols="75" maxlength="75">
+        You cannot Resize ME!!
+      </xui-textarea>
+      <br/>
+      <br/>
+      <xui-textarea name="textarea" labelstyle='[{"prop": "width", "val": "120px" }, {"prop": "text-align", "val": "right" }]' width="500" label="With icon" rows="5" cols="75" maxlength="75" icon="https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/book-128.png" iconwidth="20" iconheight="20">
+        I have an Icon and You can Resize me anywhere.
+      </xui-textarea>
+      <br/>
+      <br/>
+      <xui-textarea name="textarea" labelstyle='[{"prop": "width", "val": "120px" }, {"prop": "text-align", "val": "right" }]' width="500" label="Disabled" rows="5" cols="75" maxlength="75" disabled>
+        This is a Disabled Text Area!
+      </xui-textarea>
+      <xui-textarea name="textarea" labelstyle='[{"prop": "width", "val": "120px" }, {"prop": "text-align", "val": "right" }]' width="500" label="Read Only" rows="5" cols="75" maxlength="75" readonly>
+        This is a Readonly Text Area!
+      </xui-textarea>
+      </div>
+  </body>
+</html>

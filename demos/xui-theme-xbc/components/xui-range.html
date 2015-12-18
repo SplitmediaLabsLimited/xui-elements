@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+    </script>
+    <link rel="import" href="../../../imports.html" />
+    <style type="text/css">
+
+      body {
+        background-color: #2E2E2E;
+      }
+      
+      #container {
+         width: 50%;
+         height: 100%;
+         position: relative;
+         display: flex;
+         flex-direction: column;
+         margin-right: auto;
+         margin-left: auto;
+         top:200px;
+        }
+
+      xui-range {
+       margin-bottom: 30px;
+       margin-left: auto;
+       float: right;
+      }
+
+      span {
+        float: left;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <xui-range min="-250" step="3"  max="100" 
+      label="Range 1(hit enter when changing through textbox)(step: 3): " 
+      width="300" height="20"></xui-range>
+      <xui-range value="30" min="0" max="100" 
+      label="Range 2(disabled): " 
+      width="300" height="20" disabled></xui-range>
+      <xui-range value="50"  min="0" max="100" 
+      width="300" height="20" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAANFJREFUeNrMlMENgzAMRZ3OwCYs4Ek4spOPjMGJBTKE7xwzQGqD00KbRCClUhN9KdjxU/wt4WKM0GI9oNH6Mcg5FYpIxCayWJ6kHn0JAEU+avosv+UyNSUQZSBJdAfEFRDnapqZbc/SA6CIRNytEEY5Lfh+ySLWjNJVB2uQTxaRCLXw1ZpBvMaOu/c7TCF91vvoFXYE0Sck7WGCMMAUypZFOoK4BNpyeyslEDc1O4Hmyp35Qr5utsXQpuOvmH0av4ksBnYBbeScG7/7u//RU4ABAIsAYW780G1xAAAAAElFTkSuQmCC" iconwidth="20" iconheight="20"></xui-range>
+      <xui-range value="50"  min="0" max="100" 
+      width="300" height="20" readonly label="Read only"></xui-range>
+    </div>
+  </body>
+</html>

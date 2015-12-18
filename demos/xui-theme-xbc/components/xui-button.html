@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+    </script>
+    <link rel="import" href="../../../imports.html" />
+    <style type="text/css">
+    
+      body {
+        background-color: #2E2E2E;
+      }
+
+      center {
+        position: relative;
+        top:100px;
+      }
+      
+      xui-button {
+       margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <xui-button name="submit" type="button" onclick='buttonTriggered()' icon="https://cdn3.iconfinder.com/data/icons/forall/1062/error-128.png" iconheight="16" iconwidth="16">Trigger Alert</xui-button>
+      <xui-button name="submit" type="button" onclick='buttonTriggered()'>Trigger Alert (no icon)</xui-button>
+      <xui-button name="submit" type="button" onclick='buttonTriggered()' icon="https://cdn3.iconfinder.com/data/icons/forall/1062/error-128.png" iconheight="16" iconwidth="16" disabled>Trigger Alert (disabled)</xui-button>
+      <xui-button name="search" type="button" onclick='buttonTriggered()' icon="https://cdn0.iconfinder.com/data/icons/weboo-2/128/lens.png" iconwidth="16" iconheight="16">Search</xui-button>
+    </center>
+    <script type="text/javascript">
+      function buttonTriggered(){
+        alert('triggered');
+      }
+    </script>
+  </body>
+</html>

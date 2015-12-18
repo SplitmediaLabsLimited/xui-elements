@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+    <script>
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+    </script>
+    <link rel="import" href="../../../imports.html" />
+        <style type="text/css">
+        
+          center {
+            position: relative;
+            top:100px;
+          }
+
+          body {
+            background-color: #2E2E2E;
+          }
+          
+          xui-checkbox {
+           margin-right: 10px;
+          }
+        </style>
+    </head>
+    <body>
+      <center>
+        <xui-checkbox label="Tick me"></xui-checkbox>
+        <xui-checkbox label="Tick me 2"></xui-checkbox>
+        <xui-checkbox label="Tick me 3"></xui-checkbox>
+        <xui-checkbox label="Tick me 4 with icon" icon="https://cdn4.iconfinder.com/data/icons/48x48-free-object-icons/48/Component.png" iconwidth="15" iconheight="15"></xui-checkbox>
+        <xui-checkbox label="Tick me(disabled)" disabled></xui-checkbox>
+      </center>
+    </body>
+</html>

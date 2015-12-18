@@ -1,0 +1,57 @@
+<dom-module id="xbc-checkbox-theme">
+  <template>
+    <style>
+
+      :host {
+        display: inline-flex;
+        --xui-elements-focus: none;
+        position: relative;
+        --xui-checkbox-display: none;
+
+        --xui-checkbox-label: {
+          color: #ccc;
+          font-size: 12px;
+          cursor: pointer;
+        };
+
+        --xui-checkbox-label-before: {
+          content: "";
+          display: inline-block;
+          background-color: #000;
+          border: 1px solid #858585;
+          width: 15px;
+          height: 15px;
+          margin-right: 5px;
+          vertical-align: bottom;
+        };
+
+        --xui-checkbox-label-uncheck: {
+          content: "";
+        };
+
+        --xui-checkbox-check-checked: {
+          font-weight: bold;
+          content: "\2713";
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+          font-size: 15px;
+          color: #f3f3f3;
+          text-align: center;
+          line-height: 15px;
+        };
+
+        --xui-checkbox-hover: {
+          border: 1px solid #fff;
+        };
+
+        --xui-checkbox-disabled: {
+          color: #7B7B7B;
+          cursor:not-allowed;
+        };
+
+        --xui-checkbox-disabled-before: {
+          border: 1px solid #686868;
+        };
+      }
+    </style>
+  </template>
+</dom-module>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+  <head>
+    <script>
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+    </script>
+    <link rel="import" href="../../imports.html" />
+    <link rel="import" href="css/style.html" />
+  <title></title>
+</head>
+<body>
+<template id="t" is="dom-bind">
+  <div id="container">
+    <header>
+    <a href="components/xui-button.html" target="_blank">Button</a>
+    <a href="components/xui-checkbox.html" target="_blank">Check Box</a>
+    <a href="components/xui-input.html" target="_blank">Input</a>
+    <a href="components/xui-textarea.html" target="_blank">Text-Area</a>
+    <a href="components/xui-color.html" target="_blank">Color</a>
+    <a href="components/xui-radio.html" target="_blank">Radio</a>
+    <a href="components/xui-range.html" target="_blank">Range</a>
+    <a href="components/xui-select.html" target="_blank">Select</a>
+    <a href="components/xui-tooltip.html" target="_blank">Tooltip</a>
+    <a href="components/xui-tab.html" target="_blank">Tab</a>
+    </header>
+  <hr/>
+  <br/>
+    <xui-tabs>
+      <xui-tab name="tab1" label="Text" icon="https://cdn3.iconfinder.com/data/icons/UltimateGnome/128x128/actions/insert-text.png" iconwidth="14" iconheight="14" tooltip="Text" class="selected">
+        <div id="tab1container">
+          <xui-button 
+           id="refreshicn" icon="https://cdn2.iconfinder.com/data/icons/Siena/128/refresh.png" iconwidth="16" iconheight="16">Refresh</xui-button>
+          <div class="contentlabel">
+            <span>Content </span>
+            <xui-tooltip title="Content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </xui-tooltip>
+          </div>
+          <div class="contentholder">
+            <xui-input type="text" id="contenttext" inputstyle='[{"prop": "border", "val": "3px solid transparent"}]'></xui-input>
+            <div class="flex-inline">
+              <xui-checkbox label="Use Custom Script" id="chk_custom" onclick="customscriptTick()"></xui-checkbox>
+              <xui-button id="btn_edtscript" disabled width="400">Edit Script</xui-button>
+            </div>
+          </div>
+          
+          <br/>
+          <div class="contentlabel">
+            <span>Format </span>
+          </div>
+          <div class="contentholder">
+            <div class="flex-inline"
+            style="
+            display: inline-flex;
+            width: 100%;
+            margin-top: 1%;">
+              <xui-color label="Font" labelstyle='[{"prop": "margin-right", "val": "20px"}]' id="fontcolor" height="30" width="30"></xui-color>
+              <xui-select height="30" onmouseout="fontSelect()" value="roboto" id="slct_font" class="fontselect" width="200">
+                <xui-option value="lucida" label="Lucida"></xui-option>
+                <xui-option value="comicsans" label="Comic Sans"></xui-option>
+                <xui-option value="roboto" label="Roboto"></xui-option>
+              </xui-select>
+            </div>
+            <div class="flex-inline">
+              <xui-color label="Border" id="bordercolor" color="#E45101" height="30" width="30"></xui-color>
+
+              <xui-select height="30" id="outlineselect">
+                <xui-option value="6px" label="Thick"></xui-option>
+                <xui-option value="3px" label="Thin"></xui-option>
+                <xui-option value="0px" label="None"></xui-option>
+              </xui-select>
+
+              <xui-tooltip class="outlinetooltip" title="Using outline for text source.">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+              </xui-tooltip>
+            </div>
+            <div class="flex-inline">
+              <xui-range value="9" min="0" onchange="changeOpacity()" id="opacityrange" label="Opacity" max="9"></xui-range>
+            </div>
+          </div>
+          <br/>
+          <div class="contentlabel">
+            <span>Animation </span>
+          </div>
+          <div class="contentholder flex-row">
+            <div class="animationWidth">
+              <xui-radio value="none" label="None" name="animation"></xui-radio>
+              <xui-radio value="scroll" name="animation" label="Scroll" checked></xui-radio>
+              <xui-radio value="fade" name="animation" label="Fade"></xui-radio>
+            </div>
+            <xui-textarea inputstyle='[{ "prop": "width", "val": "100%" }]'>
+            Hello This is a text area
+            </xui-textarea>
+          </div>
+        </div>
+      </xui-tab>
+      <xui-tab name="tab2" label="Color" icon="https://cdn1.iconfinder.com/data/icons/DarkGlass_Reworked/128x128/actions/color.png" iconwidth="14" iconheight="14" tooltip="Color">Contents for Color tab</xui-tab>
+      <xui-tab name="tab3" label="Layout" icon="https://cdn4.iconfinder.com/data/icons/web-development-5/500/responsive-layout-screen-128.png" iconwidth="14" iconheight="14" tooltip="Layout">Contents for Layout tab</xui-tab>
+      <xui-tab name="tab4" label="Transition" tooltip="Transition" icon="https://cdn1.iconfinder.com/data/icons/fs-icons-ubuntu-by-franksouza-/128/application-x-navi-animation.png" iconwidth="14" iconheight="14">Contents for Transition Tab</xui-tab>
+    </xui-tabs>
+  </div>
+</template>
+</body>
+<script type="text/javascript" src="js/script.js"></script>
+</html>

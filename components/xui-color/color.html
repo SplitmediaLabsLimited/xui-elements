@@ -1,0 +1,117 @@
+<link rel="import" href="../../imports.html">
+<link rel="import" href="../xui-theme-xbc/themes/xbc-color-theme.html">
+<dom-module id="xui-color">
+<style type="text/css">
+
+  *:focus {
+     outline: var(--xui-elements-focus);
+  }
+
+  #colorcontainer {
+    border: 1px solid #000;
+    cursor: pointer;
+    position: relative;
+    display: var(--xui-color-display);
+  }
+
+  #paletteboard {
+    width: 160px;
+    height: 130px;
+    background-color: #000;
+    position: relative;
+    border: 1px solid #ccc;
+    cursor: default;
+    z-index: 9999;
+  }
+
+  #palette {
+    width: 140px;
+    height: 70px;
+    border: 1px solid #ccc;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .colorblock {
+    width: 8px;
+    height: 8px;
+    border: 1px solid #000;
+  } 
+
+  .colorblock:hover {
+    border:1px solid #fff;
+    margin: 0;
+  }
+
+  #valholder {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+  }
+
+  #colorinput {
+    width: 50%;
+    margin: 10px auto 0 auto;
+    display: flex;
+  }
+
+  #img {
+    background-color:#fff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  #container {
+    display: flex;
+  }
+
+  label {
+    align-self: center;
+    margin-right: 10px;
+    color: var(--xui-color-label-color);
+  }
+
+  #icon{
+    position:relative; 
+    top: 6px;
+    margin: 0 7px 0 2px ;
+  }
+
+</style>
+  <template>
+  <style include="xbc-color-theme"></style>
+    <div id="container" height$="{{height}}px">
+        <label id="label" style$="{{setLabelStyle(labelstyle)}}">{{label}}</label>
+        <template is="dom-if" if="{{icon}}">
+          <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
+        </template>
+        <div id="colorcontainer">
+          <img src="images/icon-arrow.png" id="img"/>
+          <div id="paletteboard" tabindex="0" class="hidden">
+              <div id="colorinput">
+                <input type="text" tabindex="1" id="valholder" name=$"{{name}}" maxlength="7" value="{{color}}"/>
+              </div>
+            <div id="palette">
+                <template is="dom-repeat" items="{{hexcolors}}">
+                  <div class="colorblock" id="color_{{index}}" title="{{item.color}}"
+                  on-mouseover="colorHover" on-click="setColor"></div>
+                </template>
+            </div>
+          </div>
+        </div>
+      </div>
+      <content></content>
+  </template>
+  <script src="js/color.js"></script>
+</dom-module>

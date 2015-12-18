@@ -1,0 +1,45 @@
+<dom-module id="xbc-tabs-theme">
+  <template>
+    <style>
+
+      :host {
+        color: #888;
+        --xui-elements-focus: none;
+        --xui-tabs-head: {
+          cursor: pointer;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          background-color: #212121;
+          border-bottom: 3px solid #000;
+          color: #939393;
+          display: inline-flex;
+          justify-content: center;
+        };
+
+        --xui-tabs-head-hover: {
+          background-color: #555;
+          color: #D2D2D2;
+        };
+
+        --xui-tabs-selected-head: {
+          background-color: #313131;
+          cursor: default;
+          border-bottom: 3px solid #313131;
+          color: #D2D2D2;
+        };
+
+        --xui-tabs-disabled-head: {
+          background-color: #555;
+          cursor: not-allowed;
+          color: #7B7B7B;
+        };
+
+        --xui-tabs-content: {
+          background-color: #313131;
+          color: #949494;
+        };
+      }
+
+    </style>
+  </template>
+</dom-module>

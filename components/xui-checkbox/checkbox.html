@@ -1,0 +1,84 @@
+<link rel="import" href="../../imports.html">
+<link rel="import" href="../xui-theme-xbc/themes/xbc-checkbox-theme.html">
+<dom-module id="xui-checkbox">
+<style type="text/css">
+  :host {
+    display: inline-flex;
+  };
+  
+  *:focus {
+     outline: var(--xui-elements-focus);
+  }
+  
+  #check {
+    display: var(--xui-checkbox-display);
+  }
+
+  #check,
+  label
+  {
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  #check:disabled,
+  #check:disabled + label,
+  {
+    cursor: default;
+    color: #AAA;
+  }
+
+  label {
+    cursor: default;
+    color: #AAA;
+    @apply(--xui-checkbox-label);
+  }
+
+  label:before {
+    @apply(--xui-checkbox-label-before);
+  }
+
+  #check:not([disabled]) + label:hover:before {
+    @apply(--xui-checkbox-hover);
+  }
+
+  #check[disabled] + label {
+    @apply(--xui-checkbox-disabled);
+  }
+
+  label[disabled]:before {
+    @apply(--xui-checkbox-disabled-before);
+  }
+
+  .unchecked:before{
+    @apply(--xui-checkbox-label-uncheck);
+  }
+
+  .checked:before{
+    @apply(--xui-checkbox-check-checked);
+  }
+
+  #icon{
+    position:relative; 
+    top: 3px;
+    margin: -2px 5px 0 5px ;
+  }
+
+</style>
+  <template>
+  <style include="xbc-checkbox-theme"></style>
+    <template is="dom-if" if="{{icon}}">
+      <img id="icon" src$="{{icon}}" height$="{{iconheight}}px" width$="{{iconwidth}}px" disabled$="{{disabled}}"/>
+    </template>
+      <input  type="checkbox" id="check" disabled$="{{disabled}}"
+       value='{{value}}' checked$="{{checked}}" name=$"{{name}}"/>
+      <label for="check" style$="{{setLabelStyle(labelstyle)}}" id="label1" class="unchecked">{{ label }}</label>
+      <content></content>
+  </template>
+  <script src="js/checkbox.js"></script>
+</dom-module>

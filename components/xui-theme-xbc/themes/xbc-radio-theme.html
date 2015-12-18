@@ -1,0 +1,50 @@
+<dom-module id="xbc-radio-theme">
+  <template>
+    <style>
+
+      :host {  
+        --xui-radio-radio-display: none;
+        --xui-radio-label-before: {
+          content: "";
+          display: inline-block;
+          background-color: #000;
+          border: 2px solid #858585;
+          border-radius: 30px;
+          width: 16px;
+          height: 16px;
+          margin-right: 5px;
+          vertical-align: bottom;
+        };
+
+        --xui-radio-label: {
+          color: #ccc;
+          font-size: 12px;
+          cursor: pointer;
+        };
+
+        --xui-radio-check-checked: {
+          font-weight: bold;
+          content: "\2022";
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+          font-size: 23px;
+          color: #f3f3f3;
+          text-align: center;
+          line-height: 17px;
+        };
+
+        --xui-radio-hover: {
+          border: 2px solid #fff;
+        };
+
+        --xui-radio-label-before-disabled: {
+          border: 2px solid #686868;
+        };
+
+        --xui-radio-label-disabled: {
+        color: #7B7B7B;
+        cursor:not-allowed;
+        };
+      }
+    </style>
+  </template>
+</dom-module>
