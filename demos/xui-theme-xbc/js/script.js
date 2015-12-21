@@ -8,6 +8,7 @@ t.addEventListener('dom-change', function() {
   const bordercolor = tabs.querySelector('#bordercolor');
   const outlineselect = tabs.querySelector('#outlineselect');
   const opacityrange = tabs.querySelector('#opacityrange');
+  const selectfont = tabs.querySelector('#slct_font');
 
   window.selectfontcolor = function() {
       let temparr = [];
@@ -56,6 +57,11 @@ t.addEventListener('dom-change', function() {
     window.selectfontcolor(e);
   });
 
+  selectfont.addEventListener('click', function(e) {
+    console.log(e.target.value);
+    window.fontSelect();
+  });
+
   bordercolor.addEventListener('click', function(e) {
       window.selectbordercolor(e);
   });
@@ -66,7 +72,7 @@ t.addEventListener('dom-change', function() {
     }
   });
 
-  outlineselect.addEventListener('mouseout', function(e) {
+  outlineselect.addEventListener('click', function(e) {
     window.borderSelect(e);
   });
 
