@@ -39,6 +39,8 @@ Example:
 
     `<xui-radio value="hey" name="greetings" label="Radio 3 with icon" icon="https://orbitprint.com/images/colour-enhance.png" iconwidth="20" iconheight="20"></xui-radio>`
 
+XBC Theme Demo: <a href="demos/xui-theme-xbc/demo.html" target="_blank">XBC Theme (all elements)</a>
+
 @demo .../../demos/xui-theme-xbc/components/xui-radio.html A Cool Demo.
 @demo .../../demos/xui-radio/demo.html  Another Demo.
 

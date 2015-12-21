@@ -39,6 +39,8 @@ Example:
 
     `<xui-color width="30" label="Label " height="30" icon="https://orbitprint.com/images/colour-enhance.png" iconwidth="20" iconheight="20" color="#000000"></xui-color>`
 
+XBC Theme Demo: <a href="demos/xui-theme-xbc/demo.html" target="_blank">XBC Theme (all elements)</a>
+
 @demo .../../demos/xui-theme-xbc/components/xui-color.html  A Cool Demo.
 @demo .../../demos/xui-color/demo.html  Another Demo.
 

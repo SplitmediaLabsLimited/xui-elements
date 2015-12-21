@@ -118,6 +118,8 @@ tag inside the xui-input tag. example:
       </xui-tooltip>
     </xui-input>`
 
+XBC Theme Demo: <a href="demos/xui-theme-xbc/demo.html" target="_blank">XBC Theme (all elements)</a>
+
 @demo .../../demos/xui-theme-xbc/components/xui-input.html  A Cool Demo.
 @demo .../../demos/xui-input/demo.html  Another Demo.
 

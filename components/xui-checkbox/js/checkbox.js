@@ -39,6 +39,8 @@ Example:
 
     `<xui-checkbox label="Checkbox with icon" icon="http://m.hiapphere.com/data/icon/201409/HiAppHere_com_kov.theme.lumos.png" iconwidth="20" iconheight="20" checked disabled></xui-checkbox>`
 
+XBC Theme Demo: <a href="demos/xui-theme-xbc/demo.html" target="_blank">XBC Theme (all elements)</a>
+
 @demo .../../demos/xui-theme-xbc/components/xui-checkbox.html  A Cool Demo.
 @demo .../../demos/xui-checkbox/demo.html  Another Demo.
 

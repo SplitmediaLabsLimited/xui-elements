@@ -84,6 +84,11 @@ Example:
       </xui-option-group>
     </xui-select>
 
+Note: Since this element is considered as a whole element and not just as "select", on-change/change event
+won't work, instead use onclick/click event.
+
+XBC Theme Demo: <a href="demos/xui-theme-xbc/demo.html" target="_blank">XBC Theme (all elements)</a>
+
 @demo .../../demos/xui-theme-xbc/components/xui-select.html  A Cool Demo.
 @demo .../../demos/xui-select/demo.html  Another Demo.
 */

@@ -29,6 +29,8 @@ Example:
       <xui-tab name="tab2" label="Tab 2">Contents for Tab 2</xui-tab>
     </xui-tabs>
 
+XBC Theme Demo: <a href="demos/xui-theme-xbc/demo.html" target="_blank">XBC Theme (all elements)</a>
+
 @demo .../../demos/xui-theme-xbc/components/xui-tab.html  A Cool Demo.
 @demo .../../demos/xui-tabs/demo.html  Another Demo.
 

@@ -51,6 +51,8 @@ Example:
 
     `<xui-range value="75" min="0" label="Range 1 (disabled)" max="100" disabled></xui-range>`
 
+XBC Theme Demo: <a href="demos/xui-theme-xbc/demo.html" target="_blank">XBC Theme (all elements)</a>
+
 @demo .../../demos/xui-theme-xbc/components/xui-range.html  A Cool Demo.
 @demo .../../demos/xui-range/demo.html  Another Demo.
 

@@ -26,6 +26,8 @@ Example:
        Lorem ipsum dolor sit amet, 
      </xui-tooltip>`
 
+XBC Theme Demo: <a href="demos/xui-theme-xbc/demo.html" target="_blank">XBC Theme (all elements)</a>
+
 @demo .../../demos/xui-theme-xbc/components/xui-tooltip.html  Cool Demo.
 */
 Polymer({

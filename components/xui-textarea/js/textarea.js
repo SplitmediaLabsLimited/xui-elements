@@ -60,6 +60,8 @@ Example:
     The quick brown fox jumps over the lazy dogs.
     </xui-textarea>`
 
+XBC Theme Demo: <a href="demos/xui-theme-xbc/demo.html" target="_blank">XBC Theme (all elements)</a>
+
 @demo .../../demos/xui-theme-xbc/components/xui-textarea.html  A Cool Demo.
 @demo .../../demos/xui-textarea/demo.html  Another Demo.
  */

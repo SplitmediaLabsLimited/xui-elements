@@ -42,6 +42,8 @@ Example:
 
     `<xui-button name="search" type="button" icon="https://cdn1.iconfinder.com/data/icons/free-98-icons/32/search-128.png" iconwidth="16" iconheight="16" disabled>Search</xui-button>`
 
+XBC Theme Demo: <a href="demos/xui-theme-xbc/demo.html" target="_blank">XBC Theme (all elements)</a>
+
 @demo .../../demos/xui-theme-xbc/components/xui-button.html  Cool Demo.
 @demo .../../demos/xui-button/demo.html  Another Demo.
 */
