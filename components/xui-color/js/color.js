@@ -27,6 +27,24 @@ You can also customize it, by adding these attributes:
 
  - height - color picker height.
 
+ - paletteposition - Position of the palette, possible values are:
+
+  - bl-tl - bottom left of the element, top left of palette board
+
+  - bl-br - bottom left of the element, bottom right of palette board
+
+  - tl-bl - top left of the element, bottom left of palette board
+
+  - tl-tr - top left of the element, top right of palette board
+
+  - tr-br - top right of the element, bottom right of palette board
+
+  - tr-tl - top right of the element, top left of palette board
+
+  - br-tr - bottom right of the element, top right of palette board
+
+  - br-bl - bottom right of the element, bottom left of palette board
+
  - icon - icon link to specify an icon beside the color picker.
 
  - iconheight - icon height.
@@ -55,14 +73,50 @@ Polymer({
   ready: function() {
     const icnwidth = this.width * 0.5;
     const icnheight = this.height * 0.4;
+    const pos = this.paletteposition;
+    console.log((this.height - 130) + 'px');
     this.$.img.style.width = icnwidth + 'px';
     this.$.img.style.height = icnheight + 'px';
     this.$.colorcontainer.style.width = this.width + 'px';
     this.$.colorcontainer.style.height = this.height + 'px';
     this.$.colorcontainer.style.backgroundColor = this.color;
     this.$.valholder.style.border = '3px solid ' + this.color;
-    this.$.paletteboard.style.top = this.height + 'px';
     this.$.colorcontainer.blur();
+    if (pos === 'bl-tl') {
+      this.$.paletteboard.style.top = this.height + 'px';
+    }
+
+    if (pos === 'bl-br') {
+      this.$.paletteboard.style.top = ((this.height - 130) - 2) + 'px';
+      this.$.paletteboard.style.left = ((this.width - 160) - (this.width + 2)) +  'px';
+    }
+
+    if (pos === 'tl-bl') {
+      this.$.paletteboard.style.top = '-' + (132) + 'px';
+    }
+
+    if (pos === 'tl-tr') {
+      this.$.paletteboard.style.left = '-' + (162) + 'px';
+    }
+
+    if (pos === 'tr-br') {
+      this.$.paletteboard.style.top = '-' + (132) + 'px';
+      this.$.paletteboard.style.left = ((this.width - 160) - 2) +  'px';
+    }
+
+    if (pos === 'tr-tl') {
+      this.$.paletteboard.style.left = (this.width + 2) + 'px';
+    }
+
+    if (pos === 'br-tr') {
+      this.$.paletteboard.style.top = this.height + 'px';
+      this.$.paletteboard.style.left = '-' + ((160 - this.width) + 2) +  'px';
+    }
+
+    if (pos === 'br-bl') {
+      this.$.paletteboard.style.top = '-' + (132 - this.height) + 'px';
+      this.$.paletteboard.style.left = ((this.width) + 2) +  'px';
+    }
   },
 
   /**
@@ -152,6 +206,13 @@ Polymer({
     disabled: {
       type: Boolean,
       value: false,
+      reflectToAttribute: true
+    },
+
+    /** Position of the palette */
+    paletteposition: {
+      type: String,
+      value: 'bl-tl',
       reflectToAttribute: true
     },
 
