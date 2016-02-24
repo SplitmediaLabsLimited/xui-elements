@@ -3,20 +3,25 @@
   "version": "0.1.0",
   "homepage": "https://github.com/xjsframework/xui-elements",
   "authors": [
-    "xjs@splitmedialabs.com"
+    "SplitmediaLabs <xjs@splitmedialabs.com>"
   ],
-  "description": "XSplit UI Elements",
+  "description": "XSplit UI Elements. Polymer elements to make UI controls that adhere to XSplit Broadcaster's theme.",
   "keywords": [
     "polymer",
     "xsplit"
   ],
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xjsframework/xui-elements.git"
+  },
+  "license": "./LICENSE",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "demos"
   ],
   "dependencies": {
     "hydrolysis": "Polymer/hydrolysis#^1.18",
