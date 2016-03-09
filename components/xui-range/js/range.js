@@ -22,13 +22,13 @@ You can also customize it, by adding these attributes:
 
  - rangestyle - custom style for range's input.
 
-  - Note: putting rangestyle and labelstyle attributes on the element should be in JSON format. 
-  - Note: Please notice how we use singlequotes outside and doublequotes inside. 
-  - prop - the name of the css property. 
-  - val - the value of the css property. 
-   
+  - Note: putting rangestyle and labelstyle attributes on the element should be in JSON format.
+  - Note: Please notice how we use singlequotes outside and doublequotes inside.
+  - prop - the name of the css property.
+  - val - the value of the css property.
+
   Example:
-    
+
        `<xui-range value="10" labelstyle='[{ "prop": "color", "val": "red" }, { "prop": "font-size", "val": "30px"}]' min="0" onchange="changeOpacity()" label="Opacity" max="10"></xui-range>`
 
  - value - default value of range (the position of range bar).
@@ -39,15 +39,15 @@ You can also customize it, by adding these attributes:
 
  - iconwidth - icon width.
 
- - label - range text label. 
+ - label - range text label.
 
- - height - range height. 
+ - height - range height.
 
- - width - range width. 
+ - width - range width.
 
- - readonly - makes the range value unchangeable but not disabled. 
+ - readonly - makes the range value unchangeable but not disabled.
 
-Example: 
+Example:
 
     `<xui-range value="75" min="0" label="Range 1 (disabled)" max="100" disabled></xui-range>`
 
@@ -61,7 +61,7 @@ Polymer({
   is: 'xui-range',
 
   /**
-  Initiate the default property values and apply to the element.  
+  Initiate the default property values and apply to the element.
   */
   ready: function() {
     this.$.range.style.width = this.width + 'px';
@@ -76,28 +76,28 @@ Polymer({
 
     /**
     Fired when `#minus` or the (-) sign was clicked
-    
+
     @event minusTap
     */
     'minus.tap': 'minusTap',
 
     /**
     Fired when `#plus` or the (+) sign was clicked
-    
+
     @event plusTap
     */
     'plus.tap': 'plusTap',
 
     /**
     When the range bar was dragged
-    
+
     @event rangeTrack
     */
     'range.track': 'rangeTrack',
 
     /**
     When the textarea was blurred
-    
+
     @event rangeBlur
     */
     'newval.blur': 'newvalBlur'
@@ -247,7 +247,6 @@ Polymer({
       if (isNaN(newvalue)) {
           this.$.newval.value = this.value;
       } else {
-        console.log(newvalue <= this.max);
         if (newvalue <= this.max && newvalue >= this.min) {
           this.value = newvalue;
         } else {
@@ -262,26 +261,26 @@ Polymer({
     this.$.newval.value = this.value;
   },
 
-  /** 
-  Converts the rangestyle attribute JSON format into css format. 
-  @param {HTMLAttribute} rangestyle attribute. 
-  @return {string}, the css format. 
+  /**
+  Converts the rangestyle attribute JSON format into css format.
+  @param {HTMLAttribute} rangestyle attribute.
+  @return {string}, the css format.
   */
   setStyle: function(val) {
     let myStyle = '';
     for (let i = 0; i < val.length; i++) {
       myStyle = myStyle + ' ' + this.rangestyle[i].prop + ': ' + this.rangestyle[i].val + ';';
-      
+
     }
     if (myStyle !== '') {
       return myStyle;
     }
   },
 
-  /** 
-  Converts the labelstyle attribute JSON format into css format. 
-  @param {HTMLAttribute} labelstyle attribute. 
-  @return {string}, the css format. 
+  /**
+  Converts the labelstyle attribute JSON format into css format.
+  @param {HTMLAttribute} labelstyle attribute.
+  @return {string}, the css format.
   */
   setLabelStyle: function(val) {
     let myStyle = '';

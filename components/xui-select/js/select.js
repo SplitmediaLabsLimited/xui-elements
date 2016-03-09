@@ -14,13 +14,13 @@ You can also customize it, by adding these attributes:
 
  - selectstyle - custom style for the dropdown.
 
-  - Note: putting selectstyle and labelstyle attributes on the element should be in JSON format. 
-  - Note: Please notice how we use singlequotes outside and doublequotes inside. 
-  - prop - the name of the css property. 
-  - val - the value of the css property. 
-   
+  - Note: putting selectstyle and labelstyle attributes on the element should be in JSON format.
+  - Note: Please notice how we use singlequotes outside and doublequotes inside.
+  - prop - the name of the css property.
+  - val - the value of the css property.
+
   Example:
-    
+
        `<xui-select height="30" selectstyle='[{ "prop": "background-color", "val": "red" }, { "prop": "font-size", "val": "30px"}]' label="asd" class="outlineselect">
           <xui-option value="none" label="None"></xui-option>
           <xui-option value="thin" label="Thin"></xui-option>
@@ -35,27 +35,27 @@ You can also customize it, by adding these attributes:
 
  - iconwidth - icon width.
 
- - label - dropdown label. 
+ - label - dropdown label.
 
- - height - dropdown height. 
+ - height - dropdown height.
 
- - width - dropdown width. 
+ - width - dropdown width.
 
-Example: 
+Example:
 
     `<xui-select name="country" label="Country" icon="https://orbitprint.com/images/colour-enhance.png" iconwidth="20" iconheight="20"></select>`
 
-You also need to insert the `<xui-option></xui-option>` to define an option inside the select element. 
+You also need to insert the `<xui-option></xui-option>` to define an option inside the select element.
 
-You can customize the opotion element by adding these attributes to the `<xui-option>` tag: 
+You can customize the opotion element by adding these attributes to the `<xui-option>` tag:
 
- - value - value of the option element. 
+ - value - value of the option element.
 
- - label - the text label of the option element. 
+ - label - the text label of the option element.
 
- - disabled - specify if the option element is disabled. 
+ - disabled - specify if the option element is disabled.
 
-Example: 
+Example:
 
     <xui-select name="country" label="Country">
       <xui-option value="RW" label="Rwanda"></xui-option>
@@ -63,19 +63,19 @@ Example:
     </xui-select>
 
 
-If you wanted to have an option-group instead of option, you can 
-insert the `<xui-option-group></xui-option-group>` 
+If you wanted to have an option-group instead of option, you can
+insert the `<xui-option-group></xui-option-group>`
 inside the select element and put the
-`<xui-option></xui-option>` inside it. 
+`<xui-option></xui-option>` inside it.
 
-You can customize the option group by adding these attributes to 
+You can customize the option group by adding these attributes to
 `<xui-option-group>` tag:
 
- - label - the text label of the option-group element. 
+ - label - the text label of the option-group element.
 
- - disabled - specify if the whole group will be disabled. 
+ - disabled - specify if the whole group will be disabled.
 
-Example: 
+Example:
 
     <xui-select name="country" label="Disabled Select" disabled>
       <xui-option-group label="Asia" disabled>
@@ -93,12 +93,12 @@ XBC Theme Demo: <a href="demos/xui-theme-xbc/demo.html" target="_blank">XBC Them
 @demo .../../demos/xui-select/demo.html  Another Demo.
 */
 
-Polymer({ 
+Polymer({
   is: 'xui-select',
 
   /**
-  * Initiate the default property values and apply to the element. 
-  * 
+  * Initiate the default property values and apply to the element.
+  *
   */
   ready: function() {
     let opt;
@@ -124,13 +124,13 @@ Polymer({
           this.optname = 'group';
           this.optlabel = opt.getAttribute('label');
               this.optvalue = opt.getAttribute('value');
-          
+
           this.optdisabled = opt.getAttribute('disabled') !== null ? true : false;
             for (let o = opt.children.length - 1; o >= 0; o--) {
               optgrpchild = opt.children[o];
               this.childlabel = optgrpchild.getAttribute('label');
               this.childvalue = optgrpchild.getAttribute('value');
-              this.grpdisabled = 
+              this.grpdisabled =
               optgrpchild.getAttribute('disabled') !== null ? true : false;
 
               if (optgrpchild.localName === 'xui-option') {
@@ -142,8 +142,8 @@ Polymer({
             } // end for let o
         } // end if opt = xui-option-group
         this.push('optarray',
-          {optname: this.optname, value: this.optvalue, 
-            label: this.optlabel, childval: this.childval, 
+          {optname: this.optname, value: this.optvalue,
+            label: this.optlabel, childval: this.childval,
             disabled: this.optdisabled }
         );
         this.childval = [];
@@ -155,7 +155,7 @@ Polymer({
 
     /**
     Fired when `select` changes value.
-    
+
     @event changeValue
     */
     'init.change': 'changeValue'
@@ -190,7 +190,7 @@ Polymer({
         return [];
       }
     },
-    
+
     /** Label and value of option tags */
     childval: {
       type: Array,
@@ -292,20 +292,17 @@ Polymer({
       this.push('optionarr', {label: newlabel, value: newval});
     }
     this.$$('#txtaddoption').value = '';
-    console.log(this.optionarr);
   },
 
   /** Removes a data from option element which has been added by the user (TEST only) */
   _removeOption: function() {
     const val = this.$$('#slct_option').value;
-    console.log(val);
     this.splice('optionarr', val, 1);
-    console.log(this.optionarr);
   },
 
-  /** 
+  /**
    Checks if the data is 'single' or not
-     
+
    @param {string} optname inside optarray
    @return {Boolean} if it exist or not
    */
@@ -317,9 +314,9 @@ Polymer({
     }
   },
 
-  /** 
+  /**
    Checks if the data is a 'group' or not
-     
+
    @param {string} optname inside optarray
    @return {Boolean} if it exist or not
    */
@@ -336,10 +333,10 @@ Polymer({
     this.value = this.$.init.value;
   },
 
-  /** 
-  Converts the selectstyle attribute JSON format into css format. 
-  @param {HTMLAttribute} selectstyle attribute. 
-  @return {string}, the css format. 
+  /**
+  Converts the selectstyle attribute JSON format into css format.
+  @param {HTMLAttribute} selectstyle attribute.
+  @return {string}, the css format.
   */
   setStyle: function(val) {
     let myStyle = '';
@@ -351,10 +348,10 @@ Polymer({
     }
   },
 
-  /** 
-  Converts the labelstyle attribute JSON format into css format. 
-  @param {HTMLAttribute} labelstyle attribute. 
-  @return {string}, the css format. 
+  /**
+  Converts the labelstyle attribute JSON format into css format.
+  @param {HTMLAttribute} labelstyle attribute.
+  @return {string}, the css format.
   */
   setLabelStyle: function(val) {
     let myStyle = '';

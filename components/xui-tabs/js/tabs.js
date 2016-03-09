@@ -8,7 +8,7 @@ Just put an `<xui-xui-tabs></xui-xui-tabs>` anywhere inside your body.
 
 You also need to insert the `<xui-tab></xui-tab>` inside the `<xui-tabs></xui-tabs>`
 
-Example: 
+Example:
 
     <xui-tabs>
       <xui-tab name="tab1" label="Tab 1" tooltip="This is Tab 1" class="selected">Contents for Tab 1</xui-tab>
@@ -32,9 +32,7 @@ Polymer({
       {
        if (this.children[i].tagName == 'XUI-TAB')
        {
-        // console.log(this.children[i].$$('content'));
         this.$.headers.appendChild(this.children[i].$.head);
-        // this.$.contents.appendChild(this.children[i].$.body);
         this.$$('content').appendChild(this.children[i].$.body);
        }
       }
@@ -64,7 +62,7 @@ Polymer({
     Make the tab Selected.
 
     @param {xui-tab}
-    @return {Boolean} or make the tab selected 
+    @return {Boolean} or make the tab selected
     */
     selectTab: function(event) {
       if (!event.target.classList.contains('canselect') ||
@@ -105,7 +103,7 @@ Polymer({
 
     /**
     Get the list of tabs
-    
+
     @return {HTMLElement} xui-tabs.
     */
     getTabs: function()

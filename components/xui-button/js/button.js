@@ -23,22 +23,22 @@ You can also customize it, by adding these attributes:
 
  - custstyle - custom style for button.
 
-  - Note: putting custstyle attributes on the element should be in JSON format. 
-  - Note: Please notice how we use singlequotes outside and doublequotes inside. 
-  - prop - the name of the css property. 
-  - val - the value of the css property. 
-   
+  - Note: putting custstyle attributes on the element should be in JSON format.
+  - Note: Please notice how we use singlequotes outside and doublequotes inside.
+  - prop - the name of the css property.
+  - val - the value of the css property.
+
   Example:
-    
+
        <xui-button custstyle='[{ "prop": "color", "val": "red" }, { "prop": "font-size", "val": "30px"}]'>Edit Script</xui-button>
-   
+
  - icon - icon link to specify an icon inside the button.
 
  - iconheight - icon height.
 
  - iconwidth - icon width.
 
-Example: 
+Example:
 
     `<xui-button name="search" type="button" icon="https://cdn1.iconfinder.com/data/icons/free-98-icons/32/search-128.png" iconwidth="16" iconheight="16" disabled>Search</xui-button>`
 
@@ -108,15 +108,14 @@ Polymer({
     }
   },
 
-  /** 
-  Converts the custstyle attribute JSON format into css format. 
-  @param {HTMLAttribute} custstyle attribute. 
-  @return {string}, the css format. 
+  /**
+  Converts the custstyle attribute JSON format into css format.
+  @param {HTMLAttribute} custstyle attribute.
+  @return {string}, the css format.
   */
   setStyle: function(val) {
     let myStyle = '';
     for (let i = 0; i < val.length; i++) {
-    console.log(this.custstyle);
       myStyle = myStyle + ' ' + this.custstyle[i].prop + ': ' + this.custstyle[i].val + ';';
     }
     if (myStyle !== '') {

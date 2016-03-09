@@ -14,11 +14,11 @@ You can also customize it, by adding these attributes:
 
  - labelstyle - custom style for color picker's label.
 
-  - Note: putting labelstyle attributes on the element should be in JSON format. 
-  - Note: Please notice how we use singlequotes outside and doublequotes inside. 
-  - prop - the name of the css property. 
-  - val - the value of the css property. 
-   
+  - Note: putting labelstyle attributes on the element should be in JSON format.
+  - Note: Please notice how we use singlequotes outside and doublequotes inside.
+  - prop - the name of the css property.
+  - val - the value of the css property.
+
   Example:
 
        `<xui-color labelstyle='[{ "prop": "color", "val": "red" }, { "prop": "font-size", "val": "30px"}]' label="Font" height="30" width="30"></xui-color>`
@@ -51,9 +51,9 @@ You can also customize it, by adding these attributes:
 
  - iconwidth - icon width.
 
- - color - default color value of the color picker. 
+ - color - default color value of the color picker.
 
-Example: 
+Example:
 
     `<xui-color width="30" label="Label " height="30" icon="https://orbitprint.com/images/colour-enhance.png" iconwidth="20" iconheight="20" color="#000000"></xui-color>`
 
@@ -67,14 +67,14 @@ Polymer({
   is: 'xui-color',
 
   /**
-  * Initiate the default property values and apply to the element. 
-  * 
+  * Initiate the default property values and apply to the element.
+  *
   */
   ready: function() {
     const icnwidth = this.width * 0.5;
     const icnheight = this.height * 0.4;
     const pos = this.paletteposition;
-    console.log((this.height - 130) + 'px');
+
     this.$.img.style.width = icnwidth + 'px';
     this.$.img.style.height = icnheight + 'px';
     this.$.colorcontainer.style.width = this.width + 'px';
@@ -120,8 +120,8 @@ Polymer({
   },
 
   /**
-  * Making the color palette. 
-  * 
+  * Making the color palette.
+  *
   */
   attached:function(){
     this.async(function() {
@@ -134,39 +134,39 @@ Polymer({
   },
 
   listeners: {
-    
+
     /**
     Fired when the `#colorcontainer` was tapped
-    
+
     @event containerTap
     */
     'colorcontainer.tap': 'containerTap',
 
     /**
     Fired when the `#valholder` was focused
-    
+
     @event valFocus
     */
     'valholder.focus': 'valFocus',
 
     /**
     Fired when the `#valholder` was blurred
-    
+
     @event valBlur
     */
     'valholder.blur': 'valBlur',
 
     /**
-    Fired when the `#valholder` is focused 
+    Fired when the `#valholder` is focused
     and you pressed 'enter'.
-    
+
     @event colorEnter
     */
     'valholder.keypress': 'colorEnter',
 
     /**
     Fired when the `#paletteboard` is tapped.
-    
+
     @event paletteTap
     */
     'paletteboard.tap': 'paletteTap'
@@ -335,7 +335,7 @@ Polymer({
   /** When you entered a new color value in the textbox(inside the palette) */
   colorEnter: function(e) {
     const key = e.which || e.keyCode;
-    if (key === 13) { 
+    if (key === 13) {
       const isHex = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.$.valholder.value);
       if (isHex) {
         this.color = this.$.valholder.value;
@@ -368,10 +368,10 @@ Polymer({
     this.$.colorcontainer.style.backgroundColor = this.tempcolor;
   },
 
-  /** 
-  Converts the labelstyle attribute JSON format into css format 
-  @param {HTMLAttribute} labelstyle attribute. 
-  @return {string}, the css format. 
+  /**
+  Converts the labelstyle attribute JSON format into css format
+  @param {HTMLAttribute} labelstyle attribute.
+  @return {string}, the css format.
   */
   setLabelStyle: function(val) {
     let myStyle = '';
